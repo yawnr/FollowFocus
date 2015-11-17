@@ -12,6 +12,9 @@ var NavBar = React.createClass({
         <li><Link to="/" className="link">Home</Link></li>
         <li><Link to="/user/:userId" className="link">You</Link></li>
         <li><Link to="/explore" className="link">Explore</Link></li>
+        <Link to="/upload" className="upload-link">
+          <img src={window.FollowFocus.images.uploadButton} alt="upload-button" className="upload-button" />
+        </Link>
       </div>
     );
   }
