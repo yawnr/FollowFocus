@@ -7,7 +7,7 @@ var NavBar = React.createClass({
     return (
       <div className="navbar">
         <Link to="/" >
-          <img src={"assets/logo2.png"} alt="logo" className="logo" />
+          <img src={window.FollowFocus.images.logo} alt="logo" className="logo" />
         </ Link>
         <li><Link to="/" className="link">Home</Link></li>
         <li><Link to="/user/:userId" className="link">You</Link></li>
