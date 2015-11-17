@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
 
+  root to: "static_pages#root"
+
+  namespace :api, defaults: {format: :json} do
+    resources :albums, only: [:index, :show, :create, :destroy, :update] do
+      resources :photos, only: [:index, :show, :create, :destroy, :update]
+    end
+  end
+
   resources :users, only: [:new, :create, :show]
-
-  resources :albums
-  resources :photos
-
   resource :session, only: [:new, :create, :destroy]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

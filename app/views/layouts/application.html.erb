@@ -2,15 +2,17 @@
 <html>
 <head>
   <title>FollowFocus</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-  <% if logged_in? %>
-    <%= button_to "Log Out", session_url, :method => :delete %>
-  <% end %>
+  <div class="logout_div group">
+    <% if logged_in? %>
+      <%= button_to "Log Out", session_url, :method => :delete, class: 'logout_button group' %>
+    <% end %>
+  </div>
 
   <% if flash[:errors] %>
     <% flash[:errors].each do |error| %>

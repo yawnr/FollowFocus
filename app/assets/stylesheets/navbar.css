@@ -1,0 +1,30 @@
+
+.navbar {
+  display: block;
+  height: 70px;
+  position: relative;
+}
+
+.logo {
+  float: left;
+  padding: 0px 0px 0px 30px;
+  height: 100%;
+  opacity: 1.0;
+
+  transition: opacity 300ms;
+}
+
+.logo:hover {
+  opacity: .7;
+}
+
+.navbar > li {
+  display: inline-block;
+  float: left;
+  margin: 29px 60px;
+  transition: color 300ms;
+}
+
+.navbar > li:hover {
+  color: #69ebdd;
+}
