@@ -1,0 +1,45 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+html, body, h1, ul, li, img, section, figure {
+  margin: 0;
+  padding: 0;
+  border: 0;
+
+  font: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+
+  color: inherit;
+  background: transparent;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+body {
+  background: linear-gradient(#ccc , #fff);
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+h1 {
+  font-size: 72px;
+  font-weight: 700;
+  margin: 30px;
+}
