@@ -24,12 +24,10 @@ body {
     margin: 0;
     background-repeat: no-repeat;
     background-attachment: fixed;
-}
-
-body {
-  background: linear-gradient(#ccc , #fff);
-  font-family: sans-serif;
-  text-align: center;
+    background: #3a3a3a;
+    font-family: sans-serif;
+    color: #ffffff;
+    text-align: center;
 }
 
 .group:after {

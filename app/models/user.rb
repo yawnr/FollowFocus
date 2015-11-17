@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
 
-  validates :username, :password_digest, :session_token, presence: true
+  validates :email, :username, :password_digest, :session_token, presence: true
+  validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i,
+    message: "address invalid." }
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :username, length: { minimum: 3, allow_nil: true }
 
@@ -13,6 +15,7 @@ class User < ActiveRecord::Base
 
   def self.find_by_credentials (username, password)
     # user = User.find_by_username(username)
+    # will remove case sensitivity from user input on username
     user = User.where('lower(username) = ?', username.downcase).first
 
     if user
