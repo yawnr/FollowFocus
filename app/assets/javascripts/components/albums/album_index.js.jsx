@@ -18,12 +18,17 @@ var AlbumIndex = React.createClass({
   },
 
   render: function () {
-    debugger
+
+    var Link = ReactRouter.Link;
     var toRender;
 
     if (this.state.albums) {
       toRender = (
         <div>
+
+        <h3>Create A New Album</h3>
+        <AlbumForm />
+
           <ul className="album-index">
             {this.state.albums.map(function (album) {
                 return (<AlbumIndexItem key={album.id} album={album} />);
@@ -34,7 +39,12 @@ var AlbumIndex = React.createClass({
       );
     } else {
       toRender = (
-        <div className="album-index"></div>
+        <div>
+          <h3>Create A New Album</h3>
+          <AlbumForm />
+          
+          <div className="album-index"></div>
+        </div>
       );
     }
 

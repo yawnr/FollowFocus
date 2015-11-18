@@ -9,7 +9,7 @@ var Album = React.createClass({
     var toRender;
 
     var album = AlbumStore.findById(parseInt(this.props.routeParams.albumId));
-    debugger
+
     if (this.state.photos.length > 0) {
       toRender = (
         <div>

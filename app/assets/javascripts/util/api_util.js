@@ -10,6 +10,19 @@ ApiUtil = {
         ApiActions.receiveAllAlbums(albums);
       }
     });
+  },
+
+  createAlbum: function (album, callback) {
+    $.ajax({
+      url: 'api/albums',
+      method: "POST",
+      dataType: "json",
+      data: {album: album},
+      success: function (album) {
+        ApiActions.receiveAlbum(album);
+        callback(album.id);
+      }
+    });
   }
 
 };

@@ -12,6 +12,13 @@ ApiActions = {
       actionType: AlbumConstants.ALBUMS_RECEIVED,
       albums: albums
     });
+  },
+
+  receiveAlbum: function (album) {
+    AppDispatcher.dispatch({
+      actionType: AlbumConstants.ALBUM_RECEIVED,
+      album: album
+    });
   }
 
 };
