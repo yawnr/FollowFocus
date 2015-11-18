@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-html, body, h1, ul, li, img, section, figure, button, .link {
+html, body, h1, ul, li, img, section, figure, button, .button_to, .logout_button, .link {
   margin: 0;
   padding: 0;
   border: 0;
@@ -24,7 +24,7 @@ html {
 }
 
 body {
-    width: 1300px;
+    width: 1200px;
     height: 100%;
     margin: 0 auto;
     background-repeat: no-repeat;
@@ -42,11 +42,11 @@ body {
   clear: both;
 }
 
-.button_to:after {
-  content: "";
-  display: block;
-  clear: both;
-}
+// .button_to:after {
+//   content: "";
+//   display: block;
+//   clear: both;
+// }
 
 h1 {
   font-size: 72px;
@@ -54,12 +54,11 @@ h1 {
   margin: 30px;
 }
 
-// .logout_div {
-//   position: absolute;
-//   right: 30px;
-// }
+.logout_div {
+  position: relative;
+}
 
-.logout_button {
+.login_logout_button {
   border-radius: 0px;
   border: 0;
   color: white;
@@ -69,12 +68,35 @@ h1 {
   font-size: 15px;
 
   float: right;
-  margin: 20px;
+  margin: -10px;
   padding: 10px;
+
+  position: absolute;
+  right: 50px;
+  bottom: 30px;
 
   transition: color 200ms;
 }
 
-.logout_button:hover {
+.login_logout_button:hover {
   color: #d26969;
 }
+
+// .login_logout_form {
+//   border-radius: 0px;
+//   border: 0;
+//   color: white;
+//   cursor: pointer;
+//   background: transparent;
+//
+//   font-size: 15px;
+//
+//   float: right;
+//   margin: 10px;
+//   padding: 10px;
+//
+//   position: absolute;
+//   right: 30px;
+//
+//   transition: color 200ms;
+// }

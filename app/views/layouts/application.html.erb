@@ -4,17 +4,11 @@
   <title>FollowFocus</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-  <div class="logout_div group">
-    <% if logged_in? %>
-      <%= button_to "Log Out", session_url, :method => :delete, class: 'logout_button group' %>
-    <% else %>
-      <%= button_to "Log In", new_session_url, :method => :get, class: 'logout_button group' %>
-    <% end %>
-  </div>
 
   <% if flash[:errors] %>
     <% flash[:errors].each do |error| %>
@@ -23,6 +17,15 @@
   <% end %>
 
 <%= yield %>
+
+  <div class="logout_div group">
+    <% if logged_in? %>
+      <%= button_to "Log Out", session_url, :method => :delete, form_class: 'login_logout_form group', class: 'login_logout_button group' %>
+    <% else %>
+      <%= button_to "Log In", new_session_url, :method => :get, form_class: 'login_logout_form group', class: 'login_logout_button group' %>
+    <% end %>
+  </div>
+
 
 </body>
 </html>
