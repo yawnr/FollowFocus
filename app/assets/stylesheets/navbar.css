@@ -44,3 +44,23 @@
 .upload-button:hover {
   opacity: .7;
 }
+
+.logo-lens {
+  position: absolute;
+  left: 223px;
+  width: 35px;
+  top: 17px;
+
+  -webkit-animation:spin .5s linear;
+  -moz-animation:spin .5s linear;
+  animation:spin .5s linear;
+  transition: transform .5s;
+}
+
+.logo-lens:hover {
+  transform: rotate(60deg)
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
