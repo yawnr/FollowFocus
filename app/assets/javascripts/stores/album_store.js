@@ -28,7 +28,15 @@
           AlbumStore.emit(CHANGE_EVENT);
           break;
       }
-    })
+    }),
+
+    findById: function (id) {
+      var album;
+      _albums.forEach(function (a) {
+        if (a.id === id) { album = a; }
+      });
+      return album;
+    }
 
   });
 

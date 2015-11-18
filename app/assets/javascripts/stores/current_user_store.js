@@ -7,7 +7,7 @@
     _currentUserId = userId;
   };
 
-  root.CurrentUserStore = $.extend({}, EventEmitter.protoype, {
+  root.CurrentUserStore = $.extend({}, EventEmitter.prototype, {
 
     currentUserId: function () {
       return _currentUserId;

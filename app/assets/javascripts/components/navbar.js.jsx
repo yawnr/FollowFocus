@@ -1,7 +1,8 @@
 var NavBar = React.createClass({
 
   getInitialState: function () {
-    return { currentUserId: CurrentUserStore.currentUserId() };
+    return { currentUserId: 2 };
+    // temporary fix until we can get currentUserId before doing an album fetch
   },
 
   render: function () {

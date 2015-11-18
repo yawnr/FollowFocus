@@ -6,11 +6,11 @@ var AlbumIndex = React.createClass({
 
   componentDidMount: function () {
     AlbumStore.addChangeListener(this._albumsChanged);
-    this._albumsChanged();
+    ApiUtil.fetchAlbums();
   },
 
   _albumsChanged: function () {
-    this.setState({ albums: ApiUtil.fetchAlbums() });
+    this.setState({ albums: AlbumStore.all() });
   },
 
   componentWillUnmount: function () {
@@ -18,22 +18,24 @@ var AlbumIndex = React.createClass({
   },
 
   render: function () {
-
+    debugger
     var toRender;
 
     if (this.state.albums) {
       toRender = (
         <div>
-          <ul>
+          <ul className="album-index">
             {this.state.albums.map(function (album) {
-                return (<li>{album.title}</li>);
+                return (<AlbumIndexItem key={album.id} album={album} />);
               })
             }
           </ul>
         </div>
       );
     } else {
-      toRender = (<div></div>);
+      toRender = (
+        <div className="album-index"></div>
+      );
     }
 
     return (
