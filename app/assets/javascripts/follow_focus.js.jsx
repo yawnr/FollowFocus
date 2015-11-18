@@ -9,6 +9,7 @@ $(function () {
       return (
         <div>
           <NavBar />
+          {this.props.children}
         </div>
       );
     }
@@ -16,7 +17,7 @@ $(function () {
 
 var routes = (
   <Route path="/" component={App}>
-
+    <Route path="/users/:userId" component={AlbumIndex} />
   </Route>
 );
 

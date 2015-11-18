@@ -1,7 +1,7 @@
 class Api::AlbumsController < ApplicationController
 
   def index
-    @albums = Album.all
+    @albums = Album.current_user_albums(current_user.id)
     render 'index'
   end
 

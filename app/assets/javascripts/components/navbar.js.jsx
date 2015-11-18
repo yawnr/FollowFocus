@@ -1,5 +1,9 @@
 var NavBar = React.createClass({
 
+  getInitialState: function () {
+    return { currentUserId: CurrentUserStore.currentUserId() };
+  },
+
   render: function () {
 
     var Link = ReactRouter.Link;
@@ -14,17 +18,20 @@ var NavBar = React.createClass({
           </ Link>
 
         <li><Link to="/" className="link to-home">Home</Link></li>
-        <li><Link to="/user/:userId" className="link">You</Link></li>
+        <li><Link to={"/users/" + this.state.currentUserId} className="link">You</Link></li>
         <li><Link to="/explore" className="link">Explore</Link></li>
+
         <div className="box">
           <div className="container-2">
               <span className="icon"><i className="fa fa-search"></i></span>
               <input type="search" id="search" placeholder="Search for tags or users" />
           </div>
         </div>
+
         <Link to="/upload" className="upload-link">
           <img src={window.FollowFocus.images.uploadButton} alt="upload-button" className="upload-button" />
         </Link>
+
       </div>
     );
   }
