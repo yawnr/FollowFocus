@@ -1,7 +1,7 @@
 var AlbumIndex = React.createClass({
 
   getInitialState: function () {
-    return { albums: [] };
+    return { albums: AlbumStore.all() };
   },
 
   componentDidMount: function () {
@@ -42,7 +42,7 @@ var AlbumIndex = React.createClass({
         <div>
           <h3>Create A New Album</h3>
           <AlbumForm />
-          
+
           <div className="album-index"></div>
         </div>
       );
