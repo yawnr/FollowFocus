@@ -16,7 +16,8 @@ var AlbumForm = React.createClass({
     var album = {
       title: this.state.title,
       description: this.state.description,
-      user_id: CurrentUserStore.currentUserId()
+      user_id: 2
+      // temporary until we learn how to get current user
     };
 
     ApiUtil.createAlbum(album, function (id) {
