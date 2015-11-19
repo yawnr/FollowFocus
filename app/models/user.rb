@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
 
   has_many :albums
   has_many :photos
+  has_many :comments 
 
   attr_reader :password
 

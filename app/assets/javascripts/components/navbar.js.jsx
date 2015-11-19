@@ -1,10 +1,5 @@
 var NavBar = React.createClass({
 
-  getInitialState: function () {
-    return { currentUserId: 2 };
-    // temporary fix until we can get currentUserId before doing an album fetch
-  },
-
   render: function () {
 
     var Link = ReactRouter.Link;
@@ -19,7 +14,7 @@ var NavBar = React.createClass({
           </ Link>
 
         <li><Link to="/" className="link to-home">Home</Link></li>
-        <li><Link to={"/users/" + this.state.currentUserId} className="link">You</Link></li>
+        <li><Link to={"/users/" + window.FollowFocus.currentUser} className="link">You</Link></li>
         <li><Link to="/explore" className="link">Explore</Link></li>
 
         <div className="box">
@@ -32,6 +27,8 @@ var NavBar = React.createClass({
         <Link to="/upload" className="upload-link">
           <img src={window.FollowFocus.images.uploadButton} alt="upload-button" className="upload-button" />
         </Link>
+
+        <div>Logout</div>
 
       </div>
     );

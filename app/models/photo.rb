@@ -5,6 +5,8 @@ class Photo < ActiveRecord::Base
   belongs_to :album
   belongs_to :user
 
+  has_many :comments
+
   def self.current_album_photos(album_id)
     photos = []
 

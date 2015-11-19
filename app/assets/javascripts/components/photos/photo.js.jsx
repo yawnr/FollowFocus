@@ -19,6 +19,13 @@ var Photo = React.createClass({
           <div className="photo-container">
             <img src={this.state.photo.url} />
           </div>
+
+          <CommentForm photo={this.state.photo}/>
+
+          <br />
+
+          <CommentIndex photo={this.state.photo}/>
+
         </div>
       );
     } else {

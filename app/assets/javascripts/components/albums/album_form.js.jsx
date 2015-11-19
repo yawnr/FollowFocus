@@ -16,7 +16,7 @@ var AlbumForm = React.createClass({
     var album = {
       title: this.state.title,
       description: this.state.description,
-      user_id: 2
+      user_id: window.FollowFocus.currentUser
       // temporary until we learn how to get current user
     };
 
@@ -30,12 +30,12 @@ var AlbumForm = React.createClass({
   render: function () {
     return (
       <form className="new-album-form group" onSubmit={this.createAlbum}>
-          <label htmlFor="album_title" />
+        <label htmlFor="album_title" />
         <div className="album-title-input">
             <input type="text" id="album_title" valueLink={this.linkState("title")} placeholder="Title"/>
         </div>
 
-          <label htmlFor="album_description" />
+        <label htmlFor="album_description" />
         <div className="album-description-input">
             <textarea id="album_description" cols="40" rows="1" valueLink={this.linkState("description")} placeholder="Description"/>
         </div>

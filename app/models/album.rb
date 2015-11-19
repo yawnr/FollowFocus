@@ -5,11 +5,11 @@ class Album < ActiveRecord::Base
 
   belongs_to :user
 
-  def self.current_user_albums(current_user_id)
+  def self.this_user_albums(user_id)
     albums = []
 
     Album.all.each do |album|
-      albums << album if album.user_id == current_user_id
+      albums << album if album.user_id == user_id
     end
 
     return albums

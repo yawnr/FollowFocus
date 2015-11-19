@@ -35,4 +35,18 @@ ApiActions = {
     });
   },
 
+  receiveAllComments: function (comments) {
+    AppDispatcher.dispatch({
+      actionType: CommentConstants.COMMENTS_RECEIVED,
+      comments: comments
+    });
+  },
+
+  receiveComment: function (comment) {
+    AppDispatcher.dispatch({
+      actionType: CommentConstants.COMMENT_RECEIVED,
+      comment: comment
+    });
+  },
+
 };

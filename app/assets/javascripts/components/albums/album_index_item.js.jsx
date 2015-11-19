@@ -1,7 +1,5 @@
 var AlbumIndexItem = React.createClass({
 
-
-
   render: function () {
 
     var Link = ReactRouter.Link;

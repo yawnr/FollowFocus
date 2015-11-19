@@ -7,7 +7,7 @@
     _albums = albums;
   };
 
-   root.AlbumStore = $.extend({}, EventEmitter.prototype, {
+  root.AlbumStore = $.extend({}, EventEmitter.prototype, {
 
     all: function () {
       return _albums.slice(0);
