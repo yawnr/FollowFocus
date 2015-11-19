@@ -21,7 +21,7 @@ var AlbumForm = React.createClass({
     };
 
     ApiUtil.createAlbum(album, function (id) {
-      this.history.pushState(null, "/albums/" + id, {});
+      // this.history.pushState(null, "/albums/" + id, {});
     }.bind(this));
 
     this.setState(this.blankAttrs);
