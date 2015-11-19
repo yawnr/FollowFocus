@@ -13,7 +13,7 @@ var Album = React.createClass({
     return (
       <div>
         <h3>{album.title}</h3>
-        <PhotoIndex album={album}/>
+        <PhotoIndex album={album} />
       </div>
     );
   }

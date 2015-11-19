@@ -26,8 +26,8 @@ var AlbumIndex = React.createClass({
       toRender = (
         <div>
 
-        <h3>Create A New Album</h3>
         <AlbumForm />
+        <br />
 
           <ul className="album-index">
             {this.state.albums.map(function (album) {
@@ -40,7 +40,6 @@ var AlbumIndex = React.createClass({
     } else {
       toRender = (
         <div>
-          <h3>Create A New Album</h3>
           <AlbumForm />
 
           <div className="album-index"></div>

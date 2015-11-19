@@ -1,6 +1,6 @@
 var AlbumForm = React.createClass({
 
-  mixins: [React.addons.LinkedStateMixin, ReactRouter.history],
+  mixins: [React.addons.LinkedStateMixin, ReactRouter.History],
 
   blankAttrs: {
       title: '',
@@ -21,7 +21,7 @@ var AlbumForm = React.createClass({
     };
 
     ApiUtil.createAlbum(album, function (id) {
-      // this.history.pushState(null, "/albums/" + id, {});
+      this.history.pushState(null, "/albums/" + id, {});
     }.bind(this));
 
     this.setState(this.blankAttrs);
@@ -29,18 +29,20 @@ var AlbumForm = React.createClass({
 
   render: function () {
     return (
-      <form className="new-album-form" onSubmit={this.createAlbum}>
-        <div>
-          <label htmlFor="album_title">Title</label>
-            <input type="text" id="album_title" valueLink={this.linkState("title")} />
+      <form className="new-album-form group" onSubmit={this.createAlbum}>
+          <label htmlFor="album_title" />
+        <div className="album-title-input">
+            <input type="text" id="album_title" valueLink={this.linkState("title")} placeholder="Title"/>
+        </div>
+
+          <label htmlFor="album_description" />
+        <div className="album-description-input">
+            <textarea id="album_description" cols="40" rows="1" valueLink={this.linkState("description")} placeholder="Description"/>
         </div>
 
         <div>
-          <label htmlFor="album_description">Description</label>
-            <textarea id="album_description" cols="40" rows="5" valueLink={this.linkState("description")} />
+          <button>Create New Album</button>
         </div>
-
-        <button>Create Album</button>
         <br />
       </form>
     );

@@ -1,4 +1,4 @@
-var PhotoIndex = React.createClass({
+var PhotoIndexPreview = React.createClass({
 
   getInitialState: function () {
     return { photos: PhotoStore.all() };
@@ -25,7 +25,7 @@ var PhotoIndex = React.createClass({
     if (this.state.photos.length > 0) {
       toRender = (
         <div>
-          <ul className="photo-index group">
+          <ul className="photo-index-preview group">
             {this.state.photos.map(function (photo) {
                 return (<PhotoThumbnail key={photo.id} photo={photo} />);
               })
@@ -36,7 +36,7 @@ var PhotoIndex = React.createClass({
     } else {
       toRender = (
         <div>
-          <div className="empty-photo-index">No photos here yet!</div>
+          <div className="empty-photo-index-preview">No photos here yet!</div>
         </div>
       );
     }

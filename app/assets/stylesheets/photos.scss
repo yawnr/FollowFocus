@@ -1,5 +1,39 @@
-.photo-thumbnail {
+.photo-index-preview {
+  margin: 10px;
+}
+
+.photo-thumbnail-container {
   margin: 20px;
   width: 100px;
-  height: 100px;  
+  height: 100px;
+  float: left;
+}
+
+.photo-thumbnail-container img {
+  width: 100%;
+  height: auto;
+  opacity: 1;
+  transition: opacity 300ms;
+}
+
+.photo-thumbnail-container img:hover {
+  cursor: pointer;
+  opacity: .7;
+}
+
+.parent-container {
+  margin: 20px;
+  width: 1000px;
+  height: 800px;
+}
+
+.photo-container {
+  margin: auto;
+  width: 800px;
+  height: 700px;
+}
+
+.photo-container img {
+  width: 100%;
+  height: auto;
 }

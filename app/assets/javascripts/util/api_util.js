@@ -37,4 +37,15 @@ ApiUtil = {
     });
   },
 
+  fetchPhoto: function (photo_id) {
+    $.ajax({
+      url: 'api/photos/' + photo_id,
+      method: "GET",
+      dataType: "json",
+      success: function (photo) {
+        ApiActions.receivePhoto(photo);
+      }
+    });
+  },
+
 };
