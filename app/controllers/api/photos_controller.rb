@@ -1,7 +1,12 @@
 class Api::PhotosController < ApplicationController
 
+    # def index
+    #   @photos = Photo.all
+    #   render 'index'
+    # end
+
     def index
-      @photos = Photo.all
+      @photos = Photo.current_album_photos(params[:album_id].to_i)
       render 'index'
     end
 
@@ -23,8 +28,8 @@ class Api::PhotosController < ApplicationController
 
     private
 
-      def album_params
-        params.require(:photo).permit(:title, :url, :exif_data)
+      def photo_params
+        params.require(:photo).permit(:title, :url, :exif_data, :user_id, :album_id)
       end
 
 end

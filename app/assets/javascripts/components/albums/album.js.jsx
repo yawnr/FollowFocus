@@ -10,23 +10,11 @@ var Album = React.createClass({
 
     var album = AlbumStore.findById(parseInt(this.props.routeParams.albumId));
 
-    if (this.state.photos.length > 0) {
-      toRender = (
-        <div>
-          <h3>{album.title}</h3>
-          <ul>
-            {this.state.photos.map(function (photo) {
-              return <li>"here's where a photo would go"</li>;
-            })}
-          </ul>
-        </div>
-      );
-    } else {
-      toRender = (<div><h3>{album.title}</h3></div>);
-    }
-
     return (
-      toRender
+      <div>
+        <h3>{album.title}</h3>
+        <PhotoIndex album={album}/>
+      </div>
     );
   }
 

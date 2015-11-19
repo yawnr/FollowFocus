@@ -1,9 +1,18 @@
 class Photo < ActiveRecord::Base
 
-  validates :url, :likes, :thumbnail_id, :user_id, :album_id, presence: true
+  validates :url, :user_id, :album_id, presence: true
 
   belongs_to :album
   belongs_to :user
-  has_one :thumbnail
+
+  def self.current_album_photos(album_id)
+    photos = []
+
+    Photo.all.each do |photo|
+      photos << photo if photo.album_id == album_id
+    end
+
+    return photos
+  end
 
 end

@@ -23,6 +23,18 @@ ApiUtil = {
         callback(album.id);
       }
     });
-  }
+  },
+
+  fetchPhotos: function (album_id) {
+    $.ajax({
+      url: 'api/photos',
+      method: "GET",
+      dataType: "json",
+      data: {album_id: album_id},
+      success: function (photos) {
+        ApiActions.receiveAllPhotos(photos);
+      }
+    });
+  },
 
 };

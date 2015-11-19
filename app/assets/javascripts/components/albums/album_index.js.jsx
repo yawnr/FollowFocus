@@ -22,7 +22,7 @@ var AlbumIndex = React.createClass({
     var Link = ReactRouter.Link;
     var toRender;
 
-    if (this.state.albums) {
+    if (this.state.albums.length > 0) {
       toRender = (
         <div>
 
