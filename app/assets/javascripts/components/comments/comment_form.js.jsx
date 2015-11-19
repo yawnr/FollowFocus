@@ -16,6 +16,10 @@ var CommentForm = React.createClass({
     ApiUtil.createComment(comment);
 
     this.setState({ body: '' });
+
+    setTimeout(function () {
+      $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+    }, 500);
   },
 
   render: function () {

@@ -22,7 +22,7 @@ var CommentIndex = React.createClass({
 
     if (this.state.comments.length > 0) {
       toRender = (
-        <div id="comments">
+        <div className="comments">
           Comments
           <ul>
             {this.state.comments.map(function (comment) {

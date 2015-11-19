@@ -69,9 +69,6 @@ ApiUtil = {
       data: {comment: comment},
       success: function (comment) {
         ApiActions.receiveComment(comment);
-        setTimeout(function () {
-          $("#comments").animate({ scrollTop: $("#comments")[0].scrollHeight}, 1000);
-        }, 500);
       }
     });
   },
