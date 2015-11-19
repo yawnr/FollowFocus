@@ -6,7 +6,7 @@ ApiUtil = {
       method: "GET",
       dataType: "json",
       success: function (albums) {
-        ApiActions.receiveCurrentUser(albums[0].user_id);
+        // ApiActions.receiveCurrentUser(albums[0].user_id);
         ApiActions.receiveAllAlbums(albums);
       }
     });
