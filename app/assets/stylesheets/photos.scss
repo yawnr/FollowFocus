@@ -22,25 +22,29 @@
 }
 
 .parent-container {
+  background: #171717;
   margin: 20px auto;
-  width: 1000px;
-  height: auto;
+  width: auto;
+  height: 600px;
   position: relative;
 }
 
 .photo-container {
   margin: auto;
   text-align: center;
-  width: 1000px;
-  height: auto;
+  width: auto;
+  height: 600px;
 }
 
 .photo-container img {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 100%;
 }
 
 .prev-photo {
+  width: 60px;
+  height: 40px;
+
   cursor: pointer;
 
   background: gray;
@@ -48,10 +52,19 @@
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   float: left;
-  top: 50%
+  position: absolute;
+  top: calc(50% - 20px);
+  right: 100%;
+
+  opacity: 0;
+
+  transition: all 500ms;
 }
 
 .next-photo {
+  width: 60px;
+  height: 40px;
+
   cursor: pointer;
 
   background: gray;
@@ -59,5 +72,48 @@
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   float: right;
-  top: 50%
+  position: absolute;
+  top: calc(50% - 20px);
+  left: 100%;
+
+  opacity: 0;
+
+  transition: all 500ms;
+}
+
+.next-photo-text {
+  position: absolute;
+  top: 12px;
+  right: 8px;
+  opacity: 0;
+
+  transition: all 500ms;
+}
+
+.prev-photo-text {
+  position: absolute;
+  top: 12px;
+  left: 8px;
+
+  opacity: 0;
+
+  transition: all 500ms;
+}
+
+.parent-container:hover .next-photo-text {
+  opacity: 1;
+}
+
+.parent-container:hover .prev-photo-text {
+  opacity: 1;
+}
+
+.parent-container:hover .next-photo {
+  opacity: 1;
+  left: calc(100% - 60px);
+}
+
+.parent-container:hover .prev-photo {
+  opacity: 1;
+  right: calc(100% - 60px);
 }

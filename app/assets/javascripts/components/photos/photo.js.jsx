@@ -45,7 +45,7 @@ var Photo = React.createClass({
   },
 
   render: function () {
-    console.log(PhotosStore.all());
+
     var toRender;
 
     if (this.state.photo) {
@@ -54,10 +54,10 @@ var Photo = React.createClass({
 
 
           <div className="parent-container">
-            <strong className="prev-photo" onClick={this._prevPhoto}>PREV</strong>
-            <strong className="next-photo" onClick={this._nextPhoto}>NEXT</strong>
             <div className="photo-container">
-              <img className="full-size-photo" src={this.state.photo.url} />
+              <div className="prev-photo" onClick={this._prevPhoto}><strong className="prev-photo-text">PREV</strong></div>
+              <div className="next-photo" onClick={this._nextPhoto}><strong className="next-photo-text">NEXT</strong></div>
+              <img className="full-size-photo" src={this.state.photo.url}/>
             </div>
           </div>
 

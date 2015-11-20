@@ -1,6 +1,8 @@
 
 .navbar {
   display: block;
+  margin: auto;
+  width: 1200px;
   height: 70px;
   position: relative;
 }
