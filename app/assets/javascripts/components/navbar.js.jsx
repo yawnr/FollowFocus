@@ -28,8 +28,6 @@ var NavBar = React.createClass({
           <img src={window.FollowFocus.images.uploadButton} alt="upload-button" className="upload-button" />
         </Link>
 
-        <div>Logout</div>
-
       </div>
     );
   }

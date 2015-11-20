@@ -15,18 +15,21 @@ var Photo = React.createClass({
 
     if (this.state) {
       toRender = (
-        <div className="parent-container">
-          <div className="photo-container">
-            <img src={this.state.photo.url} />
+        <section>
+          <div className="parent-container">
+            <div className="photo-container">
+              <img className="full-size-photo" src={this.state.photo.url} />
+            </div>
           </div>
 
-          <CommentForm photo={this.state.photo}/>
+          <div>
+            <CommentForm photo={this.state.photo}/>
 
-          <br />
+            <br />
 
-          <CommentIndex photo={this.state.photo}/>
-
-        </div>
+            <CommentIndex photo={this.state.photo}/>
+          </div>
+        </section>
       );
     } else {
       toRender = (<div className="parent-container"></div>);
