@@ -36,6 +36,15 @@
         if (p.id === id) { photo = p; }
       });
       return photo;
+    },
+
+    findIndexInStore: function (photo) {
+      for (var i = 0; i < _photos.length; i++) {
+        if (_photos[i].id === photo.id) {
+          return i;
+        }
+      }
+      return -1;
     }
 
   });

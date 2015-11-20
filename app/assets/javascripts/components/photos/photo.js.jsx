@@ -3,15 +3,20 @@ var Photo = React.createClass({
   componentWillMount: function () {
     ApiUtil.fetchPhoto(parseInt(this.props.routeParams.photoId));
     PhotoStore.addChangeListener(this._onChange);
+    PhotosStore.addChangeListener(this._onChange);
   },
 
   getInitialState: function () {
-    return {photo: PhotoStore.photo() };
+    return { photo: PhotoStore.photo() };
   },
 
   _onChange: function (photo) {
+    if (PhotosStore.all().length === 0) {
+      ApiUtil.fetchPhotos(parseInt(this.state.photo.album_id));
+    }
+
     if (photo === undefined) {
-      this.setState({ photo: PhotosStore.findById(parseInt(this.props.routeParams.photoId)) });
+      this.setState({ photo: PhotoStore.photo() });
     } else {
       this.setState({ photo: photo });
     }
@@ -30,7 +35,7 @@ var Photo = React.createClass({
 
   _nextPhoto: function () {
     var photo;
-    var newIdx = PhotosStore.all().indexOf(this.state.photo) + 1;
+    var newIdx = PhotosStore.findIndexInStore(this.state.photo) + 1;
 
     if ( newIdx > (PhotosStore.all().length - 1) ) {
       newIdx = 0;
@@ -40,17 +45,17 @@ var Photo = React.createClass({
   },
 
   render: function () {
-
+    console.log(PhotosStore.all());
     var toRender;
 
-    if (this.state.photo.id) {
+    if (this.state.photo) {
       toRender = (
         <section>
 
-        <strong className="prev-photo" onClick={this._prevPhoto}>PREV</strong>
-        <strong className="next-photo" onClick={this._nextPhoto}>NEXT</strong>
 
           <div className="parent-container">
+            <strong className="prev-photo" onClick={this._prevPhoto}>PREV</strong>
+            <strong className="next-photo" onClick={this._nextPhoto}>NEXT</strong>
             <div className="photo-container">
               <img className="full-size-photo" src={this.state.photo.url} />
             </div>

@@ -25,6 +25,7 @@
   margin: 20px auto;
   width: 1000px;
   height: auto;
+  position: relative;
 }
 
 .photo-container {
@@ -37,4 +38,26 @@
 .photo-container img {
   width: 100%;
   height: auto;
+}
+
+.prev-photo {
+  cursor: pointer;
+
+  background: gray;
+
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  float: left;
+  top: 50%
+}
+
+.next-photo {
+  cursor: pointer;
+
+  background: gray;
+
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  float: right;
+  top: 50%
 }
