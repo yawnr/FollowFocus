@@ -28,7 +28,7 @@
           AlbumStore.emit(CHANGE_EVENT);
           break;
         case AlbumConstants.ALBUM_RECEIVED:
-          _albums.push(payload.album);
+          _albums.unshift(payload.album);
           AlbumStore.emit(CHANGE_EVENT);
           break;
       }

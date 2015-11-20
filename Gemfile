@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'paperclip', '~>4.3'
+gem 'figaro'
+gem 'aws-sdk', '~>1.6'
 gem 'exifr'
 gem 'bcrypt'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
