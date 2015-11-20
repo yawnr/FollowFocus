@@ -5,17 +5,51 @@ var Photo = React.createClass({
     PhotoStore.addChangeListener(this._onChange);
   },
 
-  _onChange: function () {
-    this.setState({ photo: PhotoStore.findById(parseInt(this.props.routeParams.photoId)) });
+  getInitialState: function () {
+    return {photo: PhotoStore.photo() };
+  },
+
+  _onChange: function (photo) {
+    if (photo === undefined) {
+      this.setState({ photo: PhotosStore.findById(parseInt(this.props.routeParams.photoId)) });
+    } else {
+      this.setState({ photo: photo });
+    }
+  },
+
+  _prevPhoto: function () {
+    var photo;
+    var newIdx = PhotosStore.all().indexOf(this.state.photo) - 1;
+
+    if ( newIdx < 0 ) {
+      newIdx = PhotosStore.all().length - 1;
+    }
+
+    this._onChange(PhotosStore.all()[newIdx]);
+  },
+
+  _nextPhoto: function () {
+    var photo;
+    var newIdx = PhotosStore.all().indexOf(this.state.photo) + 1;
+
+    if ( newIdx > (PhotosStore.all().length - 1) ) {
+      newIdx = 0;
+    }
+
+    this._onChange(PhotosStore.all()[newIdx]);
   },
 
   render: function () {
 
     var toRender;
 
-    if (this.state) {
+    if (this.state.photo.id) {
       toRender = (
         <section>
+
+        <strong className="prev-photo" onClick={this._prevPhoto}>PREV</strong>
+        <strong className="next-photo" onClick={this._nextPhoto}>NEXT</strong>
+
           <div className="parent-container">
             <div className="photo-container">
               <img className="full-size-photo" src={this.state.photo.url} />

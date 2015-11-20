@@ -1,20 +1,20 @@
 var PhotoIndexPreview = React.createClass({
 
   getInitialState: function () {
-    return { photos: PhotoStore.all() };
+    return { photos: PhotosStore.all() };
   },
 
   componentDidMount: function () {
-    PhotoStore.addChangeListener(this._photosChanged);
+    PhotosStore.addChangeListener(this._photosChanged);
     ApiUtil.fetchPhotos(this.props.album.id);
   },
 
   _photosChanged: function () {
-    this.setState({ photos: PhotoStore.all() });
+    this.setState({ photos: PhotosStore.all() });
   },
 
   componentWillUnmount: function () {
-    PhotoStore.removeChangeListener(this._photosChanged);
+    PhotosStore.removeChangeListener(this._photosChanged);
   },
 
   render: function () {

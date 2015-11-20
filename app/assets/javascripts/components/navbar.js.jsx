@@ -14,7 +14,7 @@ var NavBar = React.createClass({
           </ Link>
 
         <li><Link to="/" className="link to-home">Home</Link></li>
-        <li><Link to={"/users/" + window.FollowFocus.currentUser} className="link">You</Link></li>
+        <li><Link to={"/users/" + window.FollowFocus.currentUser.id} className="link">You</Link></li>
         <li><Link to="/explore" className="link">Explore</Link></li>
 
         <div className="box">

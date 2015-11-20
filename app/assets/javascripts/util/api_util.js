@@ -13,6 +13,18 @@ ApiUtil = {
     });
   },
 
+  fetchAlbum: function (album_id) {
+    $.ajax({
+      url: 'api/albums/' + album_id,
+      method: "GET",
+      dataType: "json",
+      data: {album_id: album_id},
+      success: function (album) {
+        ApiActions.receiveAlbum(album);
+      }
+    });
+  },
+
   createAlbum: function (album, callback) {
     $.ajax({
       url: 'api/albums',
