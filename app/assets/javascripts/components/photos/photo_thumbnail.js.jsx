@@ -10,7 +10,7 @@ var PhotoThumbnail = React.createClass({
 
     return (
       <li className="photo-thumbnail-container" key={this.props.photo.id} onClick={this.renderFullSize}>
-        <img src={this.props.photo.url} />
+        <img src={this.props.photo.photo_attachment_url} />
       </li>
     );
 

@@ -16,7 +16,7 @@ class Api::PhotosController < ApplicationController
     end
 
     def create
-      photo = Photo.create!(photo_params)
+      photo = current_user.photos.create!(photo_params)
       render json: photo
     end
 
@@ -29,7 +29,7 @@ class Api::PhotosController < ApplicationController
     private
 
       def photo_params
-        params.require(:photo).permit(:title, :url, :exif_data, :user_id, :album_id)
+        params.require(:photo).permit(:title, :exif_data, :album_id, :photo_attachment)
       end
 
 end

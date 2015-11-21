@@ -48,7 +48,8 @@ var Photo = React.createClass({
 
     var toRender;
 
-    if (this.state.photo) {
+    if (this.state.photo.id) {
+
       toRender = (
         <section>
 
@@ -57,7 +58,7 @@ var Photo = React.createClass({
             <div className="photo-container">
               <div className="prev-photo" onClick={this._prevPhoto}><strong className="prev-photo-text">PREV</strong></div>
               <div className="next-photo" onClick={this._nextPhoto}><strong className="next-photo-text">NEXT</strong></div>
-              <img className="full-size-photo" src={this.state.photo.url}/>
+              <img className="full-size-photo" src={this.state.photo.photo_attachment_url}/>
             </div>
           </div>
 

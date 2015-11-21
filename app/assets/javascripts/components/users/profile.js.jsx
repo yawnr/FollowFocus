@@ -19,7 +19,7 @@ var Profile = React.createClass({
   },
 
   render: function () {
-
+    
     var toRender;
 
     if (this.state.user) {

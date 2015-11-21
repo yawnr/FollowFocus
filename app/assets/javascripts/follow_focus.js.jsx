@@ -1,5 +1,5 @@
 $(function () {
-
+  
   var root = document.getElementById('content');
   var Router = ReactRouter.Router;
   var Route = ReactRouter.Route;

@@ -7,13 +7,13 @@ class Album < ActiveRecord::Base
   belongs_to :user
 
   def self.this_user_albums(user_id)
-    albums = []
-
-    Album.all.each do |album|
-      albums << album if album.user_id == user_id
-    end
-
-    return albums
+  #   albums = []
+  #
+  #   Album.all.each do |album|
+  #     albums << album if album.user_id == user_id
+  #   end
+  #
+  #   return albums
+  return User.find(user_id).albums
   end
-
 end

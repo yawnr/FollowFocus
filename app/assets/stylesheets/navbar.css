@@ -1,9 +1,20 @@
+nav {
+  height: 70px;
+}
+
+.navbar-container {
+  width: 100%;
+  height: 70px;
+  background: #262626;
+  position: fixed;
+}
+
 .navbar {
   display: block;
   margin: auto;
   width: 1200px;
-  height: 70px;
-  position: relative;
+  height: 100%;
+  margin-left: calc(50% - 600px);
 }
 
 .logo {
@@ -37,7 +48,7 @@
 
 .box {
   position: absolute;
-  left: 750px;
+  left: 868px;
   top: 23px;
 }
 
@@ -96,11 +107,11 @@
 
 .container-2 input#search:focus, .container-2 input#search:active {
   outline: none;
-  width: 220px;
+  width: 210px;
 }
 
 .container-2:hover input#search {
-  width: 220px;
+  width: 210px;
 }
 
 .container-2:hover .icon {
@@ -126,7 +137,7 @@
 
 .logo-lens {
   position: absolute;
-  left: 223px;
+  left: 343px;
   width: 35px;
   top: 20px;
 

@@ -12,7 +12,6 @@ class Api::AlbumsController < ApplicationController
 
   def create
     album = current_user.albums.create!(album_params)
-
     render json: album
   end
 

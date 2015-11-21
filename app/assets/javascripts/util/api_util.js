@@ -61,16 +61,28 @@ ApiUtil = {
     });
   },
 
-  uploadPhoto: function (formData) {
+  // createPhotoObject: function (album_id, formData) {
+  //   $.ajax({
+  //     url: 'api/photos',
+  //     method: "POST",
+  //     dataType: "json",
+  //     data: {album_id: album_id},
+  //     success: function (photo) {
+  //       ApiActions.uploadPhoto(photo, formData);
+  //     }
+  //   });
+  // },
+
+  uploadPhoto: function (album_id, formData) {
     $.ajax({
-      url: '/photos',
+      url: 'api/photos',
       type: 'POST',
       processData: false,
       contentType: false,
       dataType: 'json',
       data: formData,
       success: function(photo) {
-        console.log("photo uploaded");
+        ApiUtil.fetchPhotos(album_id);
       }
     });
   },

@@ -8,12 +8,6 @@
   transition: opacity 300ms;
 }
 
-.profile-photo img {
-  display: block;
-  width: auto;
-  height: 100%;
-}
-
 .profile-photo-input  {
   overflow: hidden;
 }
@@ -22,6 +16,12 @@
   margin: auto;
   width: 220px;
   height: 220px;
+}
+
+.profile-photo-container img:only-of-type {
+  display: block;
+  width: auto;
+  height: 100%;
   opacity: 1;
   transition: opacity 300ms;
 }
