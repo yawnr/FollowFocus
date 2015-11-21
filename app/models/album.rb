@@ -3,6 +3,7 @@ class Album < ActiveRecord::Base
   validates :user_id, presence: true
   validates :title, presence: true
 
+  has_many :photos
   belongs_to :user
 
   def self.this_user_albums(user_id)

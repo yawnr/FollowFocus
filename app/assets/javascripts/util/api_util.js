@@ -61,6 +61,20 @@ ApiUtil = {
     });
   },
 
+  uploadPhoto: function (formData) {
+    $.ajax({
+      url: '/photos',
+      type: 'POST',
+      processData: false,
+      contentType: false,
+      dataType: 'json',
+      data: formData,
+      success: function(photo) {
+        console.log("photo uploaded");
+      }
+    });
+  },
+
   fetchComments: function (photo_id) {
     $.ajax({
       url: 'api/comments',

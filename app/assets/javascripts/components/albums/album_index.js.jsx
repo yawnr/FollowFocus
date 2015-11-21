@@ -6,7 +6,7 @@ var AlbumIndex = React.createClass({
 
   componentDidMount: function () {
     AlbumStore.addChangeListener(this._albumsChanged);
-    ApiUtil.fetchAlbums(parseInt(this.props.routeParams.userId));
+    ApiUtil.fetchAlbums(this.props.userId);
   },
 
   _albumsChanged: function () {
@@ -26,6 +26,7 @@ var AlbumIndex = React.createClass({
       toRender = (
         <div>
 
+        <Link to="/album/new" className="new-album-link">Create a New Album</Link>
         <AlbumForm />
         <br />
 

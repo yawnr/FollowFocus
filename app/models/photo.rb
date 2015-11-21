@@ -8,13 +8,15 @@ class Photo < ActiveRecord::Base
   has_many :comments
 
   def self.current_album_photos(album_id)
-    photos = []
+    # photos = []
+    #
+    # Photo.all.each do |photo|
+    #   photos << photo if photo.album_id == album_id
+    # end
+    #
+    # return photos
 
-    Photo.all.each do |photo|
-      photos << photo if photo.album_id == album_id
-    end
-
-    return photos
+    return Album.find(album_id).photos
   end
 
 end

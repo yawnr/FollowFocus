@@ -26,7 +26,7 @@ var Profile = React.createClass({
       toRender = (
         <div>
           <ProfilePhoto user={this.state.user} />
-          <AlbumIndex routeParams={this.props.routeParams.userId}/>
+          <AlbumIndex userId={parseInt(this.props.routeParams.userId)}/>
         </div>
       );
     } else {

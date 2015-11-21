@@ -42,12 +42,6 @@ body {
   clear: both;
 }
 
-// .button_to:after {
-//   content: "";
-//   display: block;
-//   clear: both;
-// }
-
 h1 {
   font-size: 72px;
   font-weight: 700;
@@ -55,8 +49,10 @@ h1 {
 }
 
 .login_logout_div {
-  position: relative;
-  z-index: 20;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 20000;
 }
 
 .login_logout_button {
@@ -82,22 +78,3 @@ h1 {
 .login_logout_button:hover {
   color: #d26969;
 }
-
-// .login_logout_form {
-//   border-radius: 0px;
-//   border: 0;
-//   color: white;
-//   cursor: pointer;
-//   background: transparent;
-//
-//   font-size: 15px;
-//
-//   float: right;
-//   margin: 10px;
-//   padding: 10px;
-//
-//   position: absolute;
-//   right: 30px;
-//
-//   transition: color 200ms;
-// }

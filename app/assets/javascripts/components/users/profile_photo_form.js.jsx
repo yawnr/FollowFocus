@@ -1,8 +1,8 @@
 var ProfilePhotoForm = React.createClass({
-
-  getInitialState: function () {
-    return { profilePhotoUrl: "", profilePhotoFile: null };
-  },
+  //
+  // getInitialState: function () {
+  //   return { profilePhotoUrl: "", profilePhotoFile: null };
+  // },
 
   changePhoto: function(event) {
     var reader = new FileReader();
@@ -22,18 +22,25 @@ var ProfilePhotoForm = React.createClass({
     if (file) {
       reader.readAsDataURL(file);
     } else {
-      this.setState({ profilePhotoUrl: "", profilePhotoFile: null });
+      // this.setState({ profilePhotoUrl: "", profilePhotoFile: null });
     }
   },
 
   resetForm: function() {
-    this.setState({ profilePhotoUrl: "", profilePhotoFile: null });
+    // this.setState({ profilePhotoUrl: "", profilePhotoFile: null });
+  },
+
+  clickButton: function (e) {
+    e.preventDefault();
+    document.getElementById('fileID').click();
   },
 
   render: function () {
     return (
-      <div>
-        <input type="file" onChange={this.changePhoto} />
+
+      <div className="fileUpload group">
+        <span onClick={this.clickButton}>Change</span>
+        <input id="fileID" type="file" className="upload" onChange={this.changePhoto} />
       </div>
     );
   }

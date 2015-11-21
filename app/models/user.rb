@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :username, length: { minimum: 3, allow_nil: true }
 
-  has_attached_file :profile_photo, styles: {medium: "300x300>", large_thumb: "200x200>", thumb: "100x100>"}, default_url: "/images/logo2_lensonly.png"
+  has_attached_file :profile_photo, styles: {medium: "300x300>", large_thumb: "200x200>", thumb: "100x100>"}, default_url: "logo2_lensonly.png"
   validates_attachment_content_type :profile_photo, content_type: /\Aimage\/.*\Z/
 
   after_initialize :ensure_session_token

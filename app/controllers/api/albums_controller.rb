@@ -11,7 +11,8 @@ class Api::AlbumsController < ApplicationController
   end
 
   def create
-    album = Album.create!(album_params)
+    album = current_user.albums.create!(album_params)
+
     render json: album
   end
 
@@ -24,7 +25,7 @@ class Api::AlbumsController < ApplicationController
   private
 
     def album_params
-      params.require(:album).permit(:title, :description, :user_id)
+      params.require(:album).permit(:title, :description)
     end
 
 end

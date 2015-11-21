@@ -19,7 +19,7 @@ var routes = (
   <Route path="/" component={App}>
     <Route path="/users/:userId" component={Profile} />
     <Route path="/albums/:albumId" component={Album} />
-    <Route path="/albums/new" component={AlbumForm} />
+    <Route path="/album/new" component={NewAlbum} />
     <Route path="/photos/:photoId" component={Photo} />
   </Route>
 );
