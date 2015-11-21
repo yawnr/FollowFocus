@@ -11,19 +11,19 @@ class Api::PhotosController < ApplicationController
     end
 
     def show
-      photo = Photo.find(params[:id])
-      render json: photo
+      @photo = Photo.find(params[:id])
+      render 'show'
     end
 
     def create
-      photo = current_user.photos.create!(photo_params)
-      render json: photo
+      @photo = current_user.photos.create!(photo_params)
+      render 'show'
     end
 
     def update
-      photo = Photo.find(params[:id])
-      photo.update!(photo_params)
-      render json: photo
+      @photo = Photo.find(params[:id])
+      @photo.update!(photo_params)
+      render 'show'
     end
 
     private

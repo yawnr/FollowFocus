@@ -47,9 +47,8 @@ var Photo = React.createClass({
   render: function () {
 
     var toRender;
-
+debugger
     if (this.state.photo.id) {
-
       toRender = (
         <section>
 
