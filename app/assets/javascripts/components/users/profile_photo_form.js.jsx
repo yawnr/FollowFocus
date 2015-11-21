@@ -39,7 +39,7 @@ var ProfilePhotoForm = React.createClass({
     return (
 
       <div className="fileUpload group">
-        <span onClick={this.clickButton}>Change</span>
+        <span className="edit-button" onClick={this.clickButton}>&#9998; Edit</span>
         <input id="fileID" type="file" className="upload" onChange={this.changePhoto} />
       </div>
     );

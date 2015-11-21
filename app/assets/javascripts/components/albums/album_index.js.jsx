@@ -26,7 +26,6 @@ var AlbumIndex = React.createClass({
       toRender = (
         <div>
 
-        <Link to="/album/new" className="new-album-link">Create a New Album</Link>
         <AlbumForm />
         <br />
 
