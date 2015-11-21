@@ -15,19 +15,18 @@
   margin: auto;
   width: 220px;
   height: 220px;
-  border-radius: 100px;
-  overflow: hidden;
+  opacity: 1;
+  transition: opacity 300ms;
+}
+
+.profile-photo-container:hover {
+  opacity: .7;
 }
 
 .profile-photo-container img:only-of-type {
   display: block;
-  width: 100%;
-  height: auto;
-  opacity: 1;
-}
-
-.profile-photo-container:hover img:only-of-type {
-  opacity: .7;
+  width: auto;
+  height: 100%;
 }
 
 .profile-photo-container:hover span {
