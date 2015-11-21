@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   has_many :photos
   has_many :comments
 
-  attr_reader :password
+  attr_reader :password, :profile_photo_content_type
 
   def self.find_by_credentials (username, password)
     # user = User.find_by_username(username)

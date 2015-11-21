@@ -6,13 +6,17 @@ var UploadToAlbumForm = React.createClass({
 
   uploadPhotos: function (event) {
     var files = event.currentTarget.files;
+    var lastFileCheck = false;
 
     for (var i = 0; i < files.length; i++) {
-      uploadEachPhoto(files[i]);
+      if (i === (files.length - 1)) {
+        lastFileCheck = true;
+      }
+      uploadEachPhoto(files[i], lastFileCheck);
     }
   },
 
-  uploadEachPhoto: function(file) {
+  uploadEachPhoto: function(file, lastFileCheck) {
     var reader = new FileReader();
     var that = this;
 
@@ -23,7 +27,11 @@ var UploadToAlbumForm = React.createClass({
       var formData = new FormData();
       formData.append("photo[photo]", file);
 
-      ApiUtil.uploadPhoto(formData);
+      if (lastFileCheck) {
+        ApiUtil.uploadPhoto(formData, this.goToAlbum);
+      } else {
+        ApiUtil.uploadPhoto(formData);
+      }
     };
 
     if (file) {
