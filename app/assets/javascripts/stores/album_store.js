@@ -23,7 +23,7 @@
 
     dispatcherID: AppDispatcher.register(function (payload) {
       switch(payload.actionType){
-        case AlbumConstants.ALBUMS_RECEIVED:
+        case AlbumConstants.USER_ALBUMS_RECEIVED:
           resetAlbums(payload.albums);
           AlbumStore.emit(CHANGE_EVENT);
           break;

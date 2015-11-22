@@ -2,6 +2,7 @@ var Photo = React.createClass({
 
   componentWillMount: function () {
     ApiUtil.fetchPhoto(parseInt(this.props.routeParams.photoId));
+    ApiUtil.fetchAlbumPhotos(parseInt(this.props.routeParams.albumId));
     PhotoStore.addChangeListener(this._onChange);
     PhotosStore.addChangeListener(this._onChange);
   },
@@ -12,7 +13,7 @@ var Photo = React.createClass({
 
   _onChange: function (photo) {
     if (PhotosStore.all().length === 0) {
-      ApiUtil.fetchPhotos(parseInt(this.state.photo.album_id));
+      ApiUtil.fetchAlbumPhotos(parseInt(this.props.routeParams.albumId));
     }
 
     if (photo === undefined) {

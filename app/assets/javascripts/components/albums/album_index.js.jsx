@@ -6,7 +6,7 @@ var AlbumIndex = React.createClass({
 
   componentDidMount: function () {
     AlbumStore.addChangeListener(this._albumsChanged);
-    ApiUtil.fetchAlbums(this.props.userId);
+    ApiUtil.fetchUserAlbums(this.props.userId);
   },
 
   _albumsChanged: function () {

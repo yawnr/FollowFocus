@@ -1,7 +1,9 @@
 class Api::AlbumsController < ApplicationController
 
+  before_filter :determine_scope
+
   def index
-    @albums = Album.this_user_albums(params[:user_id].to_i)
+    @albums = @scope.all
     render 'index'
   end
 
@@ -22,9 +24,17 @@ class Api::AlbumsController < ApplicationController
   end
 
   private
-
     def album_params
       params.require(:album).permit(:title, :description)
+    end
+
+  protected
+    def determine_scope
+      @scope = if params[:user_id]
+        User.find(params[:user_id]).albums
+      else
+        @scope = Album
+      end
     end
 
 end

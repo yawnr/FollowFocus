@@ -1,14 +1,13 @@
 ApiUtil = {
 
-  fetchAlbums: function (user_id) {
+  fetchUserAlbums: function (user_id) {
     $.ajax({
       url: 'api/albums',
       method: "GET",
       dataType: "json",
       data: {user_id: user_id},
       success: function (albums) {
-        // ApiActions.receiveCurrentUser(albums[0].user_id);
-        ApiActions.receiveAllAlbums(albums);
+        ApiActions.receiveUserAlbums(albums);
       }
     });
   },
@@ -38,14 +37,14 @@ ApiUtil = {
     });
   },
 
-  fetchPhotos: function (album_id) {
+  fetchAlbumPhotos: function (album_id) {
     $.ajax({
       url: 'api/photos',
       method: "GET",
       dataType: "json",
       data: {album_id: album_id},
       success: function (photos) {
-        ApiActions.receiveAllPhotos(photos);
+        ApiActions.receiveAlbumPhotos(photos);
       }
     });
   },
@@ -70,7 +69,7 @@ ApiUtil = {
       dataType: 'json',
       data: formData,
       success: function(photo) {
-        ApiUtil.fetchPhotos(album_id);
+        ApiUtil.fetchAlbumPhotos(album_id);
       }
     });
   },

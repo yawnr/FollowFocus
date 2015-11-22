@@ -1,16 +1,16 @@
 (function (root) {
 
-  var _photo = {};
+  var _galleryPhotos = [];
   var CHANGE_EVENT = "change";
 
-  var resetPhoto = function (photo) {
-    _photo = photo;
+  var resetGalleryPhotos = function (galleryPhotos) {
+    _galleryPhotos = galleryPhotos;
   };
 
-   root.PhotoStore = $.extend({}, EventEmitter.prototype, {
+   root.GalleryPhotosStore = $.extend({}, EventEmitter.prototype, {
 
-    photo: function () {
-      return _photo;
+    all: function () {
+      return _galleryPhotos.slice(0);
     },
 
     addChangeListener: function (callback) {
@@ -23,12 +23,12 @@
 
     dispatcherID: AppDispatcher.register(function (payload) {
       switch(payload.actionType){
-        case PhotoConstants.PHOTO_RECEIVED:
-          resetPhoto(payload.photo);
-          PhotoStore.emit(CHANGE_EVENT);
+        case GalleryConstants.GALLERY_PHOTOS_RECEIVED:
+          resetGalleryPhotos(payload.photos);
+          GalleryPhotosStore.emit(CHANGE_EVENT);
           break;
       }
-    })
+    }),
 
   });
 

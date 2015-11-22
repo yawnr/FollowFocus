@@ -6,7 +6,7 @@ var PhotoIndex = React.createClass({
 
   componentDidMount: function () {
     PhotosStore.addChangeListener(this._photosChanged);
-    ApiUtil.fetchPhotos(this.props.album.id);
+    ApiUtil.fetchAlbumPhotos(this.props.album.id);
   },
 
   _photosChanged: function () {

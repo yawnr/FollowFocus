@@ -1,15 +1,15 @@
 ApiActions = {
 
-  // receiveCurrentUser: function (currentUserId) {
-  //   AppDispatcher.dispatch({
-  //     actionType: UserConstants.CURRENT_USER_RECEIVED,
-  //     currentUserId: currentUserId
-  //   });
-  // },
-
-  receiveAllAlbums: function (albums) {
+  receiveGalleryPhotos: function (photos) {
     AppDispatcher.dispatch({
-      actionType: AlbumConstants.ALBUMS_RECEIVED,
+      actionType: PhotoConstants.GALLERY_PHOTOS_RECEIVED,
+      photos: photos
+    });
+  },
+
+  receiveUserAlbums: function (albums) {
+    AppDispatcher.dispatch({
+      actionType: AlbumConstants.USER_ALBUMS_RECEIVED,
       albums: albums
     });
   },
@@ -21,9 +21,9 @@ ApiActions = {
     });
   },
 
-  receiveAllPhotos: function (photos) {
+  receiveAlbumPhotos: function (photos) {
     AppDispatcher.dispatch({
-      actionType: PhotoConstants.PHOTOS_RECEIVED,
+      actionType: PhotoConstants.ALBUM_PHOTOS_RECEIVED,
       photos: photos
     });
   },

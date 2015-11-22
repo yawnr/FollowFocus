@@ -1,12 +1,14 @@
 class Api::PhotosController < ApplicationController
 
-    # def index
-    #   @photos = Photo.all
-    #   render 'index'
-    # end
+  before_filter :determine_scope
 
     def index
-      @photos = Photo.current_album_photos(params[:album_id].to_i)
+      if params[:gallery_id]
+        @photos = Photo.generate_gallery_photos
+      else
+        @photos = @scope.all
+      end
+
       render 'index'
     end
 
@@ -27,9 +29,19 @@ class Api::PhotosController < ApplicationController
     end
 
     private
-
       def photo_params
         params.require(:photo).permit(:title, :exif_data, :album_id, :photo_attachment)
+      end
+
+    protected
+      def determine_scope
+        if params[:user_id]
+          @scope = User.find(params[:user_id]).photos
+        elsif params[:album_id]
+          @scope = Album.find(params[:album_id]).photos
+        else
+          @scope = Photo
+        end
       end
 
 end

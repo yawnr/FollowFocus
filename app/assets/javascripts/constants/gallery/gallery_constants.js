@@ -1,0 +1,5 @@
+GalleryConstants = {
+
+  GALLERY_PHOTOS_RECEIVED: "GALLERY_PHOTOS_RECEIVED"
+
+};

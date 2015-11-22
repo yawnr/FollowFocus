@@ -9,7 +9,13 @@ Rails.application.routes.draw do
     resources :comments, only: [:index, :create, :destroy]
   end
 
-  resources :users, only: [:new, :create, :show, :update]
+  resources :users, only: [:new, :create, :show, :update] 
+  #   namespace :api, defaults: {format: :json} do
+  #     resources :albums, only: [:index]
+  #     resources :photos, only: [:index]
+  #   end
+  # end
+
   resource :session, only: [:new, :create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.

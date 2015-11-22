@@ -15,12 +15,9 @@
   margin: auto;
   width: 220px;
   height: 220px;
-  opacity: 1;
-  transition: opacity 300ms;
 }
 
 .profile-photo-container:hover {
-  opacity: .7;
 }
 
 .profile-photo-container img:only-of-type {
@@ -31,7 +28,7 @@
 
 .profile-photo-container:hover span {
   cursor: pointer;
-  opacity: 1;
+  opacity: .7;
 }
 
 .profile-photo-container span {
