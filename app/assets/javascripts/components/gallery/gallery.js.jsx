@@ -23,13 +23,17 @@ var Gallery = React.createClass({
 
     if (this.state.gallery.length > 0) {
       toRender = (
-        <div>
+        <div className="gallery">
           <h3 className="gallery-header">Gallery</h3>
-          <ul>
-            {this.state.gallery.map(function (photo) {
-              return <GalleryPhoto key = {photo.id} photo={photo} />;
-            })}
-          </ul>
+
+          <div className="gallery-photos-container">
+            <ul>
+              {this.state.gallery.map(function (photo) {
+                return <GalleryPhoto key = {photo.id} photo={photo} />;
+              })}
+            </ul>
+          </div>
+          
         </div>
       );
     } else {

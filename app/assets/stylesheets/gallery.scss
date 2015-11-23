@@ -1,15 +1,41 @@
+.gallery {
+  width: 1100px;
+  margin: auto;
+}
+
+.gallery-photos-container {
+  width: 750px;
+}
+
 .gallery-photo-container {
-  margin: 0 auto 50px auto;
-  width: 800px;
-  height: 500px;
-  background: black;
-  padding: 10px;
+  position: relative;
+  margin-bottom: 10px;
 }
 
 .gallery-photo {
-  margin: 10px;
-  margin: auto;
   display: block;
-  width: auto;
-  height: 100%;
+  width: 100%;
+  height: auto;
+  box-shadow: #e9ebec 0 2px 2px;
+}
+
+.gallery-photo-info-box {
+  position: absolute;
+  bottom: 0px;
+
+  font-family: "Proxima Nova", "Helvetica Neue", helvetica, arial, sans-serif;
+
+  width: 750px;
+  height: 50px;
+  background: white;
+
+  color: black;
+  text-decoration: none;
+
+  vertical-align: middle;
+}
+
+.gallery-photo-info-box li {
+  float: left;
+  padding: 10px;
 }
