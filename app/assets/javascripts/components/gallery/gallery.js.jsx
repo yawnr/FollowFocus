@@ -24,7 +24,7 @@ var Gallery = React.createClass({
     if (this.state.gallery.length > 0) {
       toRender = (
         <div className="gallery">
-          <h3 className="gallery-header">Gallery</h3>
+          <h3 className="gallery-header"></h3>
 
           <div className="gallery-photos-container">
             <ul>
@@ -33,11 +33,11 @@ var Gallery = React.createClass({
               })}
             </ul>
           </div>
-          
+
         </div>
       );
     } else {
-      toRender = (<h3 className="gallery-header">Gallery</h3>);
+      toRender = (<h3 className="gallery-header"></h3>);
     }
 
     return (

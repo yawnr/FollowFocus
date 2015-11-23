@@ -4,16 +4,23 @@ var GalleryPhotoInfoBox = React.createClass({
 
     var Link = ReactRouter.Link;
     var currentDate = new Date();
-    var currentYear = currentDate.getYear();
+    var currentYear = currentDate.getFullYear();
     var currentMonth = currentDate.getMonth();
-    var yearPosted = this.props.photo.date_time.substring(0,4);
-    var monthsSincePosted = dateNow - datePosted;
+    var yearPosted = this.props.photo.date_time.substring(0, 4);
+    var monthPosted = this.props.photo.date_time.substring(5, 7);
+    var timeSincePosted = ((currentYear - yearPosted) * 12) + (currentMonth - monthPosted);
+
+    if (timeSincePosted > 0) {
+      timeSincePosted += " months ago";
+    } else {
+      timeSincePosted = "Less than a month ago";
+    }
 
     return (
       <div className="gallery-photo-info-box">
         <ul>
           <li><Link to={"/users/" + this.props.photo.user_id} >{this.props.photo.username}</Link></li>
-          <li>{this.props.photo.username}</li>
+          <li>{timeSincePosted}</li>
         </ul>
         <ul>
           <li></li>
