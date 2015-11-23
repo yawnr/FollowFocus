@@ -17,18 +17,7 @@ class Photo < ActiveRecord::Base
   end
 
   def self.generate_gallery_photos
-    max_id = Photo.last.id
-    photos = []
-
-    until photos.length == 10
-      random_id = rand(max_id)
-      if !Photo.where(id: random_id).blank?
-        photo = Photo.find(random_id)
-        photos << photo if !photos.include?(photo)
-      end
-    end
-
-    photos
+    Photo.all.limit(5).order("RANDOM()")
   end
 
 

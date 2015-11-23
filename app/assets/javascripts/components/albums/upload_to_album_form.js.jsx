@@ -47,8 +47,14 @@ var UploadToAlbumForm = React.createClass({
 
       var dateTime = exif.DateTimeOriginal;
       var iso = exif.ISOSpeedRatings;
-      var aperture = exif.FNumber;
-      var exposureTime = exif.ExposureTime;
+      var aperture;
+      if (exif.Fnumber) {
+          aperture = "" + (exif.FNumber.numerator / exif.FNumber.denominator);
+      }
+      var exposureTime;
+      if (exif.exposureTime) {
+        exposureTime = exif.ExposureTime.numerator + "/" + exif.ExposureTime.denominator;
+      }
       var cameraModel = exif.Make + " " + exif.Model;
 
       var formData = new FormData();

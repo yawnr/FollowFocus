@@ -6,7 +6,7 @@ class Api::PhotosController < ApplicationController
       if params[:gallery_id]
         @photos = Photo.generate_gallery_photos
       else
-        @photos = @scope.all
+        @photos = @scope.order(created_at: :desc).all
       end
 
       render 'index'
