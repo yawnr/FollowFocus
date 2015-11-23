@@ -8,6 +8,7 @@ var NavBar = React.createClass({
       <div className="navbar-container">
         <div className="navbar">
 
+          
             <Link to="/" >
               <img src={window.FollowFocus.images.logo} alt="logo" className="logo">
                 <img src={window.FollowFocus.images.logoLens} alt="logo-lens" className="logo-lens" />

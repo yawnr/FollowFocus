@@ -17,6 +17,9 @@
 //= require ReactRouter.min
 //= require flux
 //= require require.js
+//= require binaryajax.js
+//= require jquery.exif.js
+//= require exif.js
 //= require eventemitter
 //= require components
 //= require_tree .

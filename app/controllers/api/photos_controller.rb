@@ -30,7 +30,8 @@ class Api::PhotosController < ApplicationController
 
     private
       def photo_params
-        params.require(:photo).permit(:title, :exif_data, :album_id, :photo_attachment)
+        params.require(:photo).permit(:title, :album_id, :photo_attachment, :date_time,
+                                      :lat, :lng, :aperture, :iso, :exposure_time, :camera_model)
       end
 
     protected

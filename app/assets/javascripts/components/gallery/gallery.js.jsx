@@ -33,7 +33,7 @@ var Gallery = React.createClass({
         </div>
       );
     } else {
-      toRender = (<h3 className="gallery-header">wrong</h3>);
+      toRender = (<h3 className="gallery-header">Gallery</h3>);
     }
 
     return (

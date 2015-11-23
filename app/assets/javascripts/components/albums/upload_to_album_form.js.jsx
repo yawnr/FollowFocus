@@ -6,48 +6,69 @@ var UploadToAlbumForm = React.createClass({
 
   uploadPhotos: function (event) {
     var files = event.currentTarget.files;
-    var lastFileCheck = false;
 
     for (var i = 0; i < files.length; i++) {
-      if (i === (files.length - 1)) {
-        lastFileCheck = true;
-      }
-      this.uploadEachPhoto(files[i], lastFileCheck);
+      this.uploadEachPhoto(files[i]);
     }
   },
 
-  uploadEachPhoto: function(file, lastFileCheck) {
+  uploadEachPhoto: function(file) {
     var reader = new FileReader();
     var album_id = this.props.album.id;
     var that = this;
 
+    var base64ToArrayBuffer = function  (base64) {
+      base64 = base64.replace(/^data\:([^\;]+)\;base64,/gmi, '');
+      var binary_string = window.atob(base64);
+      var len = binary_string.length;
+      var bytes = new Uint8Array( len );
+      for (var i = 0; i < len; i++) {
+          bytes[i] = binary_string.charCodeAt(i);
+      }
+      return bytes.buffer;
+    };
+
     reader.onloadend = function() {
       that.setState({ photoUrl: reader.result, photoFile: file });
-
       var loadedFile = that.state.photoFile;
+
+      var exif = EXIF.readFromBinaryFile(base64ToArrayBuffer(this.result));
+
+      var lat = exif.GPSLatitude;
+      var lng = exif.GPSLongitude;
+
+      //Convert coordinates to WGS84 decimal
+      if (lat && lng) {
+        var latRef = exif.GPSLatitudeRef || "N";
+        var lngRef = exif.GPSLongitudeRef || "W";
+        lat = (lat[0] + lat[1]/60 + lat[2]/3600) * (latRef == "N" ? 1 : -1);
+        lng = (lng[0] + lng[1]/60 + lng[2]/3600) * (lngRef == "W" ? -1 : 1);
+      }
+
+      var dateTime = exif.DateTimeOriginal;
+      var iso = exif.ISOSpeedRatings;
+      var aperture = exif.FNumber;
+      var exposureTime = exif.ExposureTime;
+      var cameraModel = exif.Make + " " + exif.Model;
+
       var formData = new FormData();
       formData.append("photo[photo_attachment]", loadedFile);
       formData.append("photo[album_id]", album_id);
+      formData.append("photo[date_time]", dateTime);
+      formData.append("photo[lat]", lat);
+      formData.append("photo[lng]", lng);
+      formData.append("photo[iso]", iso);
+      formData.append("photo[aperture]", aperture);
+      formData.append("photo[exposure_time]", exposureTime);
+      formData.append("photo[camera_model]", cameraModel);
 
       ApiUtil.uploadPhoto(album_id, formData);
-
-      // ApiUtil.createPhotoObject(album_id, formData);
-
-      // if (lastFileCheck) {
-        // ApiUtil.uploadPhoto(album, formData);
-      //   console.log("this is the last file");
-      // } else {
-      //   ApiUtil.uploadPhoto(formData);
-      // }
     };
 
     if (file) {
         reader.readAsDataURL(file);
         this.resetForm();
-    } else {
-      console.log("no files");
-      // this.setState({ photoUrl: "", photoFile: null });
-    }
+      }
   },
 
   resetForm: function() {
@@ -58,7 +79,7 @@ var UploadToAlbumForm = React.createClass({
     return (
       <div>
         <h3>Add Photos</h3>
-        <input className="profile-photo-input" type="file" multiple onChange={this.uploadPhotos} />
+        <input id="file" className="profile-photo-input" type="file" multiple onChange={this.uploadPhotos} />
       </div>
     );
   }

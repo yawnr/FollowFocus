@@ -9,7 +9,6 @@ var AlbumIndexItem = React.createClass({
           <Link to={"/albums/" + this.props.album.id} className="album-link">
             <span className="album-index-item-text">{this.props.album.title}</span>
           </Link>
-          <div className="album-index-item"><PhotoIndexPreview album={this.props.album} /></div>
         </div>
     );
   }

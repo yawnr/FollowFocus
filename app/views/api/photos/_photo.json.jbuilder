@@ -1,4 +1,4 @@
-json.extract! photo, :id, :title, :exif_data, :user_id, :album_id
+json.extract! photo, :id, :title, :user_id, :album_id
 json.photo_attachment_url image_path(photo.photo_attachment.url)
 json.file_name photo.photo_attachment_file_name
 json.username User.find(photo.user_id).username
