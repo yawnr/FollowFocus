@@ -6,6 +6,7 @@ var AlbumIndex = React.createClass({
 
   componentDidMount: function () {
     AlbumStore.addChangeListener(this._albumsChanged);
+    AlbumCoversStore.addChangeListener(this._albumsChanged);
     ApiUtil.fetchUserAlbums(this.props.userId);
     UserUtil.fetchAlbumCovers(this.props.userId);
   },
@@ -16,6 +17,7 @@ var AlbumIndex = React.createClass({
 
   componentWillUnmount: function () {
     AlbumStore.removeChangeListener(this._albumsChanged);
+    AlbumCoversStore.removeChangeListener(this._albumsChanged);
   },
 
   render: function () {
@@ -23,7 +25,7 @@ var AlbumIndex = React.createClass({
     var Link = ReactRouter.Link;
     var toRender;
 
-    if (this.state.albums.length > 0) {
+    if (AlbumCoversStore.all().length > 0) {
       toRender = (
         <div>
 

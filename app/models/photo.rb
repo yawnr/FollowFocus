@@ -21,21 +21,23 @@ class Photo < ActiveRecord::Base
   end
 
   def self.get_album_covers(user_id)
-    # Photo.find_by_sql(<<-SQL, user_id)
-    #   SELECT
-    #     *
-    #   FROM
-    #     photos
-    #   WHERE
-    #     user_id = ? AND timestamp = (
-    #       SELECT
-    #         MAX(timestamp)
-    #       FROM
-    #         photos latest
-    #       WHERE
-    #         album_id = photos.album_id
-    #     )
-    # SQL
+    Photo.find_by_sql([<<-SQL, user_id])
+      SELECT
+        photos.*
+      FROM
+        photos
+      WHERE
+        photos.created_at IN (
+        SELECT
+          MAX(new_photos.created_at) AS newest
+        FROM
+          albums
+        JOIN
+          photos AS new_photos ON new_photos.album_id = albums.id
+        GROUP BY
+          albums.id
+        ) AND photos.user_id = 2
+    SQL
   end
 
 
