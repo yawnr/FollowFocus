@@ -27,6 +27,18 @@ UserUtil = {
         }
       }
     });
+  },
+
+  fetchUserPhotos: function (user_id) {
+    $.ajax({
+      url: 'api/photos',
+      method: "GET",
+      dataType: "json",
+      data: {user_id: user_id},
+      success: function (photos) {
+        UserActions.receiveUserPhotos(photos);
+      }
+    });
   }
 
 };

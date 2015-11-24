@@ -27,6 +27,10 @@
           resetPhotos(payload.photos);
           PhotosStore.emit(CHANGE_EVENT);
           break;
+        case UserConstants.USER_PHOTOS_RECEIVED:
+          resetPhotos(payload.photos);
+          PhotosStore.emit(CHANGE_EVENT);
+          break;
       }
     }),
 

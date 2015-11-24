@@ -19,14 +19,15 @@ var Profile = React.createClass({
   },
 
   render: function () {
-    
+
+          // <AlbumIndex userId={parseInt(this.props.routeParams.userId)}/>
     var toRender;
 
     if (this.state.user) {
       toRender = (
         <div>
           <ProfilePhoto user={this.state.user} />
-          <AlbumIndex userId={parseInt(this.props.routeParams.userId)}/>
+          <CameraRoll user={this.state.user} />
         </div>
       );
     } else {
