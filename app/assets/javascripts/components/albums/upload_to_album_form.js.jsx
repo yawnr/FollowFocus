@@ -45,17 +45,44 @@ var UploadToAlbumForm = React.createClass({
         lng = (lng[0] + lng[1]/60 + lng[2]/3600) * (lngRef == "W" ? -1 : 1);
       }
 
-      var dateTime = exif.DateTimeOriginal;
+      var dateTime;
+      if (exif.DateTimeOriginal !== undefined) {
+        dateTime = exif.DateTimeOriginal;
+      } else {
+        dateTime = "Unknown";
+      }
+
       var iso = exif.ISOSpeedRatings;
+      if (exif.ISOSpeedRatings !== undefined) {
+        iso = exif.ISOSpeedRatings;
+      } else {
+        iso = "Unknown";
+      }
+
       var aperture;
-      if (exif.Fnumber) {
+      if (exif.Fnumber !== undefined) {
           aperture = "" + (exif.FNumber.numerator / exif.FNumber.denominator);
+      } else {
+        aperture = "Unknown";
       }
+
       var exposureTime;
-      if (exif.exposureTime) {
+      if (exif.exposureTime !== undefined) {
         exposureTime = exif.ExposureTime.numerator + "/" + exif.ExposureTime.denominator;
+      } else {
+        exposureTime = "Unkown";
       }
-      var cameraModel = exif.Make + " " + exif.Model;
+
+      var cameraModel;
+      if (exif.Make !== undefined && exif.Model !== undefined) {
+        cameraModel = exif.Make + " " + exif.Model;
+      } else if (exif.Make !== undefined && exif.Model === undefined){
+        cameraModel = exif.Make;
+      } else if (exif.Make === undefined && exif.Model !== undefined){
+        cameraModel = exif.Model;
+      } else {
+        cameraModel = "Unknown";
+      }
 
       var formData = new FormData();
       formData.append("photo[photo_attachment]", loadedFile);

@@ -69,6 +69,9 @@ var Photo = React.createClass({
 
             <CommentIndex photo={this.state.photo}/>
           </div>
+
+          <ExifDetails photo={this.state.photo} />
+
         </section>
       );
     } else {
