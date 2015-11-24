@@ -5,10 +5,3 @@ json.username User.find(photo.user_id).username
 json.album_name Album.find(photo.album_id).title
 json.num_comments photo.comments.length
 json.created_at photo.created_at
-# json.lat
-# json.lng
-# json.aperture
-# json.iso
-# json.exposure_time
-# json.camera_model
-# json.date_time

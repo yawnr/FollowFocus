@@ -6,7 +6,7 @@ var Gallery = React.createClass({
 
   componentDidMount: function () {
     GalleryPhotosStore.addChangeListener(this._onChange);
-    GalleryUtil.fetchGalleryPhotos(1);
+    GalleryUtil.fetchGalleryPhotos();
   },
 
   componentWillUnmount: function () {

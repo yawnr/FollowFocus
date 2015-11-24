@@ -39,6 +39,18 @@ UserUtil = {
         UserActions.receiveUserPhotos(photos);
       }
     });
+  },
+
+  fetchAlbumCovers: function (user_id) {
+    $.ajax({
+      url: 'api/photos',
+      method: "GET",
+      dataType: "json",
+      data: {album_covers: true, user_id: user_id},
+      success: function (photos) {
+        UserActions.receiveAlbumCovers(photos);
+      }
+    });
   }
 
 };

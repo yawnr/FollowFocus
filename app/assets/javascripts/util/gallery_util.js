@@ -1,11 +1,11 @@
 GalleryUtil = {
 
-  fetchGalleryPhotos: function (gallery_id) {
+  fetchGalleryPhotos: function () {
     $.ajax({
       url: 'api/photos',
       method: "GET",
       dataType: "json",
-      data: {gallery_id: gallery_id},
+      data: {gallery_photos: true},
       success: function (photos) {
         GalleryActions.receiveGalleryPhotos(photos);
       }
