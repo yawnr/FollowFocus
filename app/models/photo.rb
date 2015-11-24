@@ -11,7 +11,6 @@ class Photo < ActiveRecord::Base
   has_many :comments
 
   attr_reader :photo_attachment_content_type
-  attr_accessor :photo_attachment_file_name
 
   def self.current_album_photos(album_id)
     return Album.find(album_id).photos
