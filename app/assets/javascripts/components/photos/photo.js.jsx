@@ -1,5 +1,7 @@
 var Photo = React.createClass({
 
+  mixins: [ReactRouter.History],
+
   componentWillMount: function () {
     ApiUtil.fetchPhoto(parseInt(this.props.routeParams.photoId));
     ApiUtil.fetchAlbumPhotos(parseInt(this.props.routeParams.albumId));
@@ -23,26 +25,35 @@ var Photo = React.createClass({
     }
   },
 
+  componentWillReceiveProps: function (newParams) {
+    var newPhoto = PhotosStore.findById(parseInt(newParams.params.photoId));
+    PhotoStore.resetPhoto(newPhoto);
+    this.setState({ photo: newPhoto });
+  },
+
   _prevPhoto: function () {
     var photo;
     var newIdx = PhotosStore.all().indexOf(this.state.photo) - 1;
-
     if ( newIdx < 0 ) {
       newIdx = PhotosStore.all().length - 1;
     }
 
-    this._onChange(PhotosStore.all()[newIdx]);
+    var newPhotoId = PhotosStore.all()[newIdx].id;
+    this.history.pushState(null, "/albums/" + this.state.photo.album_id + "/photos/" + newPhotoId, {});
+
+    // this._onChange(PhotosStore.all()[newIdx]);
   },
 
   _nextPhoto: function () {
     var photo;
     var newIdx = PhotosStore.findIndexInStore(this.state.photo) + 1;
-
     if ( newIdx > (PhotosStore.all().length - 1) ) {
       newIdx = 0;
     }
 
-    this._onChange(PhotosStore.all()[newIdx]);
+    var newPhotoId = PhotosStore.all()[newIdx].id;
+    this.history.pushState(null, "/albums/" + this.state.photo.album_id + "/photos/" + newPhotoId, {});
+    // this._onChange(PhotosStore.all()[newIdx]);
   },
 
   render: function () {
@@ -71,6 +82,7 @@ var Photo = React.createClass({
           </div>
 
           <ExifDetails photo={this.state.photo} />
+          <PhotoMap photo={this.state.photo}/>
 
         </section>
       );

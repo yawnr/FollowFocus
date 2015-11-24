@@ -3,14 +3,15 @@
   var _photo = {};
   var CHANGE_EVENT = "change";
 
-  var resetPhoto = function (photo) {
-    _photo = photo;
-  };
 
    root.PhotoStore = $.extend({}, EventEmitter.prototype, {
 
     photo: function () {
       return _photo;
+    },
+
+    resetPhoto: function (photo) {
+      _photo = photo;
     },
 
     addChangeListener: function (callback) {
@@ -24,7 +25,7 @@
     dispatcherID: AppDispatcher.register(function (payload) {
       switch(payload.actionType){
         case PhotoConstants.PHOTO_RECEIVED:
-          resetPhoto(payload.photo);
+          PhotoStore.resetPhoto(payload.photo);
           PhotoStore.emit(CHANGE_EVENT);
           break;
       }

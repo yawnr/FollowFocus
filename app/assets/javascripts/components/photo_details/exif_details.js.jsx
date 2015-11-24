@@ -1,14 +1,7 @@
 ExifDetails = React.createClass({
 
   _formatDate: function (dateString) {
-          // formData.append("photo[date_time]", dateTime);
-          // formData.append("photo[lat]", lat);
-          // formData.append("photo[lng]", lng);
-          // formData.append("photo[iso]", iso);
-          // formData.append("photo[aperture]", aperture);
-          // formData.append("photo[exposure_time]", exposureTime);
-          // formData.append("photo[camera_model]", cameraModel);
-          debugger
+
     var monthNames = ["January", "February", "March", "April", "May", "June",
       "July", "August", "September", "October", "November", "December"
     ];
@@ -31,8 +24,6 @@ ExifDetails = React.createClass({
           <li>Aperture: {this.props.photo.aperture || "Unknown"}</li>
           <li>Shutter Speed: {this.props.photo.exposure_time || "Unknown"}</li>
           <li>ISO: {this.props.photo.iso || "Unknown"}</li>
-          <li>Latitude: {this.props.photo.lat || "Unknown"}</li>
-          <li>Longitude: {this.props.photo.lng || "Unknown"}</li>
         </ul>
       </div>
     );
