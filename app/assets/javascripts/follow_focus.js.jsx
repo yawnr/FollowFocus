@@ -23,6 +23,7 @@ var routes = (
     <Route path="/albums/:albumId" component={Album} />
     <Route path="/albums/:albumId/photos/:photoId" component={Photo} />
     <Route path="/album/new" component={NewAlbum} />
+    <Route path="/search" component={ Search } />
   </Route>
 );
 

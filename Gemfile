@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'pg_search'
+gem 'kaminari'
+
 gem 'paperclip', '~>4.3'
 gem 'figaro'
 gem 'aws-sdk', '~>1.6'

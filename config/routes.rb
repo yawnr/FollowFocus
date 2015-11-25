@@ -7,9 +7,10 @@ Rails.application.routes.draw do
     resources :albums, only: [:index, :show, :create, :destroy, :update]
     resources :photos, only: [:index, :show, :create, :destroy, :update]
     resources :comments, only: [:index, :create, :destroy]
+    resources :search, only: :index
   end
 
-  resources :users, only: [:new, :create, :show, :update] 
+  resources :users, only: [:new, :create, :show, :update]
   #   namespace :api, defaults: {format: :json} do
   #     resources :albums, only: [:index]
   #     resources :photos, only: [:index]

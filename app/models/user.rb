@@ -1,5 +1,9 @@
 class User < ActiveRecord::Base
 
+  include PgSearch
+  multisearchable :against => [:username]
+
+
   validates :email, :username, :password_digest, :session_token, presence: true
   validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i,
     message: "address invalid." }

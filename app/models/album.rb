@@ -1,5 +1,9 @@
 class Album < ActiveRecord::Base
 
+  include PgSearch
+  multisearchable :against => [:title, :description]
+
+
   validates :user_id, presence: true
   validates :title, presence: true
 
