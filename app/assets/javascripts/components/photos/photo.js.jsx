@@ -13,6 +13,11 @@ var Photo = React.createClass({
     return { photo: PhotoStore.photo() };
   },
 
+  componentWillUnmount: function () {
+    PhotoStore.removeChangeListener(this._onChange);
+    PhotosStore.removeChangeListener(this._onChange);
+  },
+
   _onChange: function (photo) {
     if (PhotosStore.all().length === 0) {
       ApiUtil.fetchAlbumPhotos(parseInt(this.props.routeParams.albumId));

@@ -1,16 +1,16 @@
 var Album = React.createClass({
 
   getInitialState: function () {
-    return { album: AlbumStore.findById(parseInt(this.props.routeParams.albumId)), photos: [] };
+    return { album: AlbumStore.findById(parseInt(this.props.params.albumId)), photos: [] };
   },
 
   componentDidMount: function () {
     PhotosStore.addChangeListener(this._photosChanged);
-    ApiUtil.fetchAlbumPhotos(this.state.album.id);
+    ApiUtil.fetchAlbumPhotos(this.props.params.albumId);
   },
 
   _photosChanged: function () {
-    this.setState({ photos: PhotosStore.all() });
+    this.setState({ album: AlbumStore.findById(parseInt(this.props.params.albumId)), photos: PhotosStore.all() });
   },
 
   componentWillUnmount: function () {
@@ -24,7 +24,9 @@ var Album = React.createClass({
 
   render: function () {
 
-    var isOwner = (this.state.album.user_id == window.FollowFocus.currentUser.id);
+    if (!this.state.album) {return <div></div>;}
+
+    var isOwner = (this.state.album && this.state.album.user_id == window.FollowFocus.currentUser.id);
 
     var toRender;
 
