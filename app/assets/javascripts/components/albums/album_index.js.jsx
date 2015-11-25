@@ -32,7 +32,7 @@ var AlbumIndex = React.createClass({
         <AlbumForm />
         <br />
 
-          <ul className="album-index">
+          <ul className="album-index group">
             {this.state.albums.map(function (album) {
                 return (<AlbumIndexItem key={album.id} album={album} />);
               })

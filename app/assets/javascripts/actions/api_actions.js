@@ -35,6 +35,13 @@ ApiActions = {
     });
   },
 
+  deletePhoto: function (photo_id) {
+    AppDispatcher.dispatch({
+      actionType: PhotoConstants.PHOTO_DELETED,
+      photo_id: photo_id
+    });
+  },
+
   receiveAllComments: function (comments) {
     AppDispatcher.dispatch({
       actionType: CommentConstants.COMMENTS_RECEIVED,

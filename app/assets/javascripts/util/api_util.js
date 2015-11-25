@@ -74,6 +74,18 @@ ApiUtil = {
     });
   },
 
+  deletePhoto: function (photo_id) {
+    $.ajax({
+      url: 'api/photos/' + photo_id,
+      method: "DELETE",
+      dataType: "json",
+      data: {photo_id: photo_id},
+      success: function () {
+        ApiActions.deletePhoto(photo_id);
+      }
+    });
+  },
+
   fetchComments: function (photo_id) {
     $.ajax({
       url: 'api/comments',

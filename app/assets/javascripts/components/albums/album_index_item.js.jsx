@@ -13,13 +13,13 @@ var AlbumIndexItem = React.createClass({
     }
 
     return (
-      <div className="album-index-item">
-        <img src={coverImage} className="album-cover-photo" />
-        <div>
-          <Link to={"/albums/" + this.props.album.id} className="album-link">
+      <div className="index-item-container">
+        <img src={coverImage} />
+        <a href={"#/albums/" + this.props.album.id} className="album-index-item" >
+          <div className="table-cell">
             <span className="album-index-item-text">{this.props.album.title}</span>
-          </Link>
-        </div>
+          </div>
+        </a>
       </div>
     );
   }

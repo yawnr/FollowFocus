@@ -1,7 +1,7 @@
 var PhotoIndex = React.createClass({
 
   getInitialState: function () {
-    return { photos: PhotosStore.all() };
+    return { photos: [] };
   },
 
   componentDidMount: function () {

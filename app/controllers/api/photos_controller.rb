@@ -30,6 +30,12 @@ class Api::PhotosController < ApplicationController
       render 'show'
     end
 
+    def destroy
+      @photo = Photo.find(params[:photo_id])
+      @photo.destroy!
+      render 'show'
+    end
+
     private
       def photo_params
         params.require(:photo).permit(:title, :album_id, :photo_attachment, :date_time,

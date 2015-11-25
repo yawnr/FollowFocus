@@ -46,7 +46,7 @@ var Photo = React.createClass({
 
   _nextPhoto: function () {
     var photo;
-    var newIdx = PhotosStore.findIndexInStore(this.state.photo) + 1;
+    var newIdx = PhotosStore.findIndexInStore(this.state.photo.id) + 1;
     if ( newIdx > (PhotosStore.all().length - 1) ) {
       newIdx = 0;
     }
@@ -82,7 +82,7 @@ var Photo = React.createClass({
           </div>
 
           <ExifDetails photo={this.state.photo} />
-          <PhotoMap photo={this.state.photo}/>
+
 
         </section>
       );

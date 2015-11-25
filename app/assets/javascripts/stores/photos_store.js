@@ -31,6 +31,11 @@
           resetPhotos(payload.photos);
           PhotosStore.emit(CHANGE_EVENT);
           break;
+        case PhotoConstants.PHOTO_DELETED:
+          var spliceIdx = PhotosStore.findIndexInStore(payload.photo_id);
+          _photos.splice(spliceIdx, 1);
+          PhotosStore.emit(CHANGE_EVENT);
+          break;
       }
     }),
 
@@ -42,9 +47,9 @@
       return photo;
     },
 
-    findIndexInStore: function (photo) {
+    findIndexInStore: function (photo_id) {
       for (var i = 0; i < _photos.length; i++) {
-        if (_photos[i].id === photo.id) {
+        if (_photos[i].id === photo_id) {
           return i;
         }
       }
