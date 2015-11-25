@@ -12,12 +12,20 @@ var PhotoThumbnail = React.createClass({
 
   render: function () {
 
-    return (
-      <li className="photo-thumbnail-container" key={this.props.photo.id} >
-        <img src={this.props.photo.photo_attachment_url} onClick={this.renderFullSize}/>
-        <span onClick={this.deletePhoto}>Delete</span>
-      </li>
-    );
+    if (this.props.photo.user_id == window.FollowFocus.currentUser.id) {
+      return (
+        <li className="photo-thumbnail-container" key={this.props.photo.id} >
+          <img src={this.props.photo.photo_attachment_url} onClick={this.renderFullSize}/>
+          <span className="delete-photo-button" onClick={this.deletePhoto}>Delete</span>
+        </li>
+      );
+    } else {
+      return (
+        <li className="photo-thumbnail-container" key={this.props.photo.id} >
+          <img src={this.props.photo.photo_attachment_url} onClick={this.renderFullSize}/>
+        </li>
+      );
+    }
 
   }
 

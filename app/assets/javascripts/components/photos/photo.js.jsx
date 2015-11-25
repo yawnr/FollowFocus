@@ -28,6 +28,7 @@ var Photo = React.createClass({
   componentWillReceiveProps: function (newParams) {
     var newPhoto = PhotosStore.findById(parseInt(newParams.params.photoId));
     PhotoStore.resetPhoto(newPhoto);
+    // PhotoMap._setupMap();
     this.setState({ photo: newPhoto });
   },
 
@@ -82,7 +83,7 @@ var Photo = React.createClass({
           </div>
 
           <ExifDetails photo={this.state.photo} />
-
+          <PhotoMap photo={this.state.photo} />
 
         </section>
       );
