@@ -4,8 +4,29 @@ var UploadToAlbumForm = React.createClass({
     return { photoUrl: "", photoFile: null };
   },
 
+  componentDidMount: function () {
+    var dropZone = document.getElementById('dropZone');
+
+    // Optional.   Show the copy icon when dragging over.  Seems to only work for chrome.
+    dropZone.addEventListener('dragover', function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        e.dataTransfer.dropEffect = 'copy';
+    });
+
+    dropZone.addEventListener('drop', this.uploadPhotos);
+  },
+
   uploadPhotos: function (event) {
-    var files = event.currentTarget.files;
+    event.stopPropagation();
+    event.preventDefault();
+
+    var files;
+    if (event.currentTarget.id === "dropZone") {
+      files = event.dataTransfer.files;
+    } else {
+      files = event.currentTarget.files;
+    }
 
     for (var i = 0; i < files.length; i++) {
       this.uploadEachPhoto(files[i]);
@@ -112,6 +133,8 @@ var UploadToAlbumForm = React.createClass({
     return (
       <div>
         <h3>Add Photos</h3>
+        <div id="dropZone" style={{background: "red", width: "500px", height: "200px"}}>Drag files here</div>
+        <span>or</span>
         <input id="file" className="profile-photo-input" type="file" multiple onChange={this.uploadPhotos} />
       </div>
     );
