@@ -1,24 +1,57 @@
 var Album = React.createClass({
 
+  getInitialState: function () {
+    return { album: AlbumStore.findById(parseInt(this.props.routeParams.albumId)), photos: [] };
+  },
+
+  componentDidMount: function () {
+    PhotosStore.addChangeListener(this._photosChanged);
+    ApiUtil.fetchAlbumPhotos(this.state.album.id);
+  },
+
+  _photosChanged: function () {
+    this.setState({ photos: PhotosStore.all() });
+  },
+
+  componentWillUnmount: function () {
+    PhotosStore.removeChangeListener(this._photosChanged);
+  },
+
+  componentWillReceiveProps: function (newParams) {
+    ApiUtil.fetchAlbumPhotos(newParams.params.albumId);
+  },
+
+
   render: function () {
+
+    var isOwner = (this.state.album.user_id == window.FollowFocus.currentUser.id);
 
     var toRender;
 
-    var album = AlbumStore.findById(parseInt(this.props.routeParams.albumId));
-
-    var isOwner = (album.user_id == window.FollowFocus.currentUser.id);
-
-    return (
-      <div>
+    if (this.state.photos.length > 0) {
+      return (
         <div>
-          <ProfilePhoto user={UserStore.user()} />
-        </div>
+          <div>
+            <ProfilePhoto user={UserStore.user()} />
+          </div>
 
-        <h3>{album.title}</h3>
-        <UploadToAlbumForm album={album} isOwner={isOwner}/>
-        <PhotoIndex album={album} />
-      </div>
-    );
+          <h3>{this.state.album.title}</h3>
+          <UploadToAlbumForm album={this.state.album} isOwner={isOwner}/>
+          <PhotoIndex photos={this.state.photos} />
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <div>
+            <ProfilePhoto user={UserStore.user()} />
+          </div>
+
+          <h3>{this.state.album.title}</h3>
+          <UploadToAlbumForm album={this.state.album} isOwner={isOwner}/>
+        </div>
+      );
+    }
   }
 
 });
