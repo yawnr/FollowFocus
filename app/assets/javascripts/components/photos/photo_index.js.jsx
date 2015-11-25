@@ -17,6 +17,11 @@ var PhotoIndex = React.createClass({
     PhotosStore.removeChangeListener(this._photosChanged);
   },
 
+  componentWillReceiveProps: function (newParams) {
+    debugger
+    ApiUtil.fetchAlbumPhotos(newParams.params.albumId);
+  },
+
   render: function () {
 
     var Link = ReactRouter.Link;

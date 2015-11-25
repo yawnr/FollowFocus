@@ -15,7 +15,7 @@ var AlbumForm = React.createClass({
     event.preventDefault();
     var currDate = new Date();
     var album = {
-      title: "New Album - " + currDate.getMonth() + "/" + currDate.getDay() + "/" + currDate.getFullYear()
+      title: "New Album - " + (currDate.getMonth() + 1) + "/" + currDate.getDate() + "/" + currDate.getFullYear()
     };
 
     ApiUtil.createAlbum(album, function (id) {
@@ -26,11 +26,15 @@ var AlbumForm = React.createClass({
   },
 
   render: function () {
-    return (
-      <form className="new-album-form group" onSubmit={this.createAlbum}>
-          <button>Create New Album</button>
-      </form>
-    );
+    if (this.props.userId == window.FollowFocus.currentUser.id) {
+      return (
+        <form className="new-album-form group" onSubmit={this.createAlbum}>
+            <button>Create New Album</button>
+        </form>
+      );
+    } else {
+      return (<div></div>);
+    }
   }
 
 

@@ -29,8 +29,7 @@ var AlbumIndex = React.createClass({
       toRender = (
         <div>
 
-        <AlbumForm />
-        <br />
+        <AlbumForm userId={this.props.userId} />
 
           <ul className="album-index group">
             {this.state.albums.map(function (album) {
