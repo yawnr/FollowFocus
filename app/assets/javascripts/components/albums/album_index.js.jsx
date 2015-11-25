@@ -25,7 +25,7 @@ var AlbumIndex = React.createClass({
     var Link = ReactRouter.Link;
     var toRender;
 
-    if (AlbumCoversStore.all().length > 0) {
+    if (AlbumStore.all().length > 0) {
       toRender = (
         <div>
 

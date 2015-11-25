@@ -28,7 +28,6 @@ var Photo = React.createClass({
   componentWillReceiveProps: function (newParams) {
     var newPhoto = PhotosStore.findById(parseInt(newParams.params.photoId));
     PhotoStore.resetPhoto(newPhoto);
-    // PhotoMap._setupMap();
     this.setState({ photo: newPhoto });
   },
 
@@ -83,7 +82,6 @@ var Photo = React.createClass({
           </div>
 
           <ExifDetails photo={this.state.photo} />
-          <PhotoMap photo={this.state.photo} />
 
         </section>
       );
@@ -91,9 +89,16 @@ var Photo = React.createClass({
       toRender = (<div className="parent-container"></div>);
     }
 
-    return(
-      toRender
-    );
+    if (this.state.photo.id && this.state.photo.lat !== 0) {
+      return(
+        <div>
+          {toRender}
+          <PhotoMap photo={this.state.photo} />
+        </div>
+      );
+    } else {
+      return toRender;
+    }
   }
 
 });

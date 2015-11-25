@@ -1,14 +1,12 @@
 var Album = React.createClass({
 
-  getInitialState: function () {
-    return { photos: [] };
-  },
-
   render: function () {
 
     var toRender;
 
     var album = AlbumStore.findById(parseInt(this.props.routeParams.albumId));
+
+    var isOwner = (album.user_id == window.FollowFocus.currentUser.id);
 
     return (
       <div>
@@ -17,7 +15,7 @@ var Album = React.createClass({
         </div>
 
         <h3>{album.title}</h3>
-        <UploadToAlbumForm album={album} />
+        <UploadToAlbumForm album={album} isOwner={isOwner}/>
         <PhotoIndex album={album} />
       </div>
     );
