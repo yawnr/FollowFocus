@@ -39,7 +39,7 @@ class Photo < ActiveRecord::Base
           photos AS new_photos ON new_photos.album_id = albums.id
         GROUP BY
           albums.id
-        ) AND photos.user_id = 2
+        ) AND photos.user_id = ?
     SQL
   end
 
