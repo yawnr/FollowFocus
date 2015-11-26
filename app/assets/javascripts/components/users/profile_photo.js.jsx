@@ -9,7 +9,7 @@ var ProfilePhoto = React.createClass({
           <div className="profile-photo-container">
 
             <div className="profile-photo">
-              <img src={this.props.user.profile_photo_url} />
+              <img src={this.props.user.profile_photo_thumb} />
             </div>
 
             <ProfilePhotoForm user={this.props.user} />
@@ -26,7 +26,7 @@ var ProfilePhoto = React.createClass({
           <div className="profile-photo-container">
 
             <div className="profile-photo">
-              <img src={this.props.user.profile_photo_url} />
+              <img src={this.props.user.profile_photo_thumb} />
             </div>
           </div>
 

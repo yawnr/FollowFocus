@@ -17,17 +17,19 @@ var GalleryPhotoInfoBox = React.createClass({
     }
 
     return (
-      <div className="gallery-photo-info-box">
-        <ul>
-          <li><Link to={"/users/" + this.props.photo.user_id} >{this.props.photo.username}</Link></li>
-          <li>{timeSincePosted}</li>
-        </ul>
-        <ul>
-          <li></li>
-          <li>{this.props.photo.file_name}</li>
-          <li>{this.props.photo.album_name}</li>
-          <li>{this.props.photo.num_comments}</li>
-        </ul>
+      <div className="info-box-container">
+        <div className="gallery-photo-info-box">
+          <div className="info-box-photo-title">{this.props.photo.file_name}</div>
+          <ul className="ul1">
+            <li>By <Link to={"/users/" + this.props.photo.user_id} >{this.props.photo.username}</Link></li>
+            <li>{timeSincePosted}</li>
+          </ul>
+          <ul className="ul2">
+            <li></li>
+            <li>From {this.props.photo.album_name}</li>
+            <li>{this.props.photo.num_comments} comments</li>
+          </ul>
+        </div>
       </div>
     );
   }

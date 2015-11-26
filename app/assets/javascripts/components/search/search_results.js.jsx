@@ -35,7 +35,13 @@ var Search = React.createClass({
 
     render: function() {
       var results = SearchResultsStore.results().map(function (result) {
-        return result;
+        if (result._type === "User") {
+          return <div className="user-search-result"><img src={result.profile_photo_thumb} />{result.username}</div>;
+        } else if (result._type === "Photo") {
+          return <div className="photo-search-result"><img src={result.small} /></div>;
+        } else {
+          return <div className="album-search-result">{result.title}</div>;
+        }
         });
 
       var nextPage = (parseInt(this.props.location.query.page) || 1) + 1;
@@ -49,7 +55,7 @@ var Search = React.createClass({
           />
 
           <p>
-            Displaying { SearchResultsStore.results().length } 
+            Displaying { SearchResultsStore.results().length }
             of { SearchResultsStore.totalCount() }
           </p>
 

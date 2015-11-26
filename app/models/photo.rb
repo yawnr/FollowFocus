@@ -1,11 +1,11 @@
 class Photo < ActiveRecord::Base
 
   include PgSearch
-  multisearchable :against => [:title, :camera_model]
+  multisearchable :against => [:title, :camera_model, :file_name]
 
   validates :user_id, :album_id, presence: true
 
-  has_attached_file :photo_attachment, styles: {large: "1400x1400>", medium: "1000x1000>", small: "750x750>", thumb: "200x200>", small_thumb: "100x100>"}
+  has_attached_file :photo_attachment, styles: {large: "1400x1400>", medium: "1000x1000>", small: "750x750>", large_thumb: "300x300>", thumb: "200x200>", small_thumb: "100x100>"}
   validates_attachment_content_type :photo_attachment, content_type: /\Aimage\/.*\Z/
 
   belongs_to :album

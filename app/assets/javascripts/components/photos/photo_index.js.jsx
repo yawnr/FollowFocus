@@ -60,7 +60,7 @@ var PhotoIndex = React.createClass({
   render: function () {
       // this return is the only thing that was here before trying out freewall
     return(
-      <div>
+      <div className="group">
         <ul className="photo-index group">
           {this.props.photos.map(function (photo) {
               return (<PhotoThumbnail key={photo.id} photo={photo} />);

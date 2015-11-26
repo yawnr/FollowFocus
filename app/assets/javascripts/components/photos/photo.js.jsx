@@ -74,19 +74,19 @@ var Photo = React.createClass({
             <div className="photo-container">
               <div className="prev-photo" onClick={this._prevPhoto}><strong className="prev-photo-text">PREV</strong></div>
               <div className="next-photo" onClick={this._nextPhoto}><strong className="next-photo-text">NEXT</strong></div>
-              <img className="full-size-photo" src={this.state.photo.photo_attachment_url}/>
+              <img className="full-size-photo" src={this.state.photo.small}/>
             </div>
           </div>
 
-          <div>
+          <ExifDetails photo={this.state.photo} />
+
+          <div className="comments-section">
             <CommentForm photo={this.state.photo}/>
 
             <br />
 
             <CommentIndex photo={this.state.photo}/>
           </div>
-
-          <ExifDetails photo={this.state.photo} />
 
         </section>
       );

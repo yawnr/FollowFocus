@@ -8,9 +8,10 @@ $(function () {
   var App = React.createClass({
     render: function () {
       return (
-        <div>
+        <div className="app">
           <nav><NavBar /></nav>
           {this.props.children}
+
         </div>
       );
     }

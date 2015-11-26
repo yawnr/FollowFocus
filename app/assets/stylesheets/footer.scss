@@ -1,0 +1,38 @@
+footer {
+  position: relative;
+  margin: 0;
+  height: 100px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  display: block;
+  background: #171717;
+  width: 100%;
+  height: 40px;
+  text-align: left;
+  font-family: "Proxima Nova", "Helvetica Neue", helvetica, arial, sans-serif;
+}
+
+.copyright {
+  float: left;
+  font-size: 14px;
+  margin-left: 20px;
+  margin-top: 12px;
+}
+
+.footer-links {
+  float: right;
+  margin-top: 10px;
+}
+
+.footer li {
+  float: left;
+}
+
+.footer a {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+}

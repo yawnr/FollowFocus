@@ -1,4 +1,4 @@
-var PhotoIndexFreeWall = React.createClass({
+var CameraRollFreewall = React.createClass({
 
   getInitialState: function () {
     return { photos: this.props.photos };

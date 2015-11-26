@@ -18,14 +18,29 @@ ExifDetails = React.createClass({
 
   render: function () {
     return(
-      <div>
-        <ul>
-          <li>Date taken: {this._formatDate(this.props.photo.date_time)}</li>
-          <li>Camera model: {this.props.photo.camera_model || "Unknown"}</li>
-          <li>Aperture: {this.props.photo.aperture || "Unknown"}</li>
-          <li>Shutter Speed: {this.props.photo.exposure_time || "Unknown"}</li>
-          <li>ISO: {this.props.photo.iso || "Unknown"}</li>
-        </ul>
+      <div className="exif-container">
+        <table className="exif-table">
+          <tr className="exif-row">
+            <td> Date taken: </td>
+            <td>{this._formatDate(this.props.photo.date_time)}</td>
+          </tr>
+          <tr className="exif-row">
+            <td> Camera model: </td>
+            <td>{this.props.photo.camera_model || "Unknown"}</td>
+          </tr>
+          <tr className="exif-row">
+            <td> Aperture: </td>
+            <td>{this.props.photo.aperture || "Unknown"}</td>
+          </tr>
+          <tr className="exif-row">
+            <td> Shutter Speed: </td>
+            <td>{this.props.photo.exposure_time || "Unknown"}</td>
+          </tr>
+          <tr className="exif-row">
+            <td> ISO: </td>
+            <td>{this.props.photo.iso || "Unknown"}</td>
+          </tr>
+        </table>
       </div>
     );
   }

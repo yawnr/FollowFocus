@@ -28,11 +28,11 @@ var CommentForm = React.createClass({
 
         <label htmlFor="comment_body" />
         <div className="comment-body-input">
-            <textarea id="comment_body" cols="100" rows="5" valueLink={this.linkState("body")} placeholder="New Comment"/>
+            <input type="text" id="comment_body"  valueLink={this.linkState("body")} placeholder="Add a comment"/>
         </div>
 
         <div>
-          <button>Submit Comment</button>
+          <button className="submit-comment">Submit Comment</button>
         </div>
         <br />
       </form>

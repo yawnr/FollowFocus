@@ -1,0 +1,26 @@
+.photo-thumbnail {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  float: left;
+  margin: 5px;
+  position: relative;
+
+}
+
+.photo-thumbnail-container {
+
+}
+
+.photo-index {
+  margin: 200px 200px;
+  display: block;
+}
+
+.photo-thumbnail-container > img {
+  display: block;
+}
+
+.delete-photo-button {
+  z-index: 1;
+}

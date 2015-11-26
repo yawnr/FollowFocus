@@ -1,0 +1,29 @@
+.exif-container {
+  float: right;
+  position: absolute;
+  right: 250px;
+
+}
+
+.exif-table {
+  margin: 30px;
+  width: 400px;
+  height: 200px;
+  text-align: left;
+  display: table;
+  border-radius: 10px;
+  border-spacing: 20px;
+
+  background: #212121;
+  color: #494949;
+}
+
+.exif-table > td {
+  display: table-cell;
+  vertical-align: middle;
+  padding: 5px;
+}
+
+.exif-table > td {
+  border-bottom: 1px solid gray;
+}

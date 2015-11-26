@@ -1,0 +1,22 @@
+#dropZone {
+  margin: auto;
+  background: transparent;
+  width: 500px;
+  height: 100px;
+  display: table-cell;
+  vertical-align: middle;
+  // transition: height 500ms;
+}
+
+// #dropZone:hover {
+//   height: 300px;
+// }
+
+.dropZone-container {
+  width: 500px;
+  margin: auto;
+  display: table;
+
+  border: 1px dashed #ccc;
+  border-radius: 10px;
+}

@@ -22,8 +22,7 @@
 
 .profile-photo-container img:only-of-type {
   display: block;
-  width: auto;
-  height: 100%;
+  object-fit: fill;
 }
 
 .profile-photo-container:hover span {

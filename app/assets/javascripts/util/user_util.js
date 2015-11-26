@@ -5,7 +5,7 @@ UserUtil = {
       url: '/users/' + user_id,
       method: "GET",
       dataType: "json",
-      data: {user_id: user_id},
+      // data: {user_id: user_id},
       success: function (user) {
         UserActions.receiveUser(user);
       }
