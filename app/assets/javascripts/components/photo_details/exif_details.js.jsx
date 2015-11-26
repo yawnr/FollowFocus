@@ -21,11 +21,11 @@ ExifDetails = React.createClass({
       <div className="exif-container">
         <table className="exif-table">
           <tr className="exif-row">
-            <td> Date taken: </td>
+            <td> Date taken </td>
             <td>{this._formatDate(this.props.photo.date_time)}</td>
           </tr>
           <tr className="exif-row">
-            <td> Camera model: </td>
+            <td> Camera model </td>
             <td>{this.props.photo.camera_model || "Unknown"}</td>
           </tr>
           <tr className="exif-row">
@@ -33,11 +33,11 @@ ExifDetails = React.createClass({
             <td>{this.props.photo.aperture || "Unknown"}</td>
           </tr>
           <tr className="exif-row">
-            <td> Shutter Speed: </td>
+            <td> Shutter Speed </td>
             <td>{this.props.photo.exposure_time || "Unknown"}</td>
           </tr>
           <tr className="exif-row">
-            <td> ISO: </td>
+            <td> ISO </td>
             <td>{this.props.photo.iso || "Unknown"}</td>
           </tr>
         </table>

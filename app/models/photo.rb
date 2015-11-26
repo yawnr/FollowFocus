@@ -1,7 +1,7 @@
 class Photo < ActiveRecord::Base
 
   include PgSearch
-  multisearchable :against => [:title, :camera_model, :file_name]
+  multisearchable :against => [:title, :camera_model]
 
   validates :user_id, :album_id, presence: true
 

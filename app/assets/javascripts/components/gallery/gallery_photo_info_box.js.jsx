@@ -19,7 +19,7 @@ var GalleryPhotoInfoBox = React.createClass({
     return (
       <div className="info-box-container">
         <div className="gallery-photo-info-box">
-          <div className="info-box-photo-title">{this.props.photo.file_name}</div>
+          <div className="info-box-photo-title">{this.props.photo.title}</div>
           <ul className="ul1">
             <li>By <Link to={"/users/" + this.props.photo.user_id} >{this.props.photo.username}</Link></li>
             <li>{timeSincePosted}</li>

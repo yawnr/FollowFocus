@@ -105,7 +105,7 @@ ApiUtil = {
       dataType: "json",
       data: {comment: comment},
       success: function (comment) {
-        ApiActions.receiveComment(comment);
+        ApiUtil.fetchComments(comment.photo_id);
       }
     });
   },

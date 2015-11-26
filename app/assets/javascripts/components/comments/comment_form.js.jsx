@@ -18,7 +18,7 @@ var CommentForm = React.createClass({
     this.setState({ body: '' });
 
     setTimeout(function () {
-      $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+      $(".comments-index").animate({scrollTop: $('.comments-index').prop("scrollHeight")}, "slow");
     }, 500);
   },
 
