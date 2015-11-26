@@ -39,7 +39,7 @@ var Album = React.createClass({
 
           <h3>{this.state.album.title}</h3>
           <UploadToAlbumForm album={this.state.album} isOwner={isOwner}/>
-          <PhotoIndex photos={this.state.photos} />
+          <PhotoIndexFreeWall photos={this.state.photos} />
         </div>
       );
     } else {

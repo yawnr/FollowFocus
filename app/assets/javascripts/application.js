@@ -18,6 +18,7 @@
 //= require flux
 //= require require.js
 //= require jquery.exif.js
+//= require freewall.js
 //= require exif.js
 //= require eventemitter
 //= require components
