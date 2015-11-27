@@ -1,22 +1,31 @@
-<h1>Create Account</h1>
+<div class="create-page">
 
+  <img class="create-logo" src="<%= image_path("logo2.png") %>" />
 
-<form action="<%= users_url %>" method="POST">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <div class="create-form">
+      <h3>Create Account</h3>
 
-    <label>Email
-      <input type="text" name="user[email]" value="<%=@user.email %>">
-    </label>
+      <form action="<%= users_url %>" method="POST">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-    <label>Username
-      <input type="text" name="user[username]" value="<%=@user.username %>">
-    </label>
+          <label>
+            <input type="text" class="email-create" name="user[email]" placeholder="email" value="<%=@user.email %>">
+          </label>
 
-    <label>Password
-      <input type="password" name="user[password]">
-    </label>
+          <label>
+            <input type="text" class="username-create" name="user[username]" placeholder="username" value="<%=@user.username %>">
+          </label>
 
-    <button>Create Account</button>
-</form>
+          <label>
+            <input type="password" class="password-create" placeholder="password" name="user[password]">
+          </label>
 
-<p><%= link_to "Log In", new_session_url %></p>
+          <button class="create-button">Create Account</button>
+
+          <br/>
+          <a href="http://www.followfocus.co/session/new" class="login-link">Log In</a>
+      </form>
+
+    </div>
+
+  </div>
