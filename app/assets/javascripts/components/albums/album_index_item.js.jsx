@@ -9,7 +9,7 @@ var AlbumIndexItem = React.createClass({
     if (albumCover !== undefined) {
       coverImage = albumCover.small;
     } else {
-      coverImage = window.FollowFocus.images.logoLens;
+      coverImage = window.FollowFocus.images.blankAlbumCover;
     }
 
     return (
