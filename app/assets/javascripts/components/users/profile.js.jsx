@@ -45,7 +45,7 @@ var Profile = React.createClass({
               <li className="album-view-selector" onClick={this._switchView}>Albums</li>
             </ul>
           </div>
-          <CameraRoll user={this.state.user} />
+          <CameraRollFreewall user={this.state.user} />
         </div>
       );
     } else if (this.state.user && this.state.view === "AlbumView") {

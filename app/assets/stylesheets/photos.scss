@@ -113,19 +113,35 @@
 }
 
 .parent-container:hover .next-photo-text {
-  opacity: 1;
+  opacity: .7;
 }
 
 .parent-container:hover .prev-photo-text {
-  opacity: 1;
+  opacity: .7;
 }
 
 .parent-container:hover .next-photo {
-  opacity: 1;
+  opacity: .7;
   left: calc(100% - 60px);
 }
 
 .parent-container:hover .prev-photo {
-  opacity: 1;
+  opacity: .7;
   right: calc(100% - 60px);
+}
+
+.parent-container .next-photo-text:hover {
+  opacity: 1;
+}
+
+.parent-container .prev-photo-text:hover {
+  opacity: 1;
+}
+
+.parent-container .next-photo:hover {
+  opacity: 1;
+}
+
+.parent-container .prev-photo:hover {
+  opacity: 1;
 }

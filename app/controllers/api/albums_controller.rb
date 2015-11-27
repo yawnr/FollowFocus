@@ -3,7 +3,7 @@ class Api::AlbumsController < ApplicationController
   before_filter :determine_scope
 
   def index
-    @albums = @scope.all
+    @albums = @scope.order(created_at: :desc).all
     render 'index'
   end
 

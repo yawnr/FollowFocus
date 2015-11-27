@@ -4,9 +4,9 @@ class Api::PhotosController < ApplicationController
 
     def index
       if params[:gallery_photos]
-        @photos = Photo.generate_gallery_photos
+        @photos = Photo.order(created_at: :desc).generate_gallery_photos
       elsif params[:album_covers]
-        @photos = Photo.get_album_covers(params[:user_id].to_i)
+        @photos = Photo.order(created_at: :desc).get_album_covers(params[:user_id].to_i)
       else
         @photos = @scope.order(created_at: :desc).all
       end

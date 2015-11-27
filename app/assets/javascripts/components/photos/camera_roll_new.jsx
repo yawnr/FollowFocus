@@ -1,39 +1,51 @@
 var CameraRollFreewall = React.createClass({
 
-  getInitialState: function () {
-    return { photos: this.props.photos };
+  componentWillMount: function () {
+    UserUtil.fetchUserPhotos(this.props.user.id);
+    PhotosStore.addChangeListener(this.onChange);
   },
 
-  componentDidMount: function () {
-    var temp = "<a href='#/'><div class='cell' style='width:{width}px; height: {height}px; background-image: url(http://s3.amazonaws.com/FOLLOW-FOCUS-DEV/photos/photo_attachments/000/000/302/original/250352_587840231385_6942936_n.jpg?1448467066)'></div></a>";
-			var w = 1, html = '', limitItem = this.state.photos.length;
-			for (var i = 0; i < limitItem; ++i) {
+  getInitialState: function () {
+    return { photos: PhotosStore.all() };
+  },
 
-          var image = new Image();
-          image.src = this.state.photos[i].photo_attachment_url;
+  componentWillUnmount: function () {
+    PhotosStore.removeChangeListener(this.onChange);
+  },
 
-          var width = image.width;
-          var height = image.height;
+  onChange: function () {
+    if (PhotosStore.all().length > 0) {
+      var temp = "<a href='#/'><div class='cell' style='width:{width}px; height: {height}px; background-image: url(http://s3.amazonaws.com/FOLLOW-FOCUS-DEV/photos/photo_attachments/000/000/302/original/250352_587840231385_6942936_n.jpg?1448467066)'></div></a>";
+        var w = 1, html = '', limitItem = PhotosStore.all().length;
+        for (var i = 0; i < limitItem; ++i) {
 
-				w = 200 +  200 * Math.random() << 0;
-				html += temp.replace("#/", "#/albums/" + this.state.photos[i].album_id + "/photos/" + this.state.photos[i].id).replace(/\{height\}/g, height / 2).replace(/\{width\}/g, width / 2).replace("{index}", i + 1).replace("http://s3.amazonaws.com/FOLLOW-FOCUS-DEV/photos/photo_attachments/000/000/302/original/250352_587840231385_6942936_n.jpg?1448467066", this.state.photos[i].photo_attachment_url);
-			}
-			$("#freewall").html(html);
+            var image = new Image();
+            image.src = PhotosStore.all()[i].small;
 
-			var wall = new freewall("#freewall");
-			wall.reset({
-				selector: '.cell',
-				animate: true,
-				cellW: 20,
-				cellH: 200,
-				onResize: function() {
-					wall.fitWidth();
-				}
-			});
-			wall.fitWidth();
-			// for scroll bar appear;
-			$(window).trigger("resize");
+            var width = image.width;
+            var height = image.height;
 
+          w = 200 +  200 * Math.random() << 0;
+          html += temp.replace("#/", "#/albums/" + PhotosStore.all()[i].album_id + "/photos/" + PhotosStore.all()[i].id).replace(/\{height\}/g, height / 2).replace(/\{width\}/g, width / 2).replace("{index}", i + 1).replace("http://s3.amazonaws.com/FOLLOW-FOCUS-DEV/photos/photo_attachments/000/000/302/original/250352_587840231385_6942936_n.jpg?1448467066", PhotosStore.all()[i].small);
+        }
+        $("#freewall").html(html);
+
+        var wall = new freewall("#freewall");
+        wall.reset({
+          selector: '.cell',
+          animate: true,
+          cellW: 20,
+          cellH: 200,
+          onResize: function() {
+            wall.fitWidth();
+          }
+        });
+        wall.fitWidth();
+        // for scroll bar appear;
+        $(window).trigger("resize");
+
+    }
+      this.setState({ photos: PhotosStore.all() });
   },
 
   // getInitialState: function () {
@@ -70,8 +82,13 @@ var CameraRollFreewall = React.createClass({
   //     </div>
   //   );
   // }
-    return(
-        <div id="freewall" className="free-wall"></div>
-    );
+
+
+      return(
+          <div id="freewall" className="free-wall"></div>
+      );
+
+
+
 }
 });

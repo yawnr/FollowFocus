@@ -43,7 +43,7 @@ var Search = React.createClass({
           return <UserSearchResult user={result} />;
         } else if (result._type === "Album") {
           return <AlbumSearchResult album={result} />;
-        } else {
+        } else if (result._type === "Photo") {
           return <PhotoSearchResult photo={result} />;
         }
         });
