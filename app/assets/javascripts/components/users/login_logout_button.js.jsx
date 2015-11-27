@@ -8,7 +8,7 @@ var LoginLogoutButton = React.createClass({
   },
 
   redirectToLogin: function () {
-    window.location.href= "http://localhost:3000/session/new";
+    window.location.href= "http://www.followfocus.co/session/new";
   },
 
   render: function () {
@@ -19,7 +19,7 @@ var LoginLogoutButton = React.createClass({
       );
     } else {
       return (
-        <a href="http://localhost:3000/session/new" className="login-logout" onClick={this.redirectToLogin}>Log In</a>
+        <a href="http://www.followfocus.co/session/new" className="login-logout" onClick={this.redirectToLogin}>Log In</a>
       );
     }
 
