@@ -39,8 +39,12 @@ var Profile = React.createClass({
       toRender = (
         <div>
           <ProfilePhoto user={this.state.user} />
-          <span className="camera-roll-selector" onClick={this._switchView}>Camera Roll</span>
-          <span className="album-view-selector" onClick={this._switchView}>Albums</span>
+          <div className="view-selectors group">
+            <ul className="view-ul group">
+              <li className="camera-roll-selector selected" onClick={this._switchView}>Camera Roll</li>
+              <li className="album-view-selector" onClick={this._switchView}>Albums</li>
+            </ul>
+          </div>
           <CameraRoll user={this.state.user} />
         </div>
       );
@@ -48,8 +52,12 @@ var Profile = React.createClass({
       toRender = (
         <div>
           <ProfilePhoto user={this.state.user} />
-          <span className="camera-roll-selector" onClick={this._switchView}>Camera Roll</span>
-          <span className="album-view-selector" onClick={this._switchView}>Albums</span>
+          <div className="view-selectors group">
+            <ul className="view-ul group">
+              <li className="camera-roll-selector" onClick={this._switchView}>Camera Roll</li>
+              <li className="album-view-selector selected" onClick={this._switchView}>Albums</li>
+            </ul>
+          </div>
           <AlbumIndex userId={this.state.user.id} />
         </div>
       );

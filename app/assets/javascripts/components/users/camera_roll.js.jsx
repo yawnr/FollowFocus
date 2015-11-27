@@ -23,7 +23,7 @@ CameraRoll = React.createClass({
 
   render: function () {
       return(
-        <div className="group">
+        <div className="photo-index group">
           <ul className="group">
             {this.state.photos.map(function (photo) {
               return <PhotoThumbnail photo={photo} />;

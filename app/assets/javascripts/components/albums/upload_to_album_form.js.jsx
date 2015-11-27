@@ -129,14 +129,19 @@ var UploadToAlbumForm = React.createClass({
     this.setState({ photoUrl: "", photoFile: null });
   },
 
+  clickButton: function (e) {
+    e.preventDefault();
+    document.getElementById('file').click();
+  },
+
   render: function () {
     if (this.props.isOwner) {
       return (
         <div className="dropZone-container">
           <div className="table-cell">
-            <h3>Add Photos</h3>
-            <div id="dropZone">Drag files here</div>
-            <span>or</span>
+            <div id="dropZone" onClick={this.clickButton}>Drag files here</div>
+            <div className="or">or</div>
+            <div className="or">Click Here to Select Photos</div>
             <input id="file" className="profile-photo-input" type="file" multiple onChange={this.uploadPhotos} />
           </div>
         </div>

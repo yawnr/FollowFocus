@@ -27,11 +27,12 @@
 
 .profile-photo-container:hover span {
   cursor: pointer;
-  opacity: .7;
+  opacity: .8;
 }
 
 .profile-photo-container span {
   position: absolute;
+  top: 255px;
   left: calc(50% - 32px);
   opacity: 0;
   z-index: 1000;
@@ -49,4 +50,42 @@
     font-size: 0px;
     opacity: 0;
     // filter: alpha(opacity=0);
+}
+
+.view-selectors {
+  position: relative;
+  margin-top: 0px;
+}
+
+.view-selectors > ul {
+  position: absolute;
+  left: calc(50% - 190px);
+}
+
+.view-selectors li {
+  float: left;
+  width: 150px;
+  background: #212121;
+  color: #494949;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 10px 0px 10px;
+  transition: background 300ms;
+}
+
+.view-selectors li:hover {
+  background: #ccc;
+}
+
+.view-selectors li.selected {
+  background: #70cebf;
+}
+
+.username-header {
+  position: absolute;
+  top: 264px;
+  text-align: center;
+  width: 100%;
+  font-size: 24px;
 }

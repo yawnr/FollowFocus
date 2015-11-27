@@ -5,6 +5,7 @@
   float: left;
   margin: 5px;
   position: relative;
+  cursor:  pointer;
 
 }
 
@@ -13,7 +14,7 @@
 }
 
 .photo-index {
-  margin: 200px 200px;
+  margin: 70px 80px;
   display: block;
 }
 
@@ -22,5 +23,17 @@
 }
 
 .delete-photo-button {
+  cursor: pointer;
+  width: 150px;
   z-index: 1;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0;
+  background: #b36565;
+  transition: opacity 300ms;
+}
+
+.photo-thumbnail:hover .delete-photo-button{
+  opacity: 1;
 }
