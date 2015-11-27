@@ -7,7 +7,7 @@ var UserSearchResult = React.createClass({
           <div className="comment-user-pic" style={{backgroundImage: 'url(' + this.props.user.profile_photo_small_thumb + ')'}}></div>
         </a>
         <a href={"#/users/" + this.props.user.id}>
-          <div className="username-search-result">{this.props.user.username}</div>
+          <div className="username-search-result">{"User: " + this.props.user.username}</div>
         </a>
         <ul>
           <li>Albums: {this.props.user.album_count}</li>

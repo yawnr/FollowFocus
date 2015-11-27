@@ -7,7 +7,7 @@ ExifDetails = React.createClass({
       "July", "August", "September", "October", "November", "December"
     ];
 
-    var month = monthNames[dateString.substring(5,7)];
+    var month = monthNames[parseInt(dateString.substring(5,7)) - 1];
     var day = dateString.substring(8,10);
     if (day[0] === "0") {
       day = day[1];

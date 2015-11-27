@@ -41,10 +41,10 @@ var Search = React.createClass({
       var results = SearchResultsStore.results().map(function (result) {
         if (result._type === "User") {
           return <UserSearchResult user={result} />;
-        } else if (result._type === "Photo") {
-          return <div className="photo-search-result"><img src={result.small} /></div>;
+        } else if (result._type === "Album") {
+          return <AlbumSearchResult album={result} />;
         } else {
-          return <div className="album-search-result">{result.title}</div>;
+          return <PhotoSearchResult photo={result} />;
         }
         });
 
@@ -58,7 +58,7 @@ var Search = React.createClass({
             placeholder="Search for users, albums, or photos"
             id="search-input"
           />
-          
+
           <ul className="search-results">
             { results }
           </ul>
