@@ -106,7 +106,7 @@ var Photo = React.createClass({
         <div>
           {toRender}
           <div className="empty-photo-map">
-            <div className="empty-map-text">Zoinks! No map data for this photo</div>
+            <div className="empty-map-text">Zoinks! No map data for this photo.</div>
           </div>
         </div>
       );

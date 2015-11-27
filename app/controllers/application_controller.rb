@@ -20,8 +20,10 @@ class ApplicationController < ActionController::Base
   end
 
   def logout
+    user = current_user
     session[:session_token] = nil
-    redirect_to(new_session_url)
+    render json: user
+    # redirect_to(new_session_url)
   end
 
   def require_logged_in

@@ -31,6 +31,10 @@
           _albums.unshift(payload.album);
           AlbumStore.emit(CHANGE_EVENT);
           break;
+        case AlbumConstants.UPDATED_ALBUM_RECEIVED:
+          resetAlbums([payload.album]);
+          AlbumStore.emit(CHANGE_EVENT);
+          break;
       }
     }),
 

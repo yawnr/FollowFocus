@@ -21,6 +21,13 @@ ApiActions = {
     });
   },
 
+  receiveUpdatedAlbum: function (album) {
+    AppDispatcher.dispatch({
+      actionType: AlbumConstants.UPDATED_ALBUM_RECEIVED,
+      album: album
+    });
+  },
+
   receiveAlbumPhotos: function (photos) {
     AppDispatcher.dispatch({
       actionType: PhotoConstants.ALBUM_PHOTOS_RECEIVED,
@@ -55,5 +62,12 @@ ApiActions = {
       comment: comment
     });
   },
+
+  deleteComment: function (comment) {
+    AppDispatcher.dispatch({
+      actionType: CommentConstants.COMMENT_DELETED,
+      comment: comment
+    });
+  }
 
 };

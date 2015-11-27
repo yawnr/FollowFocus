@@ -22,14 +22,6 @@
 
 <%= yield %>
 
-  <div class="login_logout_div group">
-    <% if logged_in? %>
-      <%= button_to "Log Out", session_url, :method => :delete, form_class: 'login_logout_form group', class: 'login_logout_button group' %>
-    <% else %>
-      <%= button_to "Log In", new_session_url, :method => :get, form_class: 'login_logout_form group', class: 'login_logout_button group' %>
-    <% end %>
-  </div>
-
 
 </body>
 </html>

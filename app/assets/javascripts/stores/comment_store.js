@@ -31,8 +31,22 @@
           _comments.push(payload.comment);
           CommentStore.emit(CHANGE_EVENT);
           break;
+        case CommentConstants.COMMENT_DELETED:
+          var spliceIdx = CommentStore.findIndexInStore(payload.comment.id);
+          _comments.splice(spliceIdx, 1);
+          CommentStore.emit(CHANGE_EVENT);
+          break;
       }
-    })
+    }),
+
+    findIndexInStore: function (comment_id) {
+      for (var i = 0; i < _comments.length; i++) {
+        if (_comments[i].id === comment_id) {
+          return i;
+        }
+      }
+      return -1;
+    }
 
   });
 

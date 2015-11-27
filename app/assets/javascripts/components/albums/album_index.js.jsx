@@ -27,7 +27,7 @@ var AlbumIndex = React.createClass({
 
     if (AlbumStore.all().length > 0) {
       toRender = (
-        <div>
+        <div className="album-index-container">
 
         <AlbumForm userId={this.props.userId} />
 
@@ -41,7 +41,7 @@ var AlbumIndex = React.createClass({
       );
     } else {
       toRender = (
-        <div>
+        <div className="album-index-container">
           <AlbumForm userId={this.props.userId} />
 
           <div className="album-index"></div>

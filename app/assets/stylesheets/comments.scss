@@ -12,7 +12,9 @@
 
 .comments-index {
   max-height: 400px;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background: #212121;
 }
 
 #comment_body {
@@ -46,7 +48,7 @@
 }
 
 .comment {
-  width: 840px;
+  width: 800px;
   height: 100%;
   padding: 10px;
   margin: 10px;
@@ -100,4 +102,21 @@
 .comment-body {
   font-size: 14px;
   margin: 10px 0 10px 60px;
+}
+
+.delete-comment-button {
+  font-size: 12px;
+  font-weight: 600;
+  position: absolute;
+  color: white;
+  left: 170px;
+  top: 12px;
+  cursor: pointer;
+  opacity: 0;
+  color: #b36565;
+  transition: opacity 300ms;
+}
+
+.comment:hover .delete-comment-button {
+  opacity: 1;
 }

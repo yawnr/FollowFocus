@@ -51,6 +51,17 @@ UserUtil = {
         UserActions.receiveAlbumCovers(photos);
       }
     });
+  },
+
+  logOut: function () {
+    $.ajax({
+      url: '/session/',
+      method: "DELETE",
+      dataType: "json",
+      success: function () {
+        UserActions.logOut();
+      }
+    });
   }
 
 };

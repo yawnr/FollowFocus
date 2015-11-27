@@ -4,12 +4,16 @@ var Search = React.createClass({
 
     componentDidMount: function () {
       SearchResultsStore.addChangeHandler(this._onChange);
-
       var queryParams = this.props.location.query;
       SearchApiUtil.search(queryParams.query || "", queryParams.page || 1);
+      var SearchInput = $('#search-input');
+      var strLength= SearchInput.val().length * 2;
+      SearchInput.focus();
+      SearchInput[0].setSelectionRange(strLength, strLength);
     },
 
     componentWillUnmount: function () {
+      $(document.getElementById("search-input")).text("");
       SearchResultsStore.removeChangeHandler(this._onChange);
     },
 
@@ -36,7 +40,7 @@ var Search = React.createClass({
     render: function() {
       var results = SearchResultsStore.results().map(function (result) {
         if (result._type === "User") {
-          return <div className="user-search-result"><img src={result.profile_photo_thumb} />{result.username}</div>;
+          return <UserSearchResult user={result} />;
         } else if (result._type === "Photo") {
           return <div className="photo-search-result"><img src={result.small} /></div>;
         } else {
@@ -47,11 +51,12 @@ var Search = React.createClass({
       var nextPage = (parseInt(this.props.location.query.page) || 1) + 1;
       var query = this.props.location.query.query;
       return (
-        <div className="search">
+        <div className="search group">
           <input type="text"
             value={ query }
             onChange={ this._onInput }
             placeholder="Search for users, albums, or photos"
+            id="search-input"
           />
 
           <p>

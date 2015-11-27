@@ -37,6 +37,18 @@ ApiUtil = {
     });
   },
 
+  editAlbumTitle: function (album) {
+    $.ajax({
+      url: 'api/albums/' + album.id,
+      method: "PATCH",
+      dataType: "json",
+      data: {album: album},
+      success: function (album) {
+        ApiActions.receiveUpdatedAlbum(album);
+      }
+    });
+  },
+
   fetchAlbumPhotos: function (album_id) {
     $.ajax({
       url: 'api/photos',
@@ -106,6 +118,17 @@ ApiUtil = {
       data: {comment: comment},
       success: function (comment) {
         ApiUtil.fetchComments(comment.photo_id);
+      }
+    });
+  },
+
+  deleteComment: function (comment_id) {
+    $.ajax({
+      url: 'api/comments/' + comment_id,
+      method: "DELETE",
+      dataType: "json",
+      success: function (comment) {
+        ApiActions.deleteComment(comment);
       }
     });
   },

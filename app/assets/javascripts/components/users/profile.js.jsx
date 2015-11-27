@@ -18,8 +18,8 @@ var Profile = React.createClass({
     UserStore.removeChangeListener(this._userChanged);
   },
 
-  componentWillReceiveProps: function (newParams) {
-    UserUtil.fetchUser(newParams.params.userId);
+  componentWillReceiveProps: function (newProps) {
+    UserUtil.fetchUser(newProps.params.userId);
   },
 
   _switchView: function (e) {

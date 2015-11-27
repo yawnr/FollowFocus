@@ -48,7 +48,6 @@ var Album = React.createClass({
             <ProfilePhoto user={UserStore.user()} />
           </div>
 
-          <h3>{this.state.album.title}</h3>
           <UploadToAlbumForm album={this.state.album} isOwner={isOwner}/>
           <PhotoIndex photos={this.state.photos} />
         </div>
@@ -60,7 +59,6 @@ var Album = React.createClass({
             <ProfilePhoto user={UserStore.user()} />
           </div>
 
-          <h3>{this.state.album.title}</h3>
           <UploadToAlbumForm album={this.state.album} isOwner={isOwner}/>
         </div>
       );

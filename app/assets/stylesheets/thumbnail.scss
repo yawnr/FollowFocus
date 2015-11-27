@@ -14,7 +14,7 @@
 }
 
 .photo-index {
-  margin: 70px 80px;
+  margin: 20px 80px;
   display: block;
 }
 
@@ -31,9 +31,14 @@
   left: 0px;
   opacity: 0;
   background: #b36565;
-  transition: opacity 300ms;
+  transition: all 300ms;
+  color: transparent;
 }
 
 .photo-thumbnail:hover .delete-photo-button{
   opacity: 1;
+}
+
+.delete-photo-button:hover {
+  color: white;
 }

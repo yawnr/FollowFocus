@@ -4,6 +4,8 @@
   background: transparent;
   width: 500px;
   height: 100px;
+  display: table-cell;
+  vertical-align: middle;
   // transition: height 500ms;
 }
 
@@ -20,5 +22,18 @@
 }
 
 .dropZone-container input {
+  cursor: pointer;
   opacity: 0;
+  position: absolute;
+  top: 440px;
+  left: 635px;
+}
+
+.click-here {
+  color: #2aaeb8;
+  transition: color 300ms;
+}
+
+.dropZone-container:hover .click-here {
+  color: #58dcb2;
 }

@@ -27,6 +27,10 @@
             setUser(payload.user);
             UserStore.emit(CHANGE_EVENT);
             break;
+          case UserConstants.LOG_OUT:
+            setUser({});
+            UserStore.emit(CHANGE_EVENT);
+            break;
         }
     })
 

@@ -19,6 +19,12 @@ UserActions = {
       actionType: UserConstants.ALBUM_COVERS_RECEIVED,
       photos: photos
     });
+  },
+
+  logOut: function () {
+    AppDispatcher.dispatch({
+      actionType: UserConstants.LOG_OUT
+    });
   }
 
 };

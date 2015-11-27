@@ -15,6 +15,7 @@ var UploadToAlbumForm = React.createClass({
     });
 
     dropZone.addEventListener('drop', this.uploadPhotos);
+
   },
 
   uploadPhotos: function (event) {
@@ -137,17 +138,25 @@ var UploadToAlbumForm = React.createClass({
   render: function () {
     if (this.props.isOwner) {
       return (
-        <div className="dropZone-container">
-          <div className="table-cell">
-            <div id="dropZone" onClick={this.clickButton}>Drag files here</div>
-            <div className="or">or</div>
-            <div className="or">Click Here to Select Photos</div>
-            <input id="file" className="profile-photo-input" type="file" multiple onChange={this.uploadPhotos} />
+        <div>
+          <div className="album-title"><ChangeAlbumForm album={this.props.album} /></div>
+
+          <div className="dropZone-container">
+            <div className="table-cell">
+              <div id="dropZone" onClick={this.clickButton}>Drag Files Here
+              <div className="or">or</div>
+              <div className="click-here">Click to Select Photos</div>
+              </div>
+            </div>
+              <input id="file" className="profile-photo-input" type="file" multiple onChange={this.uploadPhotos} />
           </div>
         </div>
       );
     } else {
-      return (<div></div>);
+      return (<div>
+                <div className="album-title">{this.props.album.title}</div>
+              </div>
+      );
     }
   }
 
