@@ -1,7 +1,7 @@
 .photo-map {
   float: left;
   position: absolute;
-  left: 307px;
+  left: calc(50% - 440px);
   width: 400px;
   height: 230px;
   border-radius: 10px;
@@ -14,7 +14,7 @@
 .empty-photo-map {
   float: left;
   position: absolute;
-  left: 307px;
+  left: calc(50% - 440px);;
   width: 400px;
   height: 230px;
   border-radius: 10px;

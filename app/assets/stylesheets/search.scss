@@ -1,4 +1,69 @@
 .search {
   text-align: left;
-  margin: 50px 100px;
+  margin: 100px 150px;
+}
+
+#search-input:focus {
+  outline: none;
+}
+
+.next-page {
+  color: white;
+  opacity: .7;
+  text-decoration: none;
+  transition: opacity 300ms;
+}
+
+.next-page:hover {
+  opacity: 1;
+}
+
+#search-input {
+  width: 500px;
+  height: 70px;
+  color: white;
+  background: transparent;
+  border: 0;
+  font-size: 24px;
+}
+
+.search-result {
+  margin: 20px 0 20px 0;
+  height: 100px;
+  width: calc(100% - 300px);
+  border-radius: 5px;
+  background: #212121;
+  position: relative;
+}
+
+.search-result ul {
+  position: absolute;
+  top: 45px;
+  left: 80px;
+}
+
+.search-result li {
+  font-size: 14px;
+  float: left;
+  margin: 10px;
+}
+
+.username-search-result {
+  font-size: 18px;
+  position: absolute;
+  top: 26px;
+  left: 93px;
+  color: white;
+  text-decoration: none;
+  transition: opacity 300ms;
+}
+
+.username-search-result:hover {
+  opacity: .7;
+}
+
+.search-result .comment-user-pic {
+  position: absolute;
+  top: 25px;
+  left: 25px;
 }

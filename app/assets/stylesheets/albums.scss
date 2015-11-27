@@ -1,3 +1,7 @@
+.album-index {
+    width: 1280px;
+}
+
 .index-item-container {
   float: left;
   position: relative;
@@ -15,7 +19,7 @@
 }
 
 .album-index-container ul {
-  margin: 20px auto;
+  margin: 20px calc(50% - 700px);
   display: inline-block;
   text-align: center;
 }
@@ -88,7 +92,42 @@
   color: white;
 }
 
+.album-title-form {
+  height: 30px;
+  width: 500px;
+  margin: auto;
+}
+
 .album-title {
+  cursor: pointer;
+  background: transparent;
+  color: white;
+  font-size: 28px;
+  margin: 0px auto 20px auto;
+  border: 0;
+  padding: 0;
+  width: 500px;
+  transition: color 300ms;
+}
+
+.album-title:hover {
+  color: #b36565;
+}
+
+.album-title:focus {
+  outline: none;
+  cursor: text;
+}
+
+.cancel-edit {
+  display: inline;
   font-size: 24px;
-  margin: 10px;
+  line-height: .5;
+  cursor: pointer;
+  color: #b36565;
+  transition: color 300ms;
+}
+
+.cancel-edit:hover {
+  color: #954a4a;
 }

@@ -58,19 +58,19 @@ var Search = React.createClass({
             placeholder="Search for users, albums, or photos"
             id="search-input"
           />
-
-          <p>
-            Displaying { SearchResultsStore.results().length }
-            of { SearchResultsStore.totalCount() }
-          </p>
-
-          <a href={ "#/search?query=" + query + "&page=" + nextPage }>
-            Next
-          </a>
-
+          
           <ul className="search-results">
             { results }
           </ul>
+
+          <p>
+            Displaying { SearchResultsStore.results().length } of { SearchResultsStore.totalCount() }
+          </p>
+
+          <a className="next-page" href={ "#/search?query=" + query + "&page=" + nextPage }>
+            Next
+          </a>
+
         </div>
       );
     },

@@ -13,6 +13,9 @@ var ChangeAlbumForm = React.createClass({
   },
 
   beginEditing: function () {
+    setTimeout(function () {
+      $(".album-title").focus();
+    }, 500);
     this.setState({ editing: true });
   },
 
@@ -35,7 +38,7 @@ var ChangeAlbumForm = React.createClass({
           <form className="album-title-form" onSubmit={this.changeAlbumTitle}>
             <input type="text" className="album-title" htmlFor="album[title]" placeholder={this.props.album.title}/>
           </form>
-          <div className="cancel-edit" onClick={this.doneEditing}>Cancel</div>
+          <div className="cancel-edit" onClick={this.doneEditing}>  x  </div>
         </div>
       );
     } else {
