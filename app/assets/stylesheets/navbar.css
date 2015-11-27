@@ -68,7 +68,7 @@ nav {
 .container-2 input#search {
   width: 30px;
   height: 30px;
-  background: #2b303b;
+  background: #353535;
   border: none;
   font-size: 10pt;
   color: #262626;
@@ -103,7 +103,7 @@ nav {
 
 .container-2 .icon {
   position: absolute;
-  top: 7px;
+  top: 5px;
   margin-left: 10px;
   z-index: 1;
   color: #93a2ad;
