@@ -1,3 +1,88 @@
-// Place all the styles related to the sessions controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.login-page {
+  min-height: 1000px;
+  background-image: url(image_path("jagged.jpg"));
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.login-logo {
+  margin-top: 200px;
+}
+
+.login-header {
+  margin: 0;
+  padding: 0;
+}
+
+.login-form {
+  position: absolute;
+  top: 300px;
+  left: calc(50% - 200px);
+  color: white;
+  background: rgba(38, 38, 38, 0.5);
+  border-radius: 10px;
+  height: 300px;
+  width: 400px;
+}
+
+.login-form input {
+  width: 300px;
+  height: 40px;
+  font-size: 22px;
+  border: 0;
+  text-align: center;
+  opacity: .8;
+}
+
+.username-login {
+  position: absolute;
+  top: 90px;
+  left: 49px;
+}
+
+.password-login {
+  position: absolute;
+  top: 132px;
+  left: 49px;
+}
+
+.login-form input:focus {
+  outline: none;
+}
+
+.login-form h3 {
+  margin-top: 18px;
+  color: white;
+  opacity: .9;
+  padding: 10px;
+  font-size: 28px;
+}
+
+.login-button {
+  position: absolute;
+  top: 174px;
+  left: 49px;
+  cursor: pointer;
+  font-size: 22px;
+  background: #2aaeb8;
+  width: 302px;
+  height: 42px;
+  transition: background 200ms;
+}
+
+.login-button:hover {
+  background: #58dcb2;
+}
+
+.create-account-link {
+  color: white;
+  text-decoration: none;
+  position: absolute;
+  bottom: 32px;
+  left: 125px;
+  transition: color 300ms;
+}
+
+.create-account-link:hover {
+  color: #58dcb2;
+}
