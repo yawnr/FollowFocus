@@ -1,7 +1,7 @@
 var Profile = React.createClass({
 
   getInitialState: function () {
-    return { user: UserStore.user(), view: "AlbumView" };
+    return { user: {}, view: "AlbumView" };
   },
 
   componentDidMount: function () {
