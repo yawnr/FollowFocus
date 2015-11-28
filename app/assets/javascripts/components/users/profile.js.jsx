@@ -6,7 +6,7 @@ var Profile = React.createClass({
 
   componentDidMount: function () {
     UserStore.addChangeListener(this._userChanged);
-    var userId = parseInt(this.props.routeParams.userId);
+    var userId = parseInt(this.props.params.userId);
     UserUtil.fetchUser(userId);
   },
 
@@ -58,7 +58,7 @@ var Profile = React.createClass({
               <li className="album-view-selector selected" onClick={this._switchView}>Albums</li>
             </ul>
           </div>
-          <AlbumIndex userId={this.state.user.id} />
+          <AlbumIndex userId={this.props.params.userId} />
         </div>
       );
     } else {

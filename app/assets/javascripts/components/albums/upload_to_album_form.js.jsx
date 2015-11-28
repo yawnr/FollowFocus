@@ -7,15 +7,15 @@ var UploadToAlbumForm = React.createClass({
   componentDidMount: function () {
     var dropZone = document.getElementById('dropZone');
 
-    // Optional.   Show the copy icon when dragging over.
-    dropZone.addEventListener('dragover', function(e) {
-        e.stopPropagation();
-        e.preventDefault();
-        e.dataTransfer.dropEffect = 'copy';
-    });
+    if (dropZone) {
+      dropZone.addEventListener('dragover', function(e) {
+          e.stopPropagation();
+          e.preventDefault();
+          e.dataTransfer.dropEffect = 'copy';
+      });
 
     dropZone.addEventListener('drop', this.uploadPhotos);
-
+    }
   },
 
   uploadPhotos: function (event) {

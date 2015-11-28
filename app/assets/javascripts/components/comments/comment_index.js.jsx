@@ -17,6 +17,10 @@ var CommentIndex = React.createClass({
     this.setState({ comments: CommentStore.all() });
   },
 
+  componentWillReceiveProps: function (newProps) {
+    ApiUtil.fetchComments(newProps.photo.id);
+  },
+
   render: function () {
     var toRender;
 
