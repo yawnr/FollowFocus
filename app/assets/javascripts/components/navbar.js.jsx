@@ -4,6 +4,13 @@ var NavBar = React.createClass({
 
     var Link = ReactRouter.Link;
 
+    var youLink;
+    if (window.FollowFocus.currentUser.id !== "null") {
+      youLink = "#/users/" + window.FollowFocus.currentUser.id;
+    } else {
+      youLink = "http://www.followfocus.co/session/new";
+    }
+
     return (
       <div className="navbar-container">
         <div className="navbar">
@@ -16,7 +23,7 @@ var NavBar = React.createClass({
             </ Link>
 
           <li><Link to="/" className="link to-home">Home</Link></li>
-          <li><Link to={"/users/" + window.FollowFocus.currentUser.id} className="link">You</Link></li>
+          <li><a href={youLink} className="link">You</a></li>
           <li><Link to="/explore" className="link">Explore</Link></li>
 
           <SearchBar />
