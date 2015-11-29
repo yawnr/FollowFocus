@@ -6,7 +6,7 @@ var CameraRollFreewall = React.createClass({
   },
 
   getInitialState: function () {
-    return { photos: PhotosStore.all() };
+    return { photos: [] };
   },
 
   componentWillUnmount: function () {

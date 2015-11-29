@@ -1,7 +1,7 @@
 var Profile = React.createClass({
 
   getInitialState: function () {
-    return { user: {}, view: "CameraRoll" };
+    return { user: {}, view: "AlbumView" };
   },
 
   componentDidMount: function () {
@@ -20,7 +20,7 @@ var Profile = React.createClass({
 
   componentWillReceiveProps: function (newProps) {
     UserUtil.fetchUser(newProps.params.userId);
-    this.setState({ view: "CameraRoll" });
+    this.setState({ view: "AlbumView" });
   },
 
   _switchView: function (e) {
