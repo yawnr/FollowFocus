@@ -1,7 +1,7 @@
 var CommentIndex = React.createClass({
 
   getInitialState: function () {
-    return { comments: CommentStore.all() };
+    return { comments: [] };
   },
 
   componentDidMount: function () {
