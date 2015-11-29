@@ -21,13 +21,14 @@ var CameraRollFreewall = React.createClass({
         var w = 1, html = '', limitItem = photos.length;
         for (var i = 0; i < limitItem; ++i) {
 
-            // var image = new Image();
-            // image.src = PhotosStore.all()[i].small;
-            //
-            var width = 200 + Math.random() * 200;
-            var height = 200 + Math.random() * 200;
+            var width = photos[i].width || 200 + Math.random() * 200;
+            var height = photos[i].height || 200 + Math.random() * 200;
 
-          // w = 200 +  200 * Math.random() << 0;
+            while (width > 400 && height > 400) {
+              width = width / 2;
+              height = height / 2;
+            }
+
           html += temp.replace("#/", "#/albums/" + PhotosStore.all()[i].album_id + "/photos/" + PhotosStore.all()[i].id).replace(/\{height\}/g, height).replace(/\{width\}/g, width).replace("{index}", i + 1).replace("http://s3.amazonaws.com/FOLLOW-FOCUS-DEV/photos/photo_attachments/000/000/302/original/250352_587840231385_6942936_n.jpg?1448467066", PhotosStore.all()[i].small);
         }
         $("#freewall").html(html);
@@ -50,47 +51,11 @@ var CameraRollFreewall = React.createClass({
       this.setState({ photos: PhotosStore.all() });
   },
 
-  // getInitialState: function () {
-  //   return { photos: [] };
-  // },
-  //
-  // componentDidMount: function () {
-  //   PhotosStore.addChangeListener(this._photosChanged);
-  //   ApiUtil.fetchAlbumPhotos(this.props.album.id);
-  // },
-  //
-  // _photosChanged: function () {
-  //   this.setState({ photos: PhotosStore.all() });
-  // },
-  //
-  // componentWillUnmount: function () {
-  //   PhotosStore.removeChangeListener(this._photosChanged);
-  // },
-  //
-  // componentWillReceiveProps: function (newParams) {
-  //   ApiUtil.fetchAlbumPhotos(newParams.params.albumId);
-  // },
-
   render: function () {
-      // this return is the only thing that was here before trying out freewall
-  //   return(
-  //     <div>
-  //       <ul className="photo-index group">
-  //         {this.props.photos.map(function (photo) {
-  //             return (<PhotoThumbnail key={photo.id} photo={photo} />);
-  //           })
-  //         }
-  //       </ul>
-  //     </div>
-  //   );
-  // }
-
 
       return(
           <div id="freewall" className="free-wall"></div>
       );
 
-
-
-}
+    }   
 });

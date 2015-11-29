@@ -30,7 +30,7 @@ ExifDetails = React.createClass({
           </tr>
           <tr className="exif-row">
             <td> Aperture: </td>
-            <td>{this.props.photo.aperture || "Unknown"}</td>
+            <td>ƒ {this.props.photo.aperture || "Unknown"}</td>
           </tr>
           <tr className="exif-row">
             <td> Shutter Speed </td>

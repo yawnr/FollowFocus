@@ -82,17 +82,24 @@ var UploadToAlbumForm = React.createClass({
       }
 
       var aperture;
-      if (exif.Fnumber !== undefined) {
+      if (exif.FNumber !== undefined) {
           aperture = "" + (exif.FNumber.numerator / exif.FNumber.denominator);
       } else {
         aperture = "Unknown";
       }
 
       var exposureTime;
-      if (exif.exposureTime !== undefined) {
+      if (exif.ExposureTime !== undefined) {
         exposureTime = exif.ExposureTime.numerator + "/" + exif.ExposureTime.denominator;
       } else {
         exposureTime = "Unknown";
+      }
+
+      var width;
+      var height;
+      if (exif.PixelXDimension !== undefined && exif.PixelYDimension !== undefined) {
+        width = exif.PixelXDimension;
+        height = exif.PixelYDimension;
       }
 
       var cameraModel;
@@ -115,6 +122,8 @@ var UploadToAlbumForm = React.createClass({
       formData.append("photo[iso]", iso);
       formData.append("photo[aperture]", aperture);
       formData.append("photo[exposure_time]", exposureTime);
+      formData.append("photo[width]", width);
+      formData.append("photo[height]", height);
       formData.append("photo[camera_model]", cameraModel);
 
       ApiUtil.uploadPhoto(album_id, formData);
