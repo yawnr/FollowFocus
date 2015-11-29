@@ -20,6 +20,7 @@ var Profile = React.createClass({
 
   componentWillReceiveProps: function (newProps) {
     UserUtil.fetchUser(newProps.params.userId);
+    this.setState({ view: "AlbumView" });
   },
 
   _switchView: function (e) {
