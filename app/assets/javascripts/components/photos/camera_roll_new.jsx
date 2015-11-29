@@ -29,6 +29,12 @@ var CameraRollFreewall = React.createClass({
               height = height / 2;
             }
 
+            if (photos[i].orientation > 4) {
+              var tempWidth = width;
+              width = height;
+              height = tempWidth;
+            }
+
           html += temp.replace("#/", "#/albums/" + PhotosStore.all()[i].album_id + "/photos/" + PhotosStore.all()[i].id).replace(/\{height\}/g, height).replace(/\{width\}/g, width).replace("{index}", i + 1).replace("http://s3.amazonaws.com/FOLLOW-FOCUS-DEV/photos/photo_attachments/000/000/302/original/250352_587840231385_6942936_n.jpg?1448467066", PhotosStore.all()[i].small);
         }
         $("#freewall").html(html);
@@ -57,5 +63,5 @@ var CameraRollFreewall = React.createClass({
           <div id="freewall" className="free-wall"></div>
       );
 
-    }   
+    }
 });

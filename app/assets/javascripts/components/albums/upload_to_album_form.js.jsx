@@ -102,6 +102,11 @@ var UploadToAlbumForm = React.createClass({
         height = exif.PixelYDimension;
       }
 
+      var orientation;
+      if (exif.Orientation !== undefined) {
+        orientation = exif.Orientation;
+      }
+
       var cameraModel;
       if (exif.Make !== undefined && exif.Model !== undefined) {
         cameraModel = exif.Make + " " + exif.Model;
@@ -124,6 +129,7 @@ var UploadToAlbumForm = React.createClass({
       formData.append("photo[exposure_time]", exposureTime);
       formData.append("photo[width]", width);
       formData.append("photo[height]", height);
+      formData.append("photo[orientation]", orientation);
       formData.append("photo[camera_model]", cameraModel);
 
       ApiUtil.uploadPhoto(album_id, formData);
