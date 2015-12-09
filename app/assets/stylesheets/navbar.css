@@ -55,7 +55,8 @@ nav {
 .box {
   position: absolute;
   left: 755px;
-  top: 23px;
+  top: 50%;
+  transform: translateY(calc(-50% + 3px));
 }
 
 .container-2 {
@@ -103,7 +104,8 @@ nav {
 
 .container-2 .icon {
   position: absolute;
-  top: 5px;
+  top: 50%;
+  transform: translateY(-50%);
   margin-left: 10px;
   z-index: 1;
   color: #93a2ad;
@@ -130,11 +132,13 @@ nav {
 }
 
 .upload-button {
-  margin: 22px 125px 0px 0px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(calc(-50% + 2px));
+  right: 125px;
   width: 40px;
   opacity: 1.0;
   transition: opacity 300ms;
-  float: right
 }
 
 .upload-button:hover {
@@ -159,7 +163,8 @@ nav {
 
 .login-logout {
   position: absolute;
-  top: 28px;
+  top: 50%;
+  transform: translateY(calc(-50% + 3px));
   right: 50px;
   font-size: 14px;
   cursor: pointer;
