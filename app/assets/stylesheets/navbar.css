@@ -56,7 +56,9 @@ nav {
   position: absolute;
   left: 755px;
   top: 50%;
-  transform: translateY(calc(-50% + 3px));
+  transform: translate(0px, calc(-50% + 3px));
+  -webkit-transform: translate(0px, calc(-50% + 3px));
+  -ms-transform: translate(0px, calc(-50% + 3px));
 }
 
 .container-2 {
@@ -134,7 +136,9 @@ nav {
 .upload-button {
   position: absolute;
   top: 50%;
-  transform: translateY(calc(-50% + 2px));
+  transform: translate(0px, calc(-50% + 2px));
+  -webkit-transform: translate(0px, calc(-50% + 2px));
+  -ms-transform: translate(0px, calc(-50% + 2px));
   right: 125px;
   width: 40px;
   opacity: 1.0;
@@ -158,13 +162,16 @@ nav {
 }
 
 .logo-lens:hover {
-  transform: rotate(60deg)
+  transform: rotate(60deg);
+  -webkit-transform: rotate(60deg);
 }
 
 .login-logout {
   position: absolute;
   top: 50%;
-  transform: translateY(calc(-50% + 3px));
+  transform: translate(0px, calc(-50% + 3px));
+  -webkit-transform: translate(0px, calc(-50% + 3px));
+  -ms-transform: translate(0px, calc(-50% + 3px));
   right: 50px;
   font-size: 14px;
   cursor: pointer;

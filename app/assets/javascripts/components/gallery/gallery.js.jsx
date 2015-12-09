@@ -1,11 +1,19 @@
 var Gallery = React.createClass({
 
   getInitialState: function () {
-    return { gallery: GalleryPhotosStore.all() };
+    return { gallery: GalleryPhotosStore.all(), lastFetchTime: GalleryPhotosStore.lastFetch() };
   },
 
   componentDidMount: function () {
     GalleryPhotosStore.addChangeListener(this._onChange);
+
+    var visitTime = new Date();
+    if (!this.state.lastFetchTime || (visitTime - this.state.lastFetchTime) / 60000 > 30) {
+      GalleryUtil.fetchGalleryPhotos();
+    }
+  },
+
+  refreshGallery: function () {
     GalleryUtil.fetchGalleryPhotos();
   },
 
@@ -25,6 +33,8 @@ var Gallery = React.createClass({
       toRender = (
         <div className="gallery group">
           <h3 className="gallery-header"></h3>
+
+          <div className="refresh-gallery" onClick={this.refreshGallery} >↻</div>
 
           <div className="gallery-photos-container group">
             <ul className="gallery-ul">

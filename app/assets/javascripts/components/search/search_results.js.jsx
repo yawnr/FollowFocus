@@ -40,11 +40,11 @@ var Search = React.createClass({
     render: function() {
       var results = SearchResultsStore.results().map(function (result) {
         if (result._type === "User") {
-          return <UserSearchResult user={result} />;
+          return <UserSearchResult key={result.username} user={result} />;
         } else if (result._type === "Album") {
-          return <AlbumSearchResult album={result} />;
+          return <AlbumSearchResult key={result.title} album={result} />;
         } else if (result._type === "Photo") {
-          return <PhotoSearchResult photo={result} />;
+          return <PhotoSearchResult key={result.id} photo={result} />;
         }
         });
 

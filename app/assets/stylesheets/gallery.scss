@@ -1,5 +1,5 @@
 .gallery {
-  padding-top: 50px;
+  padding-top: 0px;
   width: 100%;
   margin: auto;
 }
@@ -70,4 +70,21 @@
 .info-box-photo-title {
   margin: auto;
   padding-top: 13px;
+}
+
+.refresh-gallery {
+  width: 50px;
+  margin: -18px auto 20px auto;
+  cursor: pointer;
+  font-family: Lucida Sans Unicode;
+  font-size: 30px;
+  color: white;
+  transition: all 300ms;
+}
+
+.refresh-gallery:hover {
+  transform: rotate(30deg);
+  -webkit-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  color: #69ebdd;
 }
