@@ -21,8 +21,18 @@
         <button class="login-button">Log In</button>
 
         <br/>
-        <a href="http://www.followfocus.co/users/new" class="create-account-link">Or create an account</a>
+
+        <a href="http://www.followfocus.co/users/new" class="create-account-link">Create an Account</a>
     </form>
+
+    <div class="demo-user">
+      <form action="<%= session_url %>" method="POST">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="hidden" class="username-login" name="user[username]" value="John">
+        <input type="hidden" class="password-login" name="user[password]" value="password">
+        <button>Login as Guest</button>
+      </form>
+    </div>
   </div>
 
 </div>

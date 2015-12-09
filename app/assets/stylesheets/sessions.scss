@@ -75,14 +75,35 @@
 }
 
 .create-account-link {
+  position: absolute;
+  bottom: 28px;
+  right: 50px;
+  background: #2aaeb8;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+  transition: background 300ms;
   color: white;
   text-decoration: none;
-  position: absolute;
-  bottom: 32px;
-  left: 125px;
-  transition: color 300ms;
+  width: 140px;
 }
 
 .create-account-link:hover {
-  color: #58dcb2;
+  background: #58dcb2;
+}
+
+.demo-user button {
+  width: 140px;
+  position: absolute;
+  bottom: 28px;
+  left: 50px;
+  background: #2aaeb8;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+  transition: background 300ms;
+}
+
+.demo-user button:hover {
+  background: #58dcb2;
 }
