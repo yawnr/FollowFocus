@@ -17,7 +17,7 @@ var SearchBar = React.createClass ({
       <div className="box">
         <div className="container-2">
             <span className="icon"><i className="fa fa-search"></i></span>
-            <input onChange={this.search} type="search" id="search" placeholder="Search FollowFocus" />
+            <input onChange={this.search} type="text" id="search" placeholder="Search FollowFocus" />
         </div>
       </div>
     );
