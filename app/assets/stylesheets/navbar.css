@@ -157,7 +157,7 @@ nav {
 .logo-lens {
   position: absolute;
   left: 223px;
-  width: 35px;
+  /*width: 35px;*/
   top: 20px;
 
   -webkit-animation:spin .5s linear;

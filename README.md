@@ -29,4 +29,3 @@ and ReactJS.
 * View photo upload progress and immediate preview of chosen photos
 * Facebook login
 * Explore popular users, albums, and photos, and tags
-* Send / Receive / Filter messages
