@@ -1,7 +1,7 @@
 var AlbumIndex = React.createClass({
 
   getInitialState: function () {
-    return { albums: AlbumStore.all() };
+    return { albums: [] };
   },
 
   componentDidMount: function () {
@@ -18,6 +18,11 @@ var AlbumIndex = React.createClass({
   componentWillUnmount: function () {
     AlbumStore.removeChangeListener(this._albumsChanged);
     AlbumCoversStore.removeChangeListener(this._albumsChanged);
+  },
+
+  componentWillReceiveProps: function (newProps) {
+    ApiUtil.fetchUserAlbums(newProps.userId);
+    UserUtil.fetchAlbumCovers(newProps.userId);
   },
 
   render: function () {

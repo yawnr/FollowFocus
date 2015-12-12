@@ -19,8 +19,8 @@ var Profile = React.createClass({
   },
 
   componentWillReceiveProps: function (newProps) {
+    this.setState({ user: {}, view: "AlbumView" });
     UserUtil.fetchUser(newProps.params.userId);
-    this.setState({ view: "AlbumView" });
   },
 
   _switchView: function (e) {
@@ -32,7 +32,6 @@ var Profile = React.createClass({
   },
 
   render: function () {
-
 
     var toRender;
 

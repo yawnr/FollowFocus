@@ -43,6 +43,7 @@
   right: 100%;
 
   opacity: 0;
+  z-index: 1;
 
   transition: all 500ms;
 }
@@ -63,6 +64,7 @@
   left: 100%;
 
   opacity: 0;
+  z-index: 1;
 
   transition: all 500ms;
 }
@@ -120,6 +122,7 @@
   bottom: 10px;
   opacity: 0;
   transition: opacity 300ms;
+  z-index: 1;
 }
 
 .parent-container:hover .back-to-album {
@@ -138,6 +141,7 @@
   bottom: 10px;
   opacity: 0;
   transition: opacity 300ms;
+  z-index: 1;
 }
 
 .parent-container:hover .view-original {
