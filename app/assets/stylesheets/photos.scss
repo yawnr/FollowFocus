@@ -16,6 +16,15 @@
 .photo-container img {
   width: auto;
   height: 100%;
+  cursor: zoom-in;
+  transition: all 500ms;
+  position: relative;
+}
+
+.photo-container .bigger {
+  transform: scale(1.4);
+  cursor: zoom-out;
+  z-index: 101;
 }
 
 .prev-photo {

@@ -61,6 +61,11 @@ var Photo = React.createClass({
     // this._onChange(PhotosStore.all()[newIdx]);
   },
 
+  bigger: function () {
+    $('.full-size-photo').toggleClass('bigger');
+    $('#shadow').toggleClass('active');
+  },
+
   render: function () {
 
     var toRender;
@@ -69,13 +74,14 @@ var Photo = React.createClass({
       toRender = (
         <section>
 
+          <div id="shadow"></div>
 
           <div className="parent-container">
             <div className="photo-container">
             <a href={"#/albums/" + this.state.photo.album_id} className="back-to-album">← Back to Album</a>
               <div className="prev-photo" onClick={this._prevPhoto}><strong className="prev-photo-text">PREV</strong></div>
               <div className="next-photo" onClick={this._nextPhoto}><strong className="next-photo-text">NEXT</strong></div>
-              <img className="full-size-photo" src={this.state.photo.medium}/>
+              <img className="full-size-photo" src={this.state.photo.large} onClick={this.bigger}/>
               <a href={this.state.photo.photo_attachment_url} className="view-original">View Full Size ⊕</a>
             </div>
           </div>
