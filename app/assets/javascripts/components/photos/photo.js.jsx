@@ -63,7 +63,6 @@ var Photo = React.createClass({
 
   bigger: function () {
     $('.full-size-photo').toggleClass('bigger');
-    $('#shadow').toggleClass('active');
   },
 
   render: function () {
@@ -73,8 +72,6 @@ var Photo = React.createClass({
     if (this.state.photo.id) {
       toRender = (
         <section>
-
-          <div id="shadow"></div>
 
           <div className="parent-container">
             <div className="photo-container">
