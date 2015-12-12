@@ -13,3 +13,4 @@ else
   json.title "Untitled"
 end
 json.created_at photo.created_at.strftime("%b %d, %Y")
+json.tags photo.tags

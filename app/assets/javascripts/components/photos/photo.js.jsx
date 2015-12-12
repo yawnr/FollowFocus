@@ -80,7 +80,12 @@ var Photo = React.createClass({
             </div>
           </div>
 
-          <ExifDetails photo={this.state.photo} />
+          <ExifDetails className="group" photo={this.state.photo} />
+
+          <div className="tags-section">
+            <TagForm photo={this.state.photo}/>
+            <TagIndex photo={this.state.photo}/>
+          </div>
 
           <div className="comments-section">
             <CommentForm photo={this.state.photo}/>

@@ -133,4 +133,39 @@ ApiUtil = {
     });
   },
 
+  fetchTags: function (photo_id) {
+    $.ajax({
+      url: 'api/tags',
+      method: "GET",
+      dataType: "json",
+      data: {photo_id: photo_id},
+      success: function (tags) {
+        ApiActions.receiveAllTags(tags);
+      }
+    });
+  },
+
+  createTag: function (tag) {
+    $.ajax({
+      url: 'api/tags',
+      method: "POST",
+      dataType: "json",
+      data: {tag: tag},
+      success: function (tag) {
+        ApiUtil.fetchTags(tag.photo_id);
+      }
+    });
+  },
+
+  deleteTag: function (tag_id) {
+    $.ajax({
+      url: 'api/tags/' + tag_id,
+      method: "DELETE",
+      dataType: "json",
+      success: function (tag) {
+        ApiActions.deleteTag(tag);
+      }
+    });
+  },
+
 };

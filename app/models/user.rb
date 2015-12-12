@@ -6,9 +6,9 @@ class User < ActiveRecord::Base
 
   validates :email, :username, :password_digest, :session_token, presence: true
   validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i,
-    message: "address invalid." }
+    message: "address invalid." }, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
-  validates :username, length: { minimum: 3, allow_nil: true }
+  validates :username, length: { minimum: 3, allow_nil: true }, uniqueness: true
 
   has_attached_file :profile_photo, styles: {medium: "300x300>", large_thumb: "200x200>", thumb: "100x100>"}, default_url: "large_lens.png"
   validates_attachment_content_type :profile_photo, content_type: /\Aimage\/.*\Z/

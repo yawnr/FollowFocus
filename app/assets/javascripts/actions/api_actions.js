@@ -68,6 +68,27 @@ ApiActions = {
       actionType: CommentConstants.COMMENT_DELETED,
       comment: comment
     });
+  },
+
+  receiveAllTags: function (tags) {
+    AppDispatcher.dispatch({
+      actionType: TagConstants.TAGS_RECEIVED,
+      tags: tags
+    });
+  },
+
+  receiveTag: function (tag) {
+    AppDispatcher.dispatch({
+      actionType: TagConstants.TAG_RECEIVED,
+      tag: tag
+    });
+  },
+
+  deleteTag: function (tag) {
+    AppDispatcher.dispatch({
+      actionType: TagConstants.TAG_DELETED,
+      tag: tag
+    });
   }
 
 };

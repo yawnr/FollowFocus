@@ -1,0 +1,99 @@
+
+
+.tags-section {
+  width: 840px;
+  min-height: 35px;
+  margin: 300px auto 0 auto;
+  background: #212121;
+  padding: 20px 20px 10px 20px;
+  border-radius: 10px;
+}
+
+.new-tag-form {
+  float: left;
+  height: 25px;
+}
+
+.new-tag-form input {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border: 0;
+  width: 52px;
+  height: 25px;
+  padding: 0px 4px;
+  color: #fff;
+  background: #494949;
+}
+
+.new-tag-form input:focus {
+  outline: none;
+}
+
+.submit-tag {
+  color: #fff;
+  background: #2aaeb8;
+  font-weight: 900;
+  width: 25px;
+  height: 25px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  cursor: pointer;
+  transition: background 300ms;
+  margin-right: 5px;
+}
+
+.submit-tag:focus {
+  outline: none;
+}
+
+.submit-tag:hover {
+  background: #58dcb2;
+}
+
+.tag-container {
+  float: left;
+}
+
+.tag {
+  padding: 6px 0px 6px 10px;
+  color: #fff;
+  background: #494949;
+  text-decoration: none;
+  margin: 0px 5px 10px 5px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+
+.delete-tag {
+  display: inline;
+  padding: 6px 10px;
+  background: #b36565;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  margin: 0 0 0 10px;
+  cursor: pointer;
+  transition: background 300ms;
+}
+
+.delete-tag:hover {
+  background: #9b4e4e;
+}
+
+.tag-container-not-own {
+  float: left;
+}
+
+.tag-not-own {
+  padding: 6px 10px 6px 10px;
+  color: #fff;
+  background: #494949;
+  text-decoration: none;
+  margin: 0px 5px 10px 5px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+
+.no-tag-text {
+  color: #494949;
+  transform: translateY(4px);
+}

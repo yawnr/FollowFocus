@@ -12,6 +12,7 @@ class Photo < ActiveRecord::Base
   belongs_to :user
 
   has_many :comments
+  has_many :tags
 
   attr_reader :photo_attachment_content_type
 
