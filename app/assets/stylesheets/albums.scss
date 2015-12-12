@@ -69,7 +69,7 @@
 .new-album-form {
   position: absolute;
   left: calc(50% + 200px);
-  top: 326px;
+  top: 336px;
   display: block;
 }
 
@@ -130,4 +130,10 @@
 
 .cancel-edit:hover {
   color: #954a4a;
+}
+
+.album-details {
+  position: relative;
+  z-index: 5;
+  margin-top: 15px;
 }

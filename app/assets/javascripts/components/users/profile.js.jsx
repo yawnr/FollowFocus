@@ -39,6 +39,7 @@ var Profile = React.createClass({
     if (this.state.user && this.state.view === "CameraRoll") {
       toRender = (
         <div>
+          <HeaderPhoto user={this.state.user} />
           <ProfilePhoto user={this.state.user} />
           <div className="view-selectors group">
             <ul className="view-ul group">
@@ -52,6 +53,7 @@ var Profile = React.createClass({
     } else if (this.state.user && this.state.view === "AlbumView") {
       toRender = (
         <div>
+          <HeaderPhoto user={this.state.user} />
           <ProfilePhoto user={this.state.user} />
           <div className="view-selectors group">
             <ul className="view-ul group">

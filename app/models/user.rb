@@ -13,13 +13,16 @@ class User < ActiveRecord::Base
   has_attached_file :profile_photo, styles: {medium: "300x300>", large_thumb: "200x200>", thumb: "100x100>"}, default_url: "large_lens.png"
   validates_attachment_content_type :profile_photo, content_type: /\Aimage\/.*\Z/
 
+  has_attached_file :header_photo, styles: {full: "1400x1400>", small: "500x500>"}, default_url: "jagged.jpg"
+  validates_attachment_content_type :header_photo, content_type: /\Aimage\/.*\Z/
+
   after_initialize :ensure_session_token
 
   has_many :albums
   has_many :photos
   has_many :comments
 
-  attr_reader :password, :profile_photo_content_type
+  attr_reader :password, :profile_photo_content_type, :header_photo_content_type
 
   def self.find_by_credentials (username, password)
     # user = User.find_by_username(username)

@@ -45,6 +45,7 @@ var Album = React.createClass({
       return (
         <div>
           <div>
+            <HeaderPhoto user={UserStore.user()} />
             <ProfilePhoto user={UserStore.user()} />
           </div>
 
@@ -56,6 +57,7 @@ var Album = React.createClass({
       return (
         <div>
           <div>
+            <HeaderPhoto user={UserStore.user()} />
             <ProfilePhoto user={UserStore.user()} />
           </div>
 

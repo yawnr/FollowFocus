@@ -153,7 +153,7 @@ var UploadToAlbumForm = React.createClass({
   render: function () {
     if (this.props.isOwner) {
       return (
-        <div>
+        <div className="album-details">
           <div className="album-title"><ChangeAlbumForm album={this.props.album} /></div>
 
           <div className="dropZone-container">
@@ -168,7 +168,7 @@ var UploadToAlbumForm = React.createClass({
         </div>
       );
     } else {
-      return (<div>
+      return (<div className="album-details">
                 <div className="album-title">{this.props.album.title}</div>
               </div>
       );

@@ -10,7 +10,7 @@ var Photo = React.createClass({
   },
 
   getInitialState: function () {
-    return { photo: PhotoStore.photo() };
+    return { photo: {} };
   },
 
   componentWillUnmount: function () {

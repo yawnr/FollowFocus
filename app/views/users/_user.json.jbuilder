@@ -1,4 +1,5 @@
 json.extract! user, :id, :username
+json.header_photo image_path(user.header_photo.url(:full))
 json.profile_photo_url image_path(user.profile_photo.url)
 json.profile_photo_thumb image_path(user.profile_photo.url(:medium))
 json.profile_photo_small_thumb image_path(user.profile_photo.url(:large_thumb))
