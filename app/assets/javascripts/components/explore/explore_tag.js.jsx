@@ -1,7 +1,11 @@
 var ExploreTag = React.createClass({
 
   toggleActive: function (e) {
-    ExploreUtil.fetchExplorePhotos(this.props.tag);
+    if (e.target.classList[1] == "inactive") {
+      ExploreUtil.fetchExplorePhotos(this.props.tag);
+    } else {
+      ExplorePhotosStore.removeTagPhotos(e.target.textContent);
+    }
     $(e.target).toggleClass('inactive');
   },
 

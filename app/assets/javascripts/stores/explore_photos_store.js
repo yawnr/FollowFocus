@@ -52,6 +52,28 @@
         }
       }
       return -1;
+    },
+
+    removeTagPhotos: function (tag) {
+      var beginSplice;
+      var endSplice;
+
+      for (var i = 0; i < _photos.length; i++) {
+        if (_photos[i].tags.indexOf(tag) ) {
+          beginSplice = i;
+          break;
+        }
+      }
+
+      for (var j = _photos.length - 1; j >= 0; j--) {
+        if (_photos[j].tags.indexOf(tag)) {
+          endSplice = j + 1;
+          break;
+        }
+      }
+
+      _photos.splice(beginSplice, endSplice);
+      ExplorePhotosStore.emit(CHANGE_EVENT);
     }
 
   });
