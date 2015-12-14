@@ -20,7 +20,7 @@ var ExploreTagsIndex = React.createClass({
   render: function () {
     if (this.state.tags.length > 0) {
       return (
-        <div className="explore-tags-index">
+        <div className="explore-tags-index group">
           {this.state.tags.map(function (tag) {
             return <ExploreTag key={tag} tag={tag} />;
           })}

@@ -11,7 +11,6 @@ var PhotoThumbnail = React.createClass({
   },
 
   render: function () {
-
     if (this.props.photo.user_id == window.FollowFocus.currentUser.id) {
       return (
         <li className="photo-thumbnail" key={this.props.photo.id} >

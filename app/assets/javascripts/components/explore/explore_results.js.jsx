@@ -19,18 +19,14 @@ ExploreResults = React.createClass({
   },
 
   render: function () {
-    if (this.state.photos.length > 0) {
+
       return (
         <div className="explore-results">
           <PhotoIndex photos={this.state.photos} />
         </div>
       );
-    } else {
-      return (
-        <div className="explore-results">
-        </div>
-      );
+
     }
-  }
+
 
 });

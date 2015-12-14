@@ -15,7 +15,9 @@
     },
 
     addPhotos: function (photos) {
-      _photos.push(photos);
+      photos.forEach(function (photo) {
+        _photos.push(photo);
+      });
     },
 
     addChangeListener: function (callback) {
