@@ -1,7 +1,13 @@
 class Api::TagsController < ApplicationController
 
   def index
-    @tags = Photo.find(params[:photo_id]).tags
+    if params[:explore_tags]
+      @tags = Tag.generate_explore_tags
+      render json: @tags
+    else
+      @tags = Photo.find(params[:photo_id]).tags
+      render 'index'
+    end
   end
 
   def create

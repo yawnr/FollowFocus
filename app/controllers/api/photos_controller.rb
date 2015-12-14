@@ -7,6 +7,8 @@ class Api::PhotosController < ApplicationController
         @photos = Photo.generate_gallery_photos
       elsif params[:album_covers]
         @photos = Photo.order(created_at: :desc).get_album_covers(params[:user_id].to_i)
+      elsif params[:explore_photos]
+        @photos = Photo.get_tag_photos(params[:tag])
       else
         @photos = @scope.order(created_at: :desc).all
       end

@@ -17,13 +17,17 @@
   width: auto;
   height: 100%;
   cursor: zoom-in;
+  cursor: -webkit-zoom-in;
   transition: all 500ms;
   position: relative;
 }
 
 .photo-container .bigger {
   transform: scale(1.4);
+  -webkit-transform: scale(1.4);
+  -moz-transform: scale(1.4);
   cursor: zoom-out;
+  cursor: -webkit-zoom-out;
   z-index: 101;
 }
 

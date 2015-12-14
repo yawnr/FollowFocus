@@ -44,5 +44,20 @@ class Photo < ActiveRecord::Base
     SQL
   end
 
+  def self.get_tag_photos(tag)
+    Photo.find_by_sql([<<-SQL, tag])
+      SELECT
+        photos.*
+      FROM
+        photos
+      JOIN
+        tags ON tags.photo_id = photos.id
+      WHERE
+        tags.tag = ?
+      LIMIT
+        50
+    SQL
+  end
+
 
 end
