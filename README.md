@@ -1,8 +1,8 @@
 # FollowFocus
 
-[FollowFocus][followFocus]
+[FollowFocus][followfocus]
 
-[followFocus]: www.followfocus.co
+[followfocus]: http://www.followfocus.co
 
 ## Features
 
