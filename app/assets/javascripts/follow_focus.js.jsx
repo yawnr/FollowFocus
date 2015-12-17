@@ -26,6 +26,7 @@ var routes = (
     <Route path="/album/new" component={NewAlbum} />
     <Route path="/explore" component={ExplorePage} />
     <Route path="/search" component={Search} />
+    <Route path="/upload" component={UploadPage} />
   </Route>
 );
 

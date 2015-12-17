@@ -7,8 +7,10 @@ var NavBar = React.createClass({
     var youLink;
     if (window.FollowFocus.currentUser.id !== "null") {
       youLink = "#/users/" + window.FollowFocus.currentUser.id;
+      uploadLink = "#/upload/";
     } else {
       youLink = "http://www.followfocus.co/session/new";
+      uploadLink = "http://www.followfocus.co/session/new";
     }
 
     return (
@@ -28,9 +30,9 @@ var NavBar = React.createClass({
 
           <SearchBar />
 
-          <Link to="/upload" className="upload-link">
+          <a href={uploadLink} className="upload-link">
             <img src={window.FollowFocus.images.uploadButton} alt="upload-button" className="upload-button" />
-          </Link>
+          </a>
 
           <LoginLogoutButton />
 
