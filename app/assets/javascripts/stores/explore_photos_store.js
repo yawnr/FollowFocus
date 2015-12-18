@@ -17,6 +17,11 @@
 
     resetPhotos: function () {
       _photos = [];
+      _photoIds = [];
+    },
+
+    resetActiveTags: function () {
+      _activeTags = [];
     },
 
     addPhotos: function (photos) {

@@ -6,6 +6,7 @@ ExploreResults = React.createClass({
 
   componentDidMount: function () {
     ExplorePhotosStore.resetPhotos();
+    ExplorePhotosStore.resetActiveTags();
     ExplorePhotosStore.addChangeListener(this._onChange);
   },
 
