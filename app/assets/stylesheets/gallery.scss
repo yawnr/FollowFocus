@@ -18,7 +18,6 @@
 }
 
 .gallery-photo img {
-  box-shadow: #000 0 2px 2px;
   margin-bottom: 5px;
 }
 
@@ -32,12 +31,13 @@
   bottom: 10px;
 
   font-family: "Proxima Nova", "Helvetica Neue", helvetica, arial, sans-serif;
-
+  font-size: 14px;
+  font-weight: 500;
   margin: auto;
   height: 50px;
-  background: #171717;
+  background: #f3f3f3;
 
-  color: white;
+  color: #494949;
   text-decoration: none;
 }
 
@@ -50,7 +50,7 @@
 
 .gallery-photo-info-box a {
   text-decoration: none;
-  color: white;
+  color: #494949;;
 }
 
 .ul1 {
@@ -69,7 +69,8 @@
 
 .info-box-photo-title {
   margin: auto;
-  padding-top: 13px;
+  padding-top: 16px;
+  font-weight: 500;
 }
 
 .refresh-gallery {
@@ -78,7 +79,7 @@
   cursor: pointer;
   font-family: Lucida Sans Unicode;
   font-size: 30px;
-  color: white;
+  color: #494949;
   transition: all 300ms;
 }
 
@@ -86,5 +87,5 @@
   transform: rotate(30deg);
   -webkit-transform: rotate(30deg);
   -ms-transform: rotate(30deg);
-  color: #69ebdd;
+  opacity: .7;
 }

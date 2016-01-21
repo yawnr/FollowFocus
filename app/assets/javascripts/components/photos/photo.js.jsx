@@ -67,6 +67,20 @@ var Photo = React.createClass({
 
   render: function () {
 
+    var photoMap;
+
+    if (this.state.photo.id && this.state.photo.lat !== 0) {
+      photoMap = (
+          <PhotoMap photo={this.state.photo} />
+      );
+    } else {
+      photoMap = (
+          <div className="empty-photo-map">
+            <div className="empty-map-text">Zoinks! No map data for this photo.</div>
+          </div>
+      );
+    }
+
     var toRender;
 
     if (this.state.photo.id) {
@@ -83,7 +97,10 @@ var Photo = React.createClass({
             </div>
           </div>
 
-          <ExifDetails className="group" photo={this.state.photo} />
+          <div className="map-and-exif group">
+            {photoMap}
+            <ExifDetails className="group" photo={this.state.photo} />
+          </div>
 
           <div className="tags-section">
             <TagForm photo={this.state.photo}/>
@@ -104,23 +121,24 @@ var Photo = React.createClass({
       toRender = (<div className="parent-container"></div>);
     }
 
-    if (this.state.photo.id && this.state.photo.lat !== 0) {
-      return(
-        <div>
-          {toRender}
-          <PhotoMap photo={this.state.photo} />
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          {toRender}
-          <div className="empty-photo-map">
-            <div className="empty-map-text">Zoinks! No map data for this photo.</div>
-          </div>
-        </div>
-      );
-    }
+    return (<div>{toRender}</div>);
+    // if (this.state.photo.id && this.state.photo.lat !== 0) {
+    //   return(
+    //     <div>
+    //       {toRender}
+    //       <PhotoMap photo={this.state.photo} />
+    //     </div>
+    //   );
+    // } else {
+    //   return (
+    //     <div>
+    //       {toRender}
+    //       <div className="empty-photo-map">
+    //         <div className="empty-map-text">Zoinks! No map data for this photo.</div>
+    //       </div>
+    //     </div>
+    //   );
+    // }
   }
 
 });

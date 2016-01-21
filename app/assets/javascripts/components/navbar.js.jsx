@@ -24,13 +24,15 @@ var NavBar = React.createClass({
               </img>
             </ Link>
 
-          <li><Link to="/" className="link to-home">Home</Link></li>
-          <li><a href={youLink} className="link">You</a></li>
-          <li><Link to="/explore" className="link">Explore</Link></li>
+          <ul className="group">
+            <li><Link to="/" className="link to-home">Home</Link></li>
+            <li><a href={youLink} className="link">You</a></li>
+            <li><Link to="/explore" className="link">Explore</Link></li>
+          </ul>
 
           <SearchBar />
 
-          <a href={uploadLink} className="upload-link">
+          <a href={uploadLink} className="upload-link group">
             <img src={window.FollowFocus.images.uploadButton} alt="upload-button" className="upload-button" />
           </a>
 

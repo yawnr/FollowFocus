@@ -9,6 +9,14 @@ var AlbumIndex = React.createClass({
     AlbumCoversStore.addChangeListener(this._albumsChanged);
     ApiUtil.fetchUserAlbums(this.props.userId);
     UserUtil.fetchAlbumCovers(this.props.userId);
+    // var width = Math.floor(window.innerWidth / 320) * 320;
+    // $(".album-index").width( width );
+    window.addEventListener('resize', this.handleResize);
+  },
+
+  handleResize: function () {
+    var width = Math.floor(window.innerWidth / 320) * 320;
+    $(".album-index").width( width );
   },
 
   _albumsChanged: function () {
@@ -18,6 +26,7 @@ var AlbumIndex = React.createClass({
   componentWillUnmount: function () {
     AlbumStore.removeChangeListener(this._albumsChanged);
     AlbumCoversStore.removeChangeListener(this._albumsChanged);
+    window.removeEventListener('resize', this.handleResize);
   },
 
   componentWillReceiveProps: function (newProps) {
@@ -31,10 +40,9 @@ var AlbumIndex = React.createClass({
     var toRender;
 
     if (AlbumStore.all().length > 0) {
+      this.handleResize();
       toRender = (
         <div className="album-index-container">
-
-        <AlbumForm userId={this.props.userId} />
 
           <ul className="album-index group">
             {this.state.albums.map(function (album) {
@@ -47,7 +55,7 @@ var AlbumIndex = React.createClass({
     } else {
       toRender = (
         <div className="album-index-container">
-          <AlbumForm userId={this.props.userId} />
+
 
           <div className="album-index"></div>
         </div>

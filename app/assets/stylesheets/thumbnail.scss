@@ -36,9 +36,10 @@
 }
 
 .photo-thumbnail:hover .delete-photo-button{
-  opacity: 1;
+  opacity: .8;
 }
 
 .delete-photo-button:hover {
   color: white;
+  opacity: 1;
 }

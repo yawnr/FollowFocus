@@ -4,17 +4,17 @@
   text-align: left;
   overflow: hidden;
 
-  background: #212121;
+  background: #f3f3f3;
   padding: 20px;
 
-  border-radius: 10px;
+  // border-radius: 10px;
 }
 
 .comments-index {
   max-height: 400px;
   overflow-y: scroll;
   overflow-x: hidden;
-  background: #212121;
+  background: #f3f3f3;
 }
 
 #comment_body {
@@ -22,7 +22,7 @@
   height: 30px;
   margin-bottom: 3px;
   padding: 3px;
-  border-radius: 5px;
+  // border-radius: 5px;
   border: 0;
 }
 
@@ -31,12 +31,13 @@
 }
 
 .submit-comment {
-  padding: 5px;
+  padding: 10px;
   font-size: 12px;
   font-weight: 400;
   width: 840px;
   background: #2aaeb8;
-  border-radius: 5px;
+  color: white;
+  // border-radius: 5px;
   cursor: pointer;
   text-align: center;
   margin: 5px auto 0 auto;
@@ -53,7 +54,7 @@
   padding: 10px;
   margin: 10px;
   position: relative;
-  border-bottom: 1px solid #494949;
+  border-bottom: 1px solid #fff;
   font-family: sans-serif;
 }
 
@@ -79,7 +80,7 @@
   font-size: 14px;
   font-weight: 400;
   position: absolute;
-  color: white;
+  color: #262626;
   left: 70px;
   top: 10px;
   cursor: pointer;
@@ -108,7 +109,6 @@
   font-size: 12px;
   font-weight: 600;
   position: absolute;
-  color: white;
   left: 170px;
   top: 12px;
   cursor: pointer;

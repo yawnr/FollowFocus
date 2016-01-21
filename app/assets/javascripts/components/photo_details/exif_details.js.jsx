@@ -17,6 +17,12 @@ ExifDetails = React.createClass({
   },
 
   render: function () {
+    var aper;
+    if (this.props.photo.aperture != "Unknown") {
+      aper = "ƒ/" + this.props.photo.aperture;
+    } else {
+      aper = "Unknown";
+    }
     return(
       <div className="exif-container">
         <table className="exif-table">
@@ -29,8 +35,8 @@ ExifDetails = React.createClass({
             <td>{this.props.photo.camera_model || "Unknown"}</td>
           </tr>
           <tr className="exif-row">
-            <td> Aperture: </td>
-            <td>ƒ {this.props.photo.aperture || "Unknown"}</td>
+            <td> Aperture </td>
+            <td>{aper}</td>
           </tr>
           <tr className="exif-row">
             <td> Shutter Speed </td>

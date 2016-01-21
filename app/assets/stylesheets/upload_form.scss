@@ -2,23 +2,22 @@
   cursor: pointer;
   margin: auto;
   background: transparent;
-  width: 500px;
-  height: 100px;
-  display: table-cell;
-  vertical-align: middle;
-  // transition: height 500ms;
+  width: calc(100% - 40px);
+  padding: 20px;
+  transition: background 300ms;
 }
 
-// #dropZone:hover {
-//   height: 300px;
-// }
+.table-cell {
+  width: 100%;
+}
 
 .dropZone-container {
-  width: 500px;
+  width: 100%;
   margin: 43px auto 0 auto;
   display: table;
-  border-radius: 10px;
-  background: #212121;
+  // border-radius: 10px;
+  background: #f3f3f3;
+  transition: all 300ms;
 }
 
 .dropZone-container input {
@@ -31,9 +30,31 @@
 
 .click-here {
   color: #2aaeb8;
-  transition: color 300ms;
+  transition: all 300ms;
+}
+
+.dropZone-container:hover {
+  background: #ececec;
+  color: #25bac5;
 }
 
 .dropZone-container:hover .click-here {
-  color: #58dcb2;
+  transform: scale(1.5) translateY(-10px);
+  -webkit-transform: scale(1.3) translateY(-12px);
+}
+
+.dropZone-container span {
+  transition: all 300ms;
+}
+
+.dropZone-container .or {
+  transition: all 300ms;
+}
+
+.dropZone-container:hover span {
+  color: #ececec;
+}
+
+.dropZone-container:hover .or {
+  color: #ececec;
 }

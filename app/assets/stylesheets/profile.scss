@@ -31,11 +31,12 @@
 .profile-photo-container:hover span {
   cursor: pointer;
   opacity: .8;
+  color: white;
 }
 
 .profile-photo-container span {
   position: absolute;
-  top: 275px;
+  top: 255px;
   left: calc(50% - 32px);
   opacity: 0;
   z-index: 1000;
@@ -64,34 +65,47 @@
 .view-selectors > ul {
   position: absolute;
   left: calc(50% - 190px);
+  transition: all 400ms;
+}
+
+.view-selectors > ul.album-view {
+    left: calc(50% - 290px);
 }
 
 .view-selectors li {
   float: left;
   width: 150px;
-  background: #212121;
+  background: #f3f3f3;
   color: #494949;
   cursor: pointer;
-  border-radius: 5px;
+  // border-radius: 5px;
   padding: 10px;
   margin: 10px 10px 0px 10px;
-  transition: background 300ms;
+  transition: all 300ms;
+  opacity: .7;
+}
+
+.view-selectors li.album-form-button {
+  padding: 0px;
 }
 
 .view-selectors li:hover {
-  background: #ccc;
+  background: #2aaeb8;
+  color: #ffffff;
 }
 
 .view-selectors li.selected {
-  background: #70cebf;
+  background: #212121;
+  color: #f3f3f3;
 }
 
 .username-header {
   position: absolute;
-  top: 284px;
+  top: 264px;
   text-align: center;
   width: 100%;
   font-size: 20px;
+  color: #fff;
 }
 
 .header-photo-container {
@@ -107,6 +121,7 @@
   opacity: .6;
   position: absolute;
   transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
   left: 0px;
 }
 
@@ -119,6 +134,7 @@
 .header-upload-container span {
   transition: opacity 300ms;
   opacity: 0;
+  color: white;
   cursor: pointer;
 }
 

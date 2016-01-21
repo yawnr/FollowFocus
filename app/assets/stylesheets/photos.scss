@@ -1,5 +1,5 @@
 .parent-container {
-  background: #171717;
+  background: #f3f3f3;
   margin: 10px auto 5px auto;
   width: auto;
   height: 600px;
@@ -23,9 +23,9 @@
 }
 
 .photo-container .bigger {
-  transform: scale(1.4);
-  -webkit-transform: scale(1.4);
-  -moz-transform: scale(1.4);
+  transform: scale(1.4) translateY(12%);
+  -webkit-transform: scale(1.4) translateY(12%);
+  -moz-transform: scale(1.4) translateY(12%);
   cursor: zoom-out;
   cursor: -webkit-zoom-out;
   z-index: 101;
@@ -38,6 +38,7 @@
   cursor: pointer;
 
   background: gray;
+  color: #ffffff;
 
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -59,6 +60,7 @@
   cursor: pointer;
 
   background: gray;
+  color: white;
 
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
@@ -118,8 +120,20 @@
   opacity: 1;
 }
 
+.parent-container .next-photo:hover {
+  opacity: 1;
+}
+
+.prev-photo:hover .prev-photo-text {
+  opacity: 1;
+}
+
+.next-photo:hover .next-photo-text {
+  opacity: 1;
+}
+
 .back-to-album {
-  color: white;
+  color: #262626;
   text-decoration: none;
   position: absolute;
   left: 10px;
@@ -138,7 +152,7 @@
 }
 
 .view-original {
-  color: white;
+  color: #494949;
   text-decoration: none;
   position: absolute;
   right: 10px;

@@ -50,14 +50,19 @@ var Profile = React.createClass({
         </div>
       );
     } else if (this.state.user && this.state.view === "AlbumView") {
+        var checkView = "";
+      if (this.state.user.id == window.FollowFocus.currentUser.id) {
+        checkView = " album-view";
+      }
       toRender = (
         <div>
           <HeaderPhoto user={this.state.user} />
           <ProfilePhoto user={this.state.user} />
           <div className="view-selectors group">
-            <ul className="view-ul group">
+            <ul className={"view-ul group" + checkView}>
               <li className="camera-roll-selector" onClick={this._switchView}>Camera Roll</li>
               <li className="album-view-selector selected" onClick={this._switchView}>Albums</li>
+              <li className="album-form-button" ><AlbumForm userId={this.props.params.userId}/></li>
             </ul>
           </div>
           <AlbumIndex userId={this.props.params.userId} />

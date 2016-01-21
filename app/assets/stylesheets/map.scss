@@ -1,29 +1,28 @@
 .photo-map {
   float: left;
-  position: absolute;
-  left: calc(50% - 440px);
   width: 400px;
   height: 230px;
-  border-radius: 10px;
   overflow: hidden;
-  top: 716px;
-  background: #212121;
+  background: #f3f3f3;
   color: #494949;
+  margin: 31px 0px;
 }
 
 .empty-photo-map {
   float: left;
-  position: absolute;
-  left: calc(50% - 440px);;
   width: 400px;
   height: 230px;
-  border-radius: 10px;
   overflow: hidden;
-  top: 716px;
-  background: #212121;
+  background: #f3f3f3;
   color: #494949;
+  margin: 31px 0px;
 }
 
 .empty-map-text {
   margin-top: 104px;
+}
+
+.map-and-exif {
+  width: 880px;
+  margin: auto;
 }
