@@ -9,8 +9,6 @@ var AlbumIndex = React.createClass({
     AlbumCoversStore.addChangeListener(this._albumsChanged);
     ApiUtil.fetchUserAlbums(this.props.userId);
     UserUtil.fetchAlbumCovers(this.props.userId);
-    // var width = Math.floor(window.innerWidth / 320) * 320;
-    // $(".album-index").width( width );
     window.addEventListener('resize', this.handleResize);
   },
 
