@@ -36,9 +36,15 @@
   border: 0;
   text-align: center;
   opacity: .8;
+  border-radius: 0px;
+  padding: 0px;
+  border: 0;
 }
 
 .username-login {
+  border-radius: 0px;
+  padding: 0px;
+  border: 0;
   // position: absolute;
   // -webkit-transform: translateX(-50%);
 }
@@ -46,6 +52,9 @@
 .password-login {
   // position: absolute;
   // -webkit-transform: translate(-50%, 100%);
+  border-radius: 0px;
+  padding: 0px;
+  border: 0;
 }
 
 .login-form input:focus {
