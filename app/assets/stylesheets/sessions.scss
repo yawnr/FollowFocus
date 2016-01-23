@@ -42,6 +42,7 @@
 }
 
 .username-login {
+  margin-top: 60px;
   border-radius: 0px;
   padding: 0px;
   border: 0;
@@ -52,6 +53,7 @@
 .password-login {
   // position: absolute;
   // -webkit-transform: translate(-50%, 100%);
+  margin-top: 0px;
   border-radius: 0px;
   padding: 0px;
   border: 0;
@@ -75,7 +77,7 @@
   cursor: pointer;
   font-size: 22px;
   background: #58b3ba;
-  width: 302px;
+  width: 300px;
   height: 42px;
   transition: background 200ms;
 }
@@ -86,7 +88,7 @@
 
 .create-account-link {
   position: absolute;
-  bottom: 28px;
+  bottom: 60px;
   right: 50px;
   background: #58b3ba;
   padding: 5px;
@@ -104,7 +106,7 @@
 .demo-user button {
   width: 140px;
   position: absolute;
-  bottom: 28px;
+  bottom: 60px;
   left: 50px;
   background: #58b3ba;
   padding: 5px;
