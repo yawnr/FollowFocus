@@ -49,7 +49,23 @@ var Search = React.createClass({
         });
 
       var nextPage = (parseInt(this.props.location.query.page) || 1) + 1;
+      var prevPage = (parseInt(this.props.location.query.page) || 1) - 1;
       var query = this.props.location.query.query;
+
+      var prevShow = " no-show";
+      var nextShow = " no-show";
+
+      if (results.length > 24 || prevPage > 0) {
+        if (nextPage > 2) {
+          prevShow = " show";
+        }
+        if (results.length < 24) {
+          nextShow = " no-show";
+        } else {
+          nextShow = " show";
+        }
+      }
+
       return (
         <div className="search group">
           <input type="text"
@@ -67,9 +83,14 @@ var Search = React.createClass({
             Displaying { SearchResultsStore.results().length } of { SearchResultsStore.totalCount() }
           </p>
 
-          <a className="next-page" href={ "#/search?query=" + query + "&page=" + nextPage }>
-            Next
-          </a>
+          <div className="prev-next">
+            <a className={"next-page" + prevShow} href={ "#/search?query=" + query + "&page=" + prevPage }>
+              Prev
+            </a>
+            <a className={"next-page" + nextShow} href={ "#/search?query=" + query + "&page=" + nextPage }>
+              Next
+            </a>
+          </div>
 
         </div>
       );

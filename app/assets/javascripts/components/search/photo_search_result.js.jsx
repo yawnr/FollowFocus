@@ -2,6 +2,13 @@ var PhotoSearchResult = React.createClass({
 
   render: function () {
 
+    var comments;
+    if (this.props.photo.num_comments == 1) {
+      comments = "comment";
+    } else {
+      comments = "comments";
+    }
+
     return (
       <div className="search-result">
         <a href={"#/albums/" + this.props.photo.album_id + "/photos/" + this.props.photo.id}>
@@ -11,8 +18,8 @@ var PhotoSearchResult = React.createClass({
           <div className="username-search-result">{"Photo: " + this.props.photo.title}</div>
         </a>
         <ul>
-          <li>{this.props.photo.num_comments} comments</li>
-          <li>Uploaded: {this.props.photo.create_at}</li>
+          <li>{this.props.photo.num_comments} {comments}</li>
+          <li>Uploaded: {this.props.photo.created_at}</li>
         </ul>
       </div>
     );

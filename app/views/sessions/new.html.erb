@@ -5,22 +5,15 @@
   <div class="login-form">
 
     <h3 class="login-header">Log In</h3>
-    <form action="<%= session_url %>" method="POST">
+    <form class="group" action="<%= session_url %>" method="POST">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-        <label class="username-label">
-          <input type="text" class="username-login" name="user[username]" placeholder="Username">
-        </label>
+      <input type="text" class="username-login" name="user[username]" placeholder="Username">
+      <input type="password" class="password-login" name="user[password]" placeholder="Password">
 
-        <label class="password-label">
-          <input type="password" class="password-login" name="user[password]" placeholder="Password">
-        </label>
-
-        <br/>
-
-        <button class="login-button">Log In</button>
-
-        <br/>
+      <br/>
+      <button class="login-button">Log In</button>
+      <br/>
 
         <a href="http://www.followfocus.co/users/new" class="create-account-link">Create an Account</a>
     </form>

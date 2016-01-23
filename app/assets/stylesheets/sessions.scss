@@ -7,11 +7,14 @@
 
 .login-logo {
   margin-top: 200px;
+  width: 400px;
+  opacity: .9;
 }
 
 .login-header {
   margin: 0;
   padding: 0;
+  font-weight: 500;
 }
 
 .login-form {
@@ -20,7 +23,6 @@
   left: calc(50% - 200px);
   color: white;
   background: rgba(38, 38, 38, 0.5);
-  border-radius: 10px;
   height: 300px;
   width: 400px;
 }
@@ -36,14 +38,16 @@
 
 .username-login {
   position: absolute;
-  top: 90px;
-  left: 49px;
+  -webkit-transform: translateX(-50%);
+  // top: 90px;
+  // left: 49px;
 }
 
 .password-login {
   position: absolute;
-  top: 132px;
-  left: 49px;
+  -webkit-transform: translate(-50%, 100%);
+  // top: 132px;
+  // left: 49px;
 }
 
 .login-form input:focus {
@@ -51,20 +55,21 @@
 }
 
 .login-form h3 {
-  margin-top: 18px;
+  margin: 18px auto;
   color: white;
-  opacity: .9;
   padding: 10px;
   font-size: 28px;
 }
 
 .login-button {
   position: absolute;
-  top: 174px;
-  left: 49px;
+  transform: translate(-50%, 68px);
+  -webkit-transform: translate(-50%, 68px);
+  // top: 174px;
+  // left: 49px;
   cursor: pointer;
   font-size: 22px;
-  background: #2aaeb8;
+  background: #58b3ba;
   width: 302px;
   height: 42px;
   transition: background 200ms;
@@ -78,8 +83,7 @@
   position: absolute;
   bottom: 28px;
   right: 50px;
-  background: #2aaeb8;
-  border-radius: 5px;
+  background: #58b3ba;
   padding: 5px;
   cursor: pointer;
   transition: background 300ms;
@@ -97,8 +101,7 @@
   position: absolute;
   bottom: 28px;
   left: 50px;
-  background: #2aaeb8;
-  border-radius: 5px;
+  background: #58b3ba;
   padding: 5px;
   cursor: pointer;
   transition: background 300ms;

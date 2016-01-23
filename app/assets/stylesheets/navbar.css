@@ -146,15 +146,16 @@ nav {
 
 .logo-lens {
   position: absolute;
-  left: 223px;
+  left: 168px;
   /*width: 35px;*/
-  top: 20px;
+  top: 16px;
 
   -webkit-animation:spin .5s linear;
   -moz-animation:spin .5s linear;
   animation:spin .5s linear;
   transition: all .5s;
-  display: none;
+
+  height: 25px;
 }
 
 .logo-lens:hover {

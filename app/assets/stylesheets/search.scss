@@ -1,6 +1,6 @@
 .search {
   text-align: left;
-  margin: 100px 150px;
+  margin: 50px 150px;
 }
 
 #search-input:focus {
@@ -31,6 +31,7 @@
   margin: 20px 0 20px 0;
   height: 100px;
   width: calc(100% - 300px);
+  min-width: 400px;
   // border-radius: 5px;
   background: #f3f3f3;
   position: relative;
@@ -66,4 +67,8 @@
   position: absolute;
   top: 25px;
   left: 25px;
+}
+
+.no-show {
+  display: none;
 }
