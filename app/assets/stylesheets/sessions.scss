@@ -111,10 +111,11 @@
 .errors {
   position: absolute;
   width: 350px;
-  height: 50px;
+  transform: translateY(-100%);
+  -webkit-transform: translateY(-100%);
   word-wrap: break-word;
   color: #ffffff;
   opacity: .8;
-  top: 310px;
+  top: 200px;
   left: calc(50% - 175px);
 }
