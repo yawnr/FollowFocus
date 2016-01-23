@@ -13,6 +13,52 @@ var Photo = React.createClass({
     return { photo: {} };
   },
 
+  componentDidMount: function () {
+    document.addEventListener('touchstart', this.handleTouchStart, false);
+    document.addEventListener('touchmove', this.handleTouchMove, false);
+    var xDown = null;
+    var yDown = null;
+  },
+
+  handleTouchStart: function (evt) {
+    xDown = evt.touches[0].clientX;
+    yDown = evt.touches[0].clientY;
+  },
+
+  handleTouchMove: function (evt) {
+    var toClick;
+
+    if ( ! xDown || ! yDown ) {
+        return;
+    }
+
+    var xUp = evt.touches[0].clientX;
+    var yUp = evt.touches[0].clientY;
+
+    var xDiff = xDown - xUp;
+    var yDiff = yDown - yUp;
+
+    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+        if ( xDiff > 0 ) {
+          toClick = document.getElementsByClassName("prev-photo");
+          toClick[0].click();
+        } else {
+            /* right swipe */
+          toClick = document.getElementsByClassName("prev-photo");
+          toClick[0].click();
+        }
+    } else {
+        if ( yDiff > 0 ) {
+            /* up swipe */
+        } else {
+            /* down swipe */
+        }
+    }
+    /* reset values */
+    xDown = null;
+    yDown = null;
+  },
+
   componentWillUnmount: function () {
     PhotoStore.removeChangeListener(this._onChange);
     PhotosStore.removeChangeListener(this._onChange);
