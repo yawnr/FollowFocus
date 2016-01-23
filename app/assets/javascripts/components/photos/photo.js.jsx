@@ -38,7 +38,7 @@ var Photo = React.createClass({
     var xDiff = xDown - xUp;
     var yDiff = yDown - yUp;
 
-    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+    if ( Math.abs( xDiff ) > Math.abs( yDiff * 4 )) {/*most significant*/
         if ( xDiff > 0 ) {
           toClick = document.getElementsByClassName("prev-photo");
           toClick[0].click();
