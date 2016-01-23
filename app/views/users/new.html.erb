@@ -3,27 +3,16 @@
   <img class="create-logo" src="<%= image_path("logo2.png") %>" />
 
     <div class="create-form">
-      <h3>Create Account</h3>
 
       <form action="<%= users_url %>" method="POST">
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-          <label>
-            <input type="text" class="email-create" name="user[email]" placeholder="email" value="<%=@user.email %>">
-          </label>
+        <input type="text" class="email-create" name="user[email]" placeholder="email" value="<%=@user.email %>">
+        <input type="text" class="username-create" name="user[username]" placeholder="username" value="<%=@user.username %>">
+        <input type="password" class="password-create" placeholder="password" name="user[password]">
+        <button class="create-button">Create Account</button>
 
-          <label>
-            <input type="text" class="username-create" name="user[username]" placeholder="username" value="<%=@user.username %>">
-          </label>
-
-          <label>
-            <input type="password" class="password-create" placeholder="password" name="user[password]">
-          </label>
-
-          <button class="create-button">Create Account</button>
-
-          <br/>
-          <a href="http://www.followfocus.co/session/new" class="login-link">Log In</a>
+        <a href="http://www.followfocus.co/session/new" class="login-link">Log In</a>
       </form>
 
     </div>
