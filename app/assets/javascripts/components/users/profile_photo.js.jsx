@@ -16,7 +16,7 @@ var ProfilePhoto = React.createClass({
 
           <br />
 
-          <h3 className="username-header">{this.props.user.username}</h3>
+          <h3 className="username-header"><a href={"#/users/" + this.props.user.id}>{this.props.user.username}</a></h3>
         </div>
       );
     } else {
@@ -31,7 +31,7 @@ var ProfilePhoto = React.createClass({
 
           <br />
 
-          <h3 className="username-header">{this.props.user.username}</h3>
+          <h3 className="username-header"><a href={"#/users/" + this.props.user.id}>{this.props.user.username}</a></h3>
         </div>
       );
     }

@@ -76,17 +76,6 @@ span.album-index-item-text {
   opacity: 1;
 }
 
-.new-album-form {
-  // position: absolute;
-  // left: calc(50% + 200px);
-  // top: 336px;
-  // display: block;
-}
-
-.new-album-form div {
-
-}
-
 .new-album-form button {
   width: 170px;
   padding: 10px;
@@ -116,12 +105,11 @@ span.album-index-item-text {
   margin: 0px auto 20px auto;
   border: 0;
   padding: 0;
-  // width: 500px;
   transition: color 300ms;
 }
 
 .album-title:hover {
-  color: #b36565;
+  color: darkred;
 }
 
 .album-title:focus {

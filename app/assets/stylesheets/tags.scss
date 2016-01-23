@@ -6,7 +6,6 @@
   margin: 0 auto 0 auto;
   background: #f3f3f3;
   padding: 20px 20px 10px 20px;
-  // border-radius: 10px;
 }
 
 .new-tag-form {
@@ -15,8 +14,6 @@
 }
 
 .new-tag-form input {
-  // border-top-left-radius: 5px;
-  // border-bottom-left-radius: 5px;
   border: 0;
   width: 52px;
   height: 25px;
@@ -35,8 +32,6 @@
   font-weight: 900;
   width: 25px;
   height: 25px;
-  // border-top-right-radius: 5px;
-  // border-bottom-right-radius: 5px;
   cursor: pointer;
   transition: color 300ms;
   margin-right: 10px;
@@ -69,8 +64,6 @@
   display: inline;
   padding: 6px 10px;
   background: #494949;
-  // border-bottom-right-radius: 5px;
-  // border-top-right-radius: 5px;
   margin: 0 0 0 10px;
   cursor: pointer;
   transition: color 300ms;
@@ -90,11 +83,11 @@
   background: #494949;
   text-decoration: none;
   margin: 0px 5px 10px 5px;
-  // border-radius: 5px;
   font-size: 13px;
 }
 
 .no-tag-text {
   color: #494949;
   transform: translateY(4px);
+  -webkit-transform: translateY(4px);
 }

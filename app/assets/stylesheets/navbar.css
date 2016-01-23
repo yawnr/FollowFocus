@@ -48,7 +48,6 @@ nav {
 }
 
 .navbar > ul > li:hover {
-  /*color: #727272;*/
   opacity: .5;
 }
 

@@ -109,6 +109,16 @@
   color: #fff;
 }
 
+.username-header > a {
+  text-decoration: none;
+  color: #fff;
+  transition: color 300ms;
+}
+
+.username-header > a:hover {
+  color: #494949;
+}
+
 .header-photo-container {
   overflow: hidden;
   width: 100%;
