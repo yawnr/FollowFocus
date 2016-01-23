@@ -44,7 +44,7 @@ var Photo = React.createClass({
           toClick[0].click();
         } else {
             /* right swipe */
-          toClick = document.getElementsByClassName("prev-photo");
+          toClick = document.getElementsByClassName("next-photo");
           toClick[0].click();
         }
     } else {
