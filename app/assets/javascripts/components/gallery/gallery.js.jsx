@@ -8,9 +8,23 @@ var Gallery = React.createClass({
     GalleryPhotosStore.addChangeListener(this._onChange);
 
     var visitTime = new Date();
+
     if (!this.state.lastFetchTime || (visitTime - this.state.lastFetchTime) / 60000 > 30) {
       GalleryUtil.fetchGalleryPhotos();
     }
+    
+    var that = this;
+
+    document.addEventListener('scroll', function (event) {
+      if (document.body.scrollHeight ==
+          document.body.scrollTop +
+          window.innerHeight) {
+          if (that.state.gallery.length < 50) {
+            GalleryUtil.fetchMorePhotos();
+          }
+      }
+    });
+
   },
 
   refreshGallery: function () {
@@ -39,7 +53,7 @@ var Gallery = React.createClass({
           <div className="gallery-photos-container group">
             <ul className="gallery-ul">
               {this.state.gallery.map(function (photo) {
-                return <GalleryPhoto key = {photo.id} photo={photo} />;
+                return <GalleryPhoto key={photo.id} photo={photo} />;
               })}
             </ul>
           </div>
