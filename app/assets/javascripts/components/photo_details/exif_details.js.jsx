@@ -23,6 +23,15 @@ ExifDetails = React.createClass({
     } else {
       aper = "Unknown";
     }
+
+    var model = this.props.photo.camera_model.split(' ');
+    if (model.length > 1 && model[0] == model[1]) {
+      model.splice(0, 1);
+      model = model.join(' ');
+    } else {
+      model = this.props.photo.camera_model;
+    }
+
     return(
       <div className="exif-container">
         <table className="exif-table">
@@ -32,7 +41,7 @@ ExifDetails = React.createClass({
           </tr>
           <tr className="exif-row">
             <td> Camera model </td>
-            <td>{this.props.photo.camera_model || "Unknown"}</td>
+            <td>{model || "Unknown"}</td>
           </tr>
           <tr className="exif-row">
             <td> Aperture </td>

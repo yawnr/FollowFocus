@@ -135,3 +135,21 @@ span.album-index-item-text {
   z-index: 5;
   margin-top: 15px;
 }
+
+.album-page-toggles {
+  margin: auto;
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
+.album-page {
+  float: left;
+  padding: 10px;
+  cursor: pointer;
+  color: #212121;
+  transition: opacity 300ms;
+}
+
+.album-page:hover {
+  opacity: .5;
+}

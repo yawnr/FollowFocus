@@ -14,13 +14,17 @@
 }
 
 .photo-index {
-  width: calc(100% - 100px);
-  margin: 20px auto;
+  width: calc(100%);
+  margin: 0px auto 20px auto;
   display: block;
+  padding-top: 25px;
 }
 
 .photo-thumbnail-container > img {
   display: block;
+  transform: translateX(-25%);
+  -webkit-transform: translateX(-25%);
+  -moz-transform: translateX(-25%);
 }
 
 .delete-photo-button {

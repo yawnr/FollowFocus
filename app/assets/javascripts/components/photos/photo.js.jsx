@@ -168,23 +168,7 @@ var Photo = React.createClass({
     }
 
     return (<div>{toRender}</div>);
-    // if (this.state.photo.id && this.state.photo.lat !== 0) {
-    //   return(
-    //     <div>
-    //       {toRender}
-    //       <PhotoMap photo={this.state.photo} />
-    //     </div>
-    //   );
-    // } else {
-    //   return (
-    //     <div>
-    //       {toRender}
-    //       <div className="empty-photo-map">
-    //         <div className="empty-map-text">Zoinks! No map data for this photo.</div>
-    //       </div>
-    //     </div>
-    //   );
-    // }
+
   }
 
 });
