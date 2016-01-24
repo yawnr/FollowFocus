@@ -28,7 +28,7 @@
   -moz-transform: scale(1.4) translateY(12%);
   cursor: zoom-out;
   cursor: -webkit-zoom-out;
-  z-index: 101;
+  z-index: 102;
 }
 
 .prev-photo {
@@ -168,4 +168,19 @@
 
 .parent-container .view-original:hover {
   opacity: .8;
+}
+
+.modal {
+  background: #000;
+  opacity: .8;
+  z-index: 101;
+  min-width: 100%;
+  min-height: 100%;
+  position: absolute;
+}
+
+.modal.active {
+  transform: scaleY(1.1);
+  -webkit-transform: scaleY(1.1);
+  -moz-transform: scaleY(1.1);
 }

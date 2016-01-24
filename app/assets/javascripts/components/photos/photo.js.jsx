@@ -91,8 +91,6 @@ var Photo = React.createClass({
 
     var newPhotoId = PhotosStore.all()[newIdx].id;
     this.history.pushState(null, "/albums/" + this.state.photo.album_id + "/photos/" + newPhotoId, {});
-
-    // this._onChange(PhotosStore.all()[newIdx]);
   },
 
   _nextPhoto: function () {
@@ -104,11 +102,12 @@ var Photo = React.createClass({
 
     var newPhotoId = PhotosStore.all()[newIdx].id;
     this.history.pushState(null, "/albums/" + this.state.photo.album_id + "/photos/" + newPhotoId, {});
-    // this._onChange(PhotosStore.all()[newIdx]);
   },
 
   bigger: function () {
     $('.full-size-photo').toggleClass('bigger');
+    $('.modal').toggleClass('no-show');
+    $('.modal').toggleClass('active');
   },
 
   render: function () {
@@ -132,7 +131,7 @@ var Photo = React.createClass({
     if (this.state.photo.id) {
       toRender = (
         <section>
-
+          <div className="modal no-show" style={{ width: window.innerWidth, height: window.innerHeight, position: "absolute", zIndex: "101" }}></div>
           <div className="parent-container">
             <div className="photo-container">
             <a href={"#/albums/" + this.state.photo.album_id} className="back-to-album">← Back to Album</a>
