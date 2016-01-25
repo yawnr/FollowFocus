@@ -27,6 +27,7 @@ var PhotoIndex = React.createClass({
 
     var showNext = "";
     var showPrev = "";
+    var showRange = "";
 
     var photosPerPage = Math.floor((window.innerWidth - 40) / 160) * 4;
 
@@ -38,11 +39,18 @@ var PhotoIndex = React.createClass({
       showNext = " no-show";
     }
 
+    if (this.props.photos.length === 0) {
+      showRange = " no-show";
+    }
+
     var photosToRender = this.props.photos.slice((photosPerPage * this.state.page), (photosPerPage * this.state.page) + photosPerPage);
 
     setTimeout(function () {
       $(".photo-index").animate( { width: Math.floor((window.innerWidth - 40) / 160) * 160 }, 500 );
     }, 50);
+
+    var first = ((photosPerPage * this.state.page) + 1);
+    var last = ((photosPerPage * this.state.page) + photosToRender.length);
 
     return(
       <div className="group">
@@ -52,7 +60,7 @@ var PhotoIndex = React.createClass({
             })
           }
         </ul>
-        <div className={"album-page-num"}>{((photosPerPage * this.state.page) + 1) + " - " + ((photosPerPage * this.state.page) + photosToRender.length) + " of " + this.props.photos.length}</div>
+        <div className={"album-page-num" + showRange}>{first + " - " + last + " of " + this.props.photos.length}</div>
         <div className="album-page-toggles group">
           <div className={"album-page" + showPrev} onClick={this.prevPage}>Prev</div>
           <div className={"album-page" + showNext} onClick={this.nextPage}>Next</div>

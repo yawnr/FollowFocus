@@ -2,6 +2,9 @@ var Photo = React.createClass({
 
   mixins: [ReactRouter.History],
 
+  prevPic: "",
+  nextPic: "",
+
   componentWillMount: function () {
     ApiUtil.fetchPhoto(parseInt(this.props.routeParams.photoId));
     ApiUtil.fetchAlbumPhotos(parseInt(this.props.routeParams.albumId));
@@ -60,6 +63,7 @@ var Photo = React.createClass({
   },
 
   componentWillUnmount: function () {
+    $("LINK[rel*='prefetch']").remove();
     PhotoStore.removeChangeListener(this._onChange);
     PhotosStore.removeChangeListener(this._onChange);
   },
@@ -83,7 +87,6 @@ var Photo = React.createClass({
   },
 
   _prevPhoto: function () {
-    var photo;
     var newIdx = PhotosStore.all().indexOf(this.state.photo) - 1;
     if ( newIdx < 0 ) {
       newIdx = PhotosStore.all().length - 1;
@@ -94,7 +97,6 @@ var Photo = React.createClass({
   },
 
   _nextPhoto: function () {
-    var photo;
     var newIdx = PhotosStore.findIndexInStore(this.state.photo.id) + 1;
     if ( newIdx > (PhotosStore.all().length - 1) ) {
       newIdx = 0;
@@ -104,8 +106,36 @@ var Photo = React.createClass({
     this.history.pushState(null, "/albums/" + this.state.photo.album_id + "/photos/" + newPhotoId, {});
   },
 
+  prefetchUrls: function () {
+    var nextIdx = PhotosStore.all().indexOf(this.state.photo) + 1;
+    if ( nextIdx > (PhotosStore.all().length - 1) ) {
+      nextIdx = 0;
+    }
+    this.nextPic = PhotosStore.all()[nextIdx].large;
+
+    var prevIdx = PhotosStore.all().indexOf(this.state.photo) - 1;
+    if ( prevIdx < 0 ) {
+      prevIdx = PhotosStore.all().length - 1;
+    }
+    this.prevPic = PhotosStore.all()[prevIdx].large;
+
+    return [this.prevPic, this.nextPic];
+  },
+
+  addPrefetchTags: function () {
+    $("LINK[rel*='prefetch']").remove();
+    if (PhotosStore.all().length > 1) {
+      this.prefetchUrls().forEach(function (url) {
+        $("<link />", {
+          rel: "prefetch", href: url
+        }).appendTo("head");
+      });
+    }
+  },
+
   bigger: function () {
     $('.full-size-photo').toggleClass('bigger');
+    $('.parent-container').toggleClass('hovered');
     $('.modal').toggleClass('no-show');
     $('.modal').toggleClass('active');
   },
@@ -129,6 +159,8 @@ var Photo = React.createClass({
     var toRender;
 
     if (this.state.photo.id) {
+      this.addPrefetchTags();
+
       toRender = (
         <section>
           <div className="modal no-show" style={{ width: window.innerWidth, height: window.innerHeight, position: "absolute", zIndex: "101" }}></div>

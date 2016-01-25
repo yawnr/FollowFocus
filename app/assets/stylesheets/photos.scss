@@ -94,22 +94,26 @@
   transition: all 500ms;
 }
 
-.parent-container:hover .next-photo-text {
+.parent-container:hover .next-photo-text, .parent-container.hovered .next-photo-text {
   opacity: .7;
+  z-index: 103;
 }
 
-.parent-container:hover .prev-photo-text {
+.parent-container:hover .prev-photo-text, .parent-container.hovered .prev-photo-text {
   opacity: .7;
+  z-index: 103;
 }
 
-.parent-container:hover .next-photo {
+.parent-container:hover .next-photo, .parent-container.hovered .next-photo {
   opacity: .7;
   left: calc(100% - 60px);
+  z-index: 103;
 }
 
-.parent-container:hover .prev-photo {
+.parent-container:hover .prev-photo, .parent-container.hovered .prev-photo {
   opacity: .7;
   right: calc(100% - 60px);
+  z-index: 103;
 }
 
 .parent-container .next-photo:hover {
