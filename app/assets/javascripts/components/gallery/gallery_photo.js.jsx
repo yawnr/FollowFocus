@@ -11,7 +11,7 @@ var GalleryPhoto = React.createClass({
         <div className="gallery-photo-container" >
           <Link to={photo_path} fromGallery={true}>
             <div className="gallery-photo">
-              <img src={this.props.photo.small}  />
+              <img src={this.props.photo.small} />
               <GalleryPhotoInfoBox photo={this.props.photo} />
             </div>
           </Link>

@@ -6,9 +6,9 @@ var Photo = React.createClass({
   nextPic: "",
 
   componentWillMount: function () {
-    ApiUtil.fetchPhoto(parseInt(this.props.routeParams.photoId));
+    // ApiUtil.fetchPhoto(parseInt(this.props.routeParams.photoId));
     ApiUtil.fetchAlbumPhotos(parseInt(this.props.routeParams.albumId));
-    PhotoStore.addChangeListener(this._onChange);
+    // PhotoStore.addChangeListener(this._onChange);
     PhotosStore.addChangeListener(this._onChange);
   },
 
@@ -64,7 +64,7 @@ var Photo = React.createClass({
 
   componentWillUnmount: function () {
     $("LINK[rel*='prefetch']").remove();
-    PhotoStore.removeChangeListener(this._onChange);
+    // PhotoStore.removeChangeListener(this._onChange);
     PhotosStore.removeChangeListener(this._onChange);
   },
 
@@ -74,23 +74,21 @@ var Photo = React.createClass({
     }
 
     if (photo === undefined) {
-      this.setState({ photo: PhotoStore.photo() });
-    } else {
-      this.setState({ photo: photo });
+      this.setState({ photo: PhotosStore.findById(parseInt(this.props.routeParams.photoId)) });
     }
   },
 
   componentWillReceiveProps: function (newParams) {
-    $(".full-size-photo").css('opacity', 0);
     var newPhoto = PhotosStore.findById(parseInt(newParams.params.photoId));
-    PhotoStore.resetPhoto(newPhoto);
+    // PhotoStore.resetPhoto(newPhoto);
     this.setState({ photo: newPhoto });
   },
 
   _prevPhoto: function () {
     if (PhotosStore.all().length > 1) {
-      $(".spinner").removeClass("no-show");
       $(".full-size-photo").addClass("no-show");
+      $(".full-size-photo").css('opacity', 0);
+      $(".spinner").removeClass("no-show");
       var newIdx = PhotosStore.all().indexOf(this.state.photo) - 1;
       if ( newIdx < 0 ) {
         newIdx = PhotosStore.all().length - 1;
@@ -103,8 +101,9 @@ var Photo = React.createClass({
 
   _nextPhoto: function () {
     if (PhotosStore.all().length > 1) {
-      $(".spinner").removeClass("no-show");
       $(".full-size-photo").addClass("no-show");
+      $(".full-size-photo").css('opacity', 0);
+      $(".spinner").removeClass("no-show");
       var newIdx = PhotosStore.findIndexInStore(this.state.photo.id) + 1;
       if ( newIdx > (PhotosStore.all().length - 1) ) {
         newIdx = 0;
@@ -152,7 +151,7 @@ var Photo = React.createClass({
   imageLoaded: function () {
     $(".spinner").addClass("no-show");
     $(".full-size-photo").removeClass("no-show");
-    $(".full-size-photo").animate({opacity: 1}, 100);
+    $(".full-size-photo").animate({opacity: 1}, 50);
   },
 
   render: function () {
@@ -178,7 +177,7 @@ var Photo = React.createClass({
 
       toRender = (
         <section>
-          <div className="modal no-show" style={{ width: window.innerWidth, height: window.innerHeight, position: "absolute", zIndex: "101" }}></div>
+          <div className="modal no-show" style={{ width: window.innerWidth, height: window.innerHeight, position: "absolute", zIndex: "101" }} onClick={this.bigger}></div>
           <div className="parent-container">
             <div className="photo-container">
             <a href={"#/albums/" + this.state.photo.album_id} className="back-to-album">← Back to Album</a>

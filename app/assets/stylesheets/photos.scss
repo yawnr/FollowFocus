@@ -19,6 +19,7 @@
   cursor: zoom-in;
   cursor: -webkit-zoom-in;
   transition: all 500ms;
+  -webkit-transition: all 500ms, z-index 1ms;
   position: relative;
   opacity: 0;
 }

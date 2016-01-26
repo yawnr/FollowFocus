@@ -12,7 +12,7 @@ var Gallery = React.createClass({
     if (!this.state.lastFetchTime || (visitTime - this.state.lastFetchTime) / 60000 > 30) {
       GalleryUtil.fetchGalleryPhotos();
     }
-    
+
     var that = this;
 
     document.addEventListener('scroll', function (event) {
