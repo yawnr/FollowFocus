@@ -87,27 +87,31 @@ var Photo = React.createClass({
   },
 
   _prevPhoto: function () {
-    $(".spinner").removeClass("no-show");
-    $(".full-size-photo").addClass("no-show");
-    var newIdx = PhotosStore.all().indexOf(this.state.photo) - 1;
-    if ( newIdx < 0 ) {
-      newIdx = PhotosStore.all().length - 1;
-    }
+    if (PhotosStore.all().length > 1) {
+      $(".spinner").removeClass("no-show");
+      $(".full-size-photo").addClass("no-show");
+      var newIdx = PhotosStore.all().indexOf(this.state.photo) - 1;
+      if ( newIdx < 0 ) {
+        newIdx = PhotosStore.all().length - 1;
+      }
 
-    var newPhotoId = PhotosStore.all()[newIdx].id;
-    this.history.pushState(null, "/albums/" + this.state.photo.album_id + "/photos/" + newPhotoId, {});
+      var newPhotoId = PhotosStore.all()[newIdx].id;
+      this.history.pushState(null, "/albums/" + this.state.photo.album_id + "/photos/" + newPhotoId, {});
+    }
   },
 
   _nextPhoto: function () {
-    $(".spinner").removeClass("no-show");
-    $(".full-size-photo").addClass("no-show");
-    var newIdx = PhotosStore.findIndexInStore(this.state.photo.id) + 1;
-    if ( newIdx > (PhotosStore.all().length - 1) ) {
-      newIdx = 0;
-    }
+    if (PhotosStore.all().length > 1) {
+      $(".spinner").removeClass("no-show");
+      $(".full-size-photo").addClass("no-show");
+      var newIdx = PhotosStore.findIndexInStore(this.state.photo.id) + 1;
+      if ( newIdx > (PhotosStore.all().length - 1) ) {
+        newIdx = 0;
+      }
 
-    var newPhotoId = PhotosStore.all()[newIdx].id;
-    this.history.pushState(null, "/albums/" + this.state.photo.album_id + "/photos/" + newPhotoId, {});
+      var newPhotoId = PhotosStore.all()[newIdx].id;
+      this.history.pushState(null, "/albums/" + this.state.photo.album_id + "/photos/" + newPhotoId, {});
+    }
   },
 
   prefetchUrls: function () {
