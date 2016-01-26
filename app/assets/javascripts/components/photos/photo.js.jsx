@@ -81,6 +81,7 @@ var Photo = React.createClass({
   },
 
   componentWillReceiveProps: function (newParams) {
+    $(".full-size-photo").css('opacity', 0);
     var newPhoto = PhotosStore.findById(parseInt(newParams.params.photoId));
     PhotoStore.resetPhoto(newPhoto);
     this.setState({ photo: newPhoto });
@@ -151,6 +152,7 @@ var Photo = React.createClass({
   imageLoaded: function () {
     $(".spinner").addClass("no-show");
     $(".full-size-photo").removeClass("no-show");
+    $(".full-size-photo").animate({opacity: 1}, 100);
   },
 
   render: function () {
