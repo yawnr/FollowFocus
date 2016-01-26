@@ -188,3 +188,11 @@
   -webkit-transform: scaleY(1.1);
   -moz-transform: scaleY(1.1);
 }
+
+.spinner {
+  width: 80px;
+  height: 80px;
+  margin: auto;
+  transform: translateY(250%);
+  -webkit-transform: translateY(250%);
+}

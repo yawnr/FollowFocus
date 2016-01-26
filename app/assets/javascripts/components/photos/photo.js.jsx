@@ -87,6 +87,8 @@ var Photo = React.createClass({
   },
 
   _prevPhoto: function () {
+    $(".spinner").removeClass("no-show");
+    $(".full-size-photo").addClass("no-show");
     var newIdx = PhotosStore.all().indexOf(this.state.photo) - 1;
     if ( newIdx < 0 ) {
       newIdx = PhotosStore.all().length - 1;
@@ -97,6 +99,8 @@ var Photo = React.createClass({
   },
 
   _nextPhoto: function () {
+    $(".spinner").removeClass("no-show");
+    $(".full-size-photo").addClass("no-show");
     var newIdx = PhotosStore.findIndexInStore(this.state.photo.id) + 1;
     if ( newIdx > (PhotosStore.all().length - 1) ) {
       newIdx = 0;
@@ -140,6 +144,11 @@ var Photo = React.createClass({
     $('.modal').toggleClass('active');
   },
 
+  imageLoaded: function () {
+    $(".spinner").addClass("no-show");
+    $(".full-size-photo").removeClass("no-show");
+  },
+
   render: function () {
 
     var photoMap;
@@ -169,7 +178,8 @@ var Photo = React.createClass({
             <a href={"#/albums/" + this.state.photo.album_id} className="back-to-album">← Back to Album</a>
               <div className="prev-photo" onClick={this._prevPhoto}><strong className="prev-photo-text">PREV</strong></div>
               <div className="next-photo" onClick={this._nextPhoto}><strong className="next-photo-text">NEXT</strong></div>
-              <img className="full-size-photo" src={this.state.photo.large} onClick={this.bigger}/>
+              <div className="spinner" style={{backgroundImage: 'url(' + window.FollowFocus.images.spinner + ')'}} />
+              <img className="full-size-photo no-show" src={this.state.photo.large} onClick={this.bigger} onLoad={this.imageLoaded} />
               <a href={this.state.photo.photo_attachment_url} className="view-original">View Full Size ⊕</a>
             </div>
           </div>
