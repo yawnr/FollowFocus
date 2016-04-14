@@ -34,7 +34,7 @@ PhotoMap = React.createClass({
   },
 
   _setupMap: function () {
-    var coords = { lat: PhotoStore.photo().lat, lng: PhotoStore.photo().lng };
+    var coords = { lat: this.props.photo.lat, lng: this.props.photo.lng };
     if (this.state.marker !== undefined) {
       this.state.marker.setMap(null);
     }
@@ -45,7 +45,7 @@ PhotoMap = React.createClass({
       });
     this.map.setCenter(coords);
     newMarker.setMap(this.map);
-    this.setState({ lat: PhotoStore.photo().lat, lng: PhotoStore.photo().lng, marker: newMarker });
+    this.setState({ lat: this.props.photo.lat, lng: this.props.photo.lng, marker: newMarker });
   },
 
   componentWillReceiveProps: function (newParams) {
@@ -54,6 +54,7 @@ PhotoMap = React.createClass({
 
   render: function () {
     var toRender;
+    debugger
     if (this.state.lat !== undefined && this.state.lng !== undefined) {
       toRender = (<div className="photo-map" ref="map">Map</div>);
     } else {
